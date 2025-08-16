@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "requests",
+#     "tiktoken",
+# ]
+# ///
 import tiktoken
 
 enc = tiktoken.encoding_for_model("gpt-4o")

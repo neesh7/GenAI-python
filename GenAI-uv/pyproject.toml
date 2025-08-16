@@ -9,3 +9,8 @@ dependencies = [
     "openai>=1.99.1",
     "tiktoken>=0.10.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "projects/persona-project",
+]

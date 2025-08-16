@@ -2,6 +2,12 @@ version = 1
 revision = 3
 requires-python = ">=3.11"
 
+[manifest]
+members = [
+    "genai-uv",
+    "persona-project",
+]
+
 [[package]]
 name = "annotated-types"
 version = "0.7.0"
@@ -252,6 +258,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/03/30/f0fb7907a77e733bb
 wheels = [
     { url = "https://files.pythonhosted.org/packages/54/15/9c85154ffd283abfc43309ff3aaa63c3fd02f7767ee684e73670f6c5ade2/openai-1.99.1-py3-none-any.whl", hash = "sha256:8eeccc69e0ece1357b51ca0d9fb21324afee09b20c3e5b547d02445ca18a4e03", size = 767827, upload-time = "2025-08-05T19:42:34.192Z" },
 ]
+
+[[package]]
+name = "persona-project"
+version = "0.1.0"
+source = { virtual = "projects/persona-project" }
 
 [[package]]
 name = "pydantic"
