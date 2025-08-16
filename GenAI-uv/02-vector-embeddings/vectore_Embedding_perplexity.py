@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY")
-PERPLEXITY_API_KEY = "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"
+PERPLEXITY_API_KEY = ""
 text = "dog chases cat"
 
 url = "https://api.perplexity.ai/v1/embeddings"  # Hypothetical endpoint
