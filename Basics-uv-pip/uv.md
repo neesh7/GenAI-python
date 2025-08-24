@@ -9,6 +9,9 @@ uv is equivalent to npm basically a package manager.
 ###  to create project
 ```bash
 $ uv init my-project
+$ uv init my-proj --app
+$ uv init my-proj --lib # if you want to build python packages
+$ uv init -p 3.13.7 my-project-name
 # pyproject.toml is like package.json file only
 # uv.lock file --> similar to package-lock file
 
@@ -25,6 +28,9 @@ $ uv run --with 'falsk' --with 'requests' main.py
 
 # This command will add all required pacakges into the script directly so we can relax in future
 $ uv add --script main.py 'flask' 'requests'
+
+# Listing dependency tree
+$ uv tree
 ```
 https://docs.astral.sh/uv/getting-started/installation/
 
