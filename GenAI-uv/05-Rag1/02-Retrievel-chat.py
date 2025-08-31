@@ -8,11 +8,12 @@ load_dotenv()
 clinet=OpenAI()
 
 
-# Vector Embeddings
+# Vector Embeddings - to embedd our query and documents
 # Langchain openai embeddings
 embedding_model = OpenAIEmbeddings(
     model="text-embedding-3-large"
 )
+# Using existing collection of quadrant to build a connection to existing collection
 vector_db = QdrantVectorStore.from_existing_collection(
 
     url="http://localhost:6333",
@@ -23,7 +24,7 @@ vector_db = QdrantVectorStore.from_existing_collection(
 query = input("> ")
 
 
-# vector similarity search in db
+# vector similarity search [query] in DB
 # Now we can use the vector store to query the indexed documents
 
 search_results = vector_db.similarity_search(
@@ -32,7 +33,7 @@ search_results = vector_db.similarity_search(
     )
 
 print("Retrieving Documents...")
-# print(search_results)
+# print(search_results) # we match our query with the indexed documents and get the relevant documents to send to openai model or llm
 # print(f"Found {len(search_results)} results for query: {query}")
 context = "\n\n\n".join([f"Page Content: {result.page_content}\nPage Number: {result.metadata['page_label']}\nFile Location: {result.metadata['source']}" for result in search_results])
 

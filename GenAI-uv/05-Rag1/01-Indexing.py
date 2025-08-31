@@ -8,15 +8,18 @@ from langchain_qdrant import QdrantVectorStore # $ uv add langchain-qdrant, dock
 
 load_dotenv()
 
+#whatever my current location we have + nodejs.pdf file here
 pdf_path = Path(__file__).parent / "nodejs.pdf"
 
-# Loading
+# Loading the pdf file
 loader = PyPDFLoader(file_path=pdf_path)
 docs = loader.load()  # Read PDF File
 print(docs[0])
-# Chunking
+print(f"Total Pages in PDF: {len(docs)}")
 
-# Here we are only providing chunking configurations
+# Chunking/ Splitting the documents
+
+# Here we are only providing chunking configurations to langchain splitters
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=1000,
     chunk_overlap=400
@@ -31,6 +34,7 @@ embedding_model = OpenAIEmbeddings(
 )
 
 # Using [embedding_model] create embeddings of [split_docs] and store in DB
+
 # first run docker compose up -d qdrant
 # then go to http://localhost:6333 and create a collection named "learning_vectors"
 # or use the dashboard link
