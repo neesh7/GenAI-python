@@ -20,3 +20,4 @@ $ pip install langchain-openai
 2. $ docker compose -f <docker-compose.yml> up -d 
 3. $ docker compose down
 4. Use langchain wrapper of quadrant vector store
+5. # http://localhost:6333/dashboard#/welcome
