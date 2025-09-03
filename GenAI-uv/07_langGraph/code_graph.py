@@ -24,7 +24,7 @@ class State(TypedDict):
     is_coding_question: bool | None
 ########################## Our Node  ###############################
 # Node1: This Node is to decide the query type --> is it a coding question or not
-def classify_messege(state:State):
+def classify_messege(state: State):
     print("Node1️⃣ Classify query ")
     query = state['user_query']
 
@@ -49,7 +49,7 @@ def classify_messege(state:State):
 
 # Node2: Routing Node --> depending upon the response of Node 1 we want to handle the routes differently
 # we need to define routing function like this because langgarph needs to know prior nodes where it can be routed
-def route_query(state:State) -> Literal["general_query", "coding_query"]:
+def route_query(state: State) -> Literal["general_query", "coding_query"]:
     print("Node2️⃣ Route Query")
     is_coding = state['is_coding_question']
     if is_coding:
@@ -59,7 +59,7 @@ def route_query(state:State) -> Literal["general_query", "coding_query"]:
 
 
 # Node3: General query resolver
-def general_query(state:State):
+def general_query(state: State):
     print("Node3️⃣ general query")
     user_query = state['user_query']
     llm_response = client.chat.completions.create(
@@ -72,7 +72,7 @@ def general_query(state:State):
     return state
 
 # Node4: Coding Query resolver
-def coding_query(state:State):
+def coding_query(state: State):
     print("Node4️⃣ Coding query")
     user_query = state['user_query']
     SYSTEM_PROMPT = """
@@ -88,7 +88,7 @@ def coding_query(state:State):
     return state
 
 # Node5: validating the coding result
-def coding_validate_query(state:State):
+def coding_validate_query(state: State):
     print("Node5️⃣ coding_validate_query")
     user_query = state['user_query']
     llm_code = state['llm_result']
@@ -109,8 +109,9 @@ def coding_validate_query(state:State):
     accuracy_percentage = llm_response.choices[0].message.parsed.accuracy_percentage
     state['accuracy_percentage'] = accuracy_percentage
     return state
-########################Designing graph ############################
+########################Designing graph/ Graph Construction ############################
 # As of now we have an empty graph only
+# Build Graph
 graph_builder = StateGraph(State)
 
 # Added nodes into graph
@@ -120,6 +121,7 @@ graph_builder.add_node("general_query", general_query)
 graph_builder.add_node("coding_query", coding_query)
 graph_builder.add_node("coding_validate_query", coding_validate_query)
 
+# Logic part - basically definig the possible routes the graph can take
 # Added edges into graph which will basically tell the flow of code
 graph_builder.add_edge(START, "classify_messege")
 graph_builder.add_conditional_edges("classify_messege", route_query)
@@ -130,13 +132,12 @@ graph_builder.add_edge("coding_validate_query", END)
 # here we are finaly making our graph after compiling
 graph = graph_builder.compile()
 
-graph_builder = StateGraph(State)
 
 
 def main():
     user_inp = input("Please enter your query: ")
 
-    # Invoke the graph
+    # Invoke the graph / Graph Invocation
     _state = { 
         "user_query": user_inp,
         "accuracy_percentage": None,
