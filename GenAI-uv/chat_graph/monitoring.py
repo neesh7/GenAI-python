@@ -143,8 +143,11 @@ def main():
         "accuracy_percentage": None,
         "is_coding_question": False,
         "llm_result":None
-    } 
-    graph_result = graph.invoke(_state)
-    print("graph result :", graph_result)
+    }
+    # here we will implement our streaming logic
+############################# Streaming part ########################################
+    for event in graph.stream(_state):
+        print("Event", event)
+    # print("graph result :", graph_result)
 
 main()
