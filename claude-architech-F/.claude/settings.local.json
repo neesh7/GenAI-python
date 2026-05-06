@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content \"d:\\\\Codes\\\\claude-architech-F\\\\CAF-P\\\\Claude-101.md\" -Raw)"
+    ]
+  }
+}
