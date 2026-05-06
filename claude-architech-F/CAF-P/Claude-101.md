@@ -12,9 +12,10 @@ A comprehensive guide to understanding Claude, the Claude API, and best practice
 4. [Getting Started](#getting-started)
 5. [Prompt Engineering](#prompt-engineering)
 6. [Tool Use & Function Calling](#tool-use--function-calling)
-7. [Advanced Features](#advanced-features)
-8. [Best Practices](#best-practices)
-9. [Real-World Examples](#real-world-examples)
+7. [AI Agents](#ai-agents)
+8. [Advanced Features](#advanced-features)
+9. [Best Practices](#best-practices)
+10. [Real-World Examples](#real-world-examples)
 
 ---
 
@@ -393,6 +394,389 @@ print(response.content[0].text)
 4. **Limit Tools**: Only expose necessary tools
 5. **Rate Limiting**: Monitor and limit tool calls
 6. **Logging**: Track which tools are called and when
+
+---
+
+## AI Agents
+
+### What is an AI Agent?
+
+An **AI Agent** is an autonomous system that:
+- Perceives its environment (input, data, context)
+- Reasons about the situation (planning, decision-making)
+- Takes actions (tool use, function calls, API interactions)
+- Iterates based on feedback (observes results, adjusts strategy)
+- Operates without human intervention (except when needed)
+
+**Key Difference from Tool Use**: While tool use is reactive (Claude calls a tool when asked), agents are proactive (Claude decides what to do, when to do it, and how many steps it takes).
+
+### Agent Architecture
+
+```
+┌─────────────┐
+│   Input     │
+│  (Prompt)   │
+└──────┬──────┘
+       │
+       ▼
+┌──────────────────────────┐
+│  Agent Loop              │
+├──────────────────────────┤
+│ 1. Observe state         │
+│ 2. Think about next step │
+│ 3. Decide on action      │
+│ 4. Use tool/take action  │
+│ 5. Update state          │
+└──────────────────────────┘
+       │
+       ├─→ [Continue loop?]
+       │    ├─ Yes → Loop back
+       │    └─ No → Done
+       │
+       ▼
+┌─────────────┐
+│   Output    │
+│  (Result)   │
+└─────────────┘
+```
+
+### Types of Agents
+
+1. **Reactive Agents**: Respond to immediate input without planning
+   - Simple and fast
+   - Good for: customer support, information retrieval
+
+2. **Deliberative Agents**: Plan before acting
+   - More complex, but smarter
+   - Good for: research, analysis, problem-solving
+
+3. **Hierarchical Agents**: Multi-level decision making
+   - Break complex tasks into subtasks
+   - Good for: project management, complex workflows
+
+### Agent Patterns
+
+#### Pattern 1: ReAct (Reasoning + Acting)
+
+ReAct (Reasoning + Acting) is the most common agent pattern. Claude reasons about what to do, then acts.
+
+```python
+from anthropic import Anthropic
+
+client = Anthropic()
+
+def react_agent(task: str):
+    """ReAct agent - Reason then Act"""
+    
+    tools = [
+        {
+            "name": "search_knowledge_base",
+            "description": "Search for information in knowledge base",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    }
+                },
+                "required": ["query"]
+            }
+        },
+        {
+            "name": "calculate",
+            "description": "Perform calculations",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "expression": {
+                        "type": "string",
+                        "description": "Math expression to evaluate"
+                    }
+                },
+                "required": ["expression"]
+            }
+        }
+    ]
+    
+    messages = [
+        {
+            "role": "user",
+            "content": f"""You are a helpful research assistant. 
+            
+Your task: {task}
+
+Think through the problem step by step:
+1. What information do you need?
+2. What tools can help?
+3. How will you proceed?
+
+Then take the necessary actions using available tools."""
+        }
+    ]
+    
+    step = 0
+    while step < 10:  # Safety limit
+        step += 1
+        print(f"\n--- Step {step} ---")
+        
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=1024,
+            tools=tools,
+            messages=messages
+        )
+        
+        # Check if done
+        if response.stop_reason == "end_turn":
+            print("✓ Agent finished")
+            return response.content[0].text
+        
+        # Process tool use
+        if response.stop_reason == "tool_use":
+            messages.append({
+                "role": "assistant",
+                "content": response.content
+            })
+            
+            tool_results = []
+            for block in response.content:
+                if block.type == "tool_use":
+                    print(f"Tool: {block.name}")
+                    print(f"Input: {block.input}")
+                    
+                    # Execute tool
+                    if block.name == "search_knowledge_base":
+                        result = f"Found: Information about {block.input['query']}"
+                    elif block.name == "calculate":
+                        try:
+                            result = f"Result: {eval(block.input['expression'])}"
+                        except:
+                            result = "Error: Invalid expression"
+                    
+                    print(f"Result: {result}\n")
+                    
+                    tool_results.append({
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": result
+                    })
+            
+            messages.append({
+                "role": "user",
+                "content": tool_results
+            })
+    
+    return "Max iterations reached"
+```
+
+#### Pattern 2: Plan-Then-Execute
+
+Break down complex tasks into a plan first, then execute.
+
+```python
+def plan_then_execute_agent(task: str):
+    """First plan, then execute"""
+    
+    # Step 1: Create a plan
+    plan_response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1024,
+        messages=[
+            {
+                "role": "user",
+                "content": f"""Create a detailed plan for: {task}
+                
+Format your plan as:
+1. Step 1: [specific action]
+2. Step 2: [specific action]
+3. Step 3: [specific action]
+..."""
+            }
+        ]
+    )
+    
+    plan = plan_response.content[0].text
+    print(f"Plan:\n{plan}\n")
+    
+    # Step 2: Execute the plan
+    execution_response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=2048,
+        messages=[
+            {
+                "role": "user",
+                "content": f"""Here's a plan to execute:
+
+{plan}
+
+Now execute this plan step by step. For each step, explain what you're doing and any results."""
+            }
+        ]
+    )
+    
+    return execution_response.content[0].text
+```
+
+#### Pattern 3: Chain of Agents (Specialized Agents)
+
+Use multiple specialized agents working together.
+
+```python
+def multi_agent_system(task: str):
+    """Multiple agents with different specialties"""
+    
+    agents = {
+        "analyst": "You are a data analyst. Analyze the information provided.",
+        "writer": "You are a technical writer. Explain findings clearly.",
+        "reviewer": "You are a quality reviewer. Check for accuracy and completeness."
+    }
+    
+    # Agent 1: Analyze
+    analysis = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1024,
+        system=agents["analyst"],
+        messages=[{"role": "user", "content": task}]
+    ).content[0].text
+    
+    print(f"Analysis:\n{analysis}\n")
+    
+    # Agent 2: Write report
+    report = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1024,
+        system=agents["writer"],
+        messages=[
+            {
+                "role": "user",
+                "content": f"Write a clear report based on this analysis:\n\n{analysis}"
+            }
+        ]
+    ).content[0].text
+    
+    print(f"Report:\n{report}\n")
+    
+    # Agent 3: Review
+    review = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=512,
+        system=agents["reviewer"],
+        messages=[
+            {
+                "role": "user",
+                "content": f"Review this report for quality:\n\n{report}"
+            }
+        ]
+    ).content[0].text
+    
+    return {"analysis": analysis, "report": report, "review": review}
+```
+
+### Agent Frameworks
+
+**LangGraph** (Recommended for Claude):
+- Graph-based agent orchestration
+- Built-in persistence and debugging
+- Integrates well with Claude API
+
+**LangChain**:
+- Modular agent components
+- Multi-step chain support
+- Large ecosystem of integrations
+
+**Anthropic's Managed Agents** (Beta):
+- Server-managed agents
+- No need to manage loops
+- Billing per agent use
+
+### When to Build Agents
+
+✅ **Build an agent when**:
+- Task requires multiple steps
+- Claude needs to decide what to do next
+- Tool use alone isn't enough
+- Iterative refinement is needed
+
+❌ **Don't build an agent when**:
+- Simple one-shot tasks (use basic API)
+- Real-time responses needed (too slow)
+- No external tools needed (just Claude)
+- Task is straightforward (use tool use directly)
+
+### Agent Best Practices
+
+1. **Define Clear Goals**: Agent needs to know when it's done
+2. **Limit Iterations**: Set max steps to prevent infinite loops
+3. **Meaningful Tool Results**: Provide clear feedback to agent
+4. **Good Tool Descriptions**: Helps agent choose correct tools
+5. **Monitor Costs**: Agents make multiple API calls
+6. **Test Carefully**: Agents can behave unpredictably
+7. **Log Everything**: Track what agent did for debugging
+8. **Use Appropriate Model**: Opus for complex agents, Sonnet for simple ones
+
+### Simple Agent Example
+
+```python
+def simple_research_agent(topic: str):
+    """Simple research agent - search and summarize"""
+    
+    tools = [
+        {
+            "name": "search",
+            "description": "Search for information",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string"}
+                },
+                "required": ["query"]
+            }
+        }
+    ]
+    
+    messages = [
+        {
+            "role": "user",
+            "content": f"""Research and summarize: {topic}
+            
+Steps:
+1. Search for key information
+2. Look for recent developments
+3. Provide a summary with sources"""
+        }
+    ]
+    
+    while True:
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=1024,
+            tools=tools,
+            messages=messages
+        )
+        
+        if response.stop_reason == "end_turn":
+            return response.content[0].text
+        
+        # Handle tool use
+        messages.append({"role": "assistant", "content": response.content})
+        
+        tool_results = []
+        for block in response.content:
+            if block.type == "tool_use":
+                # Simulate search
+                result = f"Found info on: {block.input['query']}"
+                tool_results.append({
+                    "type": "tool_result",
+                    "tool_use_id": block.id,
+                    "content": result
+                })
+        
+        messages.append({
+            "role": "user",
+            "content": tool_results
+        })
+```
 
 ---
 
