@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Write a Python function that parses an AWS S3 bucket URI (e.g., 's3://my-bucket/path/to/file.txt') and returns a dictionary with the bucket name and object key",
+    "format": "python",
+    "solution_criteria": "Must extract bucket name and object key from S3 URI, return a dictionary with 'bucket' and 'key' fields, handle URIs with and without 's3://' prefix"
+  },
+  {
+    "task": "Create a JSON IAM policy document that allows an AWS principal to perform GetObject and PutObject actions only on objects within the 'uploads/' prefix of a specific S3 bucket",
+    "format": "json",
+    "solution_criteria": "Must include proper IAM policy structure with Effect, Action, Resource, and Principal fields; actions must be limited to s3:GetObject and s3:PutObject; resource ARN must specify the bucket and 'uploads/*' prefix"
+  },
+  {
+    "task": "Write a regular expression that matches valid AWS EC2 instance IDs (format: i- followed by 17 hexadecimal characters)",
+    "format": "regex",
+    "solution_criteria": "Must match the pattern 'i-' followed by exactly 17 hexadecimal characters (0-9, a-f); should not match invalid formats or incorrect lengths"
+  }
+]

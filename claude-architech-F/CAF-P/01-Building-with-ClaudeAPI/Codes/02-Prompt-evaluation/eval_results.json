@@ -1,0 +1,38 @@
+[
+  {
+    "output": "\nimport re\n\ndef parse_s3_uri(uri):\n    \"\"\"\n    Parses an AWS S3 bucket URI and returns a dictionary with bucket name and object key.\n    \n    Args:\n        uri (str): S3 URI in the format 's3://bucket-name/path/to/object'\n    \n    Returns:\n        dict: Dictionary with 'bucket' and 'key' keys, or None if URI is invalid\n    \"\"\"\n    pattern = r'^s3://([a-z0-9.-]+)/(.+)$'\n    match = re.match(pattern, uri)\n    \n    if match:\n        return {\n            'bucket': match.group(1),\n            'key': match.group(2)\n        }\n    return None\n\n\n# Test cases\nif __name__ == \"__main__\":\n    test_cases = [\n        's3://my-bucket/path/to/file.txt',\n        's3://my-bucket/file.txt',\n        's3://my-bucket-123/folder/subfolder/document.pdf',\n        's3://bucket/single-file',\n    ]\n    \n    for uri in test_cases:\n        result = parse_s3_uri(uri)\n        print(f\"{uri} -> {result}\")\n",
+    "test_case": {
+      "task": "Write a Python function that parses an AWS S3 bucket URI (e.g., 's3://my-bucket/path/to/file.txt') and returns a dictionary with the bucket name and object key",
+      "format": "python",
+      "solution_criteria": "Must extract bucket name and object key from S3 URI, return a dictionary with 'bucket' and 'key' fields, handle URIs with and without 's3://' prefix"
+    },
+    "model_score": 5,
+    "syntax_score": 10,
+    "score": 7.5,
+    "reasoning": "The solution successfully extracts bucket name and object key into the required dictionary format and handles the 's3://' prefix. However, it fails a critical requirement: the criteria explicitly states the function must 'handle URIs with and without s3:// prefix', but this solution only handles URIs WITH the prefix. Additionally, the regex pattern is too restrictive for valid AWS bucket names (which can contain uppercase letters) and doesn't handle edge cases like bucket-only URIs. The solution is functional for common cases but incomplete against the stated criteria."
+  },
+  {
+    "output": "\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"s3:GetObject\",\n        \"s3:PutObject\"\n      ],\n      \"Resource\": \"arn:aws:s3:::BUCKET_NAME/uploads/*\"\n    }\n  ]\n}\n",
+    "test_case": {
+      "task": "Create a JSON IAM policy document that allows an AWS principal to perform GetObject and PutObject actions only on objects within the 'uploads/' prefix of a specific S3 bucket",
+      "format": "json",
+      "solution_criteria": "Must include proper IAM policy structure with Effect, Action, Resource, and Principal fields; actions must be limited to s3:GetObject and s3:PutObject; resource ARN must specify the bucket and 'uploads/*' prefix"
+    },
+    "model_score": 6,
+    "syntax_score": 10,
+    "score": 8.0,
+    "reasoning": "The solution demonstrates strong understanding of S3 IAM policies with correct structure, proper action restrictions, and accurate resource ARN specification. However, it fails to meet a mandatory requirement: the solution_criteria explicitly states the policy 'MUST contain' the Principal field, which is absent from this document. While Principal may not always be required in all IAM policy contexts (e.g., bucket policies vs. identity-based policies), the criteria explicitly mandates its inclusion. The placeholder BUCKET_NAME is a minor issue as it's standard practice, but the missing Principal field is a critical omission against stated requirements."
+  },
+  {
+    "output": "\n^i-[0-9a-f]{17}$\n",
+    "test_case": {
+      "task": "Write a regular expression that matches valid AWS EC2 instance IDs (format: i- followed by 17 hexadecimal characters)",
+      "format": "regex",
+      "solution_criteria": "Must match the pattern 'i-' followed by exactly 17 hexadecimal characters (0-9, a-f); should not match invalid formats or incorrect lengths"
+    },
+    "model_score": 6,
+    "syntax_score": 10,
+    "score": 8.0,
+    "reasoning": "The solution correctly implements the core requirement of matching 'i-' followed by exactly 17 hexadecimal characters. However, it has a significant limitation: AWS EC2 instance IDs in practice can contain uppercase hexadecimal characters (A-F), though they are typically displayed in lowercase. A more robust solution would be ^i-[0-9a-fA-F]{17}$ or ^i-[0-9a-f]{17}$i (with case-insensitive flag). The current solution will reject valid instance IDs that contain uppercase letters, making it incomplete against real-world AWS instance ID formats."
+  }
+]
