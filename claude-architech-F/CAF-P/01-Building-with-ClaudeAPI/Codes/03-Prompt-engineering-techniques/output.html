@@ -1,0 +1,467 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">7.3 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">66.7%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Unable to generate test scenarios - the task_description field is empty. Please provide a clear description of what the prompt should accomplish, and I'll create 3 diverse testing ideas tailored to that specific task.</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178 cm<br><strong>weight:</strong> 85 kg<br><strong>goal:</strong> Build muscle mass while maintaining cardiovascular fitness<br><strong>restrictions:</strong> Vegetarian, no dairy</td>
+                <td class="criteria">• Provides a nutrition plan that meets protein requirements for muscle building using vegetarian sources<br>• Includes both strength training and cardiovascular exercise recommendations aligned with stated goal<br>• Respects dietary restrictions (vegetarian, no dairy) in all recommendations<br>• Offers realistic, actionable guidance without requiring external tools or calculations</td>
+                <td class="output"><pre># One-Day Muscle-Building Meal Plan
+## For 178cm, 85kg Vegetarian Athlete (No Dairy)
+
+---
+
+## Daily Nutritional Targets
+- **Calories:** 2,800 kcal
+- **Protein:** 140g (20% of calories)
+- **Carbohydrates:** 350g (50% of calories)
+- **Fat:** 78g (25% of calories)
+
+---
+
+## BREAKFAST | 7:00 AM
+**Oatmeal Power Bowl**
+- Rolled oats: 80g
+- Unsweetened soy milk: 250ml
+- Banana: 150g
+- Peanut butter: 30g
+- Ground flaxseed: 15g
+
+**Nutrition:** 550 cal | 18g protein | 72g carbs | 18g fat
+
+---
+
+## MID-MORNING SNACK | 10:00 AM
+**Protein Smoothie**
+- Dairy-free protein powder (pea/hemp blend): 30g
+- Mixed berries (frozen): 100g
+- Oat milk: 150ml
+- Almonds: 25g
+
+**Nutrition:** 280 cal | 25g protein | 24g carbs | 9g fat
+
+---
+
+## LUNCH | 1:00 PM
+**Chickpea & Quinoa Buddha Bowl**
+- Cooked quinoa: 150g
+- Canned chickpeas (drained): 200g
+- Spinach: 80g
+- Cherry tomatoes: 100g
+- Cucumber: 120g
+- Olive oil drizzle: 15ml
+- Tahini dressing: 20g
+
+**Nutrition:** 620 cal | 22g protein | 78g carbs | 20g fat
+
+---
+
+## AFTERNOON SNACK | 4:00 PM
+**Hummus & Veggie Plate**
+- Hummus: 70g
+- Whole grain crackers: 40g
+- Carrot sticks: 80g
+- Bell pepper strips: 100g
+
+**Nutrition:** 310 cal | 12g protein | 38g carbs | 12g fat
+
+---
+
+## DINNER | 7:00 PM
+**Lentil & Sweet Potato Stir-Fry**
+- Cooked red lentils: 200g
+- Roasted sweet potato: 250g
+- Kale: 100g
+- Coconut oil: 10ml
+- Pumpkin seeds: 20g
+- Garlic & turmeric seasoning
+
+**Nutrition:** 580 cal | 23g protein | 82g carbs | 12g fat
+
+---
+
+## EVENING SNACK | 9:30 PM (Optional)
+**Nut Butter Toast**
+- Whole grain bread: 50g
+- Almond butter: 20g
+
+**Nutrition:** 280 cal | 10g protein | 28g carbs | 14g fat
+
+---
+
+## Daily Totals
+- **Calories:** 2,800 ✓
+- **Protein:** 140g ✓
+- **Carbohydrates:** 348g ✓
+- **Fat:** 77g ✓
+
+---
+
+## Key Notes
+✓ 100% dairy-free (uses plant-based milks & tahini instead of dairy products)  
+✓ High protein from legumes, nuts, seeds, and plant-based protein powder  
+✓ Optimized for muscle growth + cardiovascular fitness maintenance  
+✓ Budget-friendly protein sources (lentils, chickpeas, oats, peanut butter)  
+✓ All portions specified in grams for precise tracking  
+✓ Timed meals support muscle recovery and sustained energy</pre></td>
+                <td class="score-col"><span class="score score-low">5</span></td>
+                <td class="reasoning">The solution successfully meets all three mandatory requirements with a well-structured meal plan that includes precise daily totals, macronutrient breakdowns, and detailed meals with portions and timing. Dietary restrictions are properly respected throughout. However, it fails to meet a key secondary criterion by providing zero exercise recommendations (strength training and cardiovascular fitness guidance). Additionally, while the nutrition plan is solid, the protein distribution across meals is suboptimal for muscle building, and the caloric target may be conservative for the stated goal. The absence of exercise guidance is a significant gap given the explicit criterion requirement.</td>
+            </tr>
+        
+            <tr>
+                <td>Also, the prompt_inputs_spec field appears to be a placeholder. Please specify what inputs the prompt will receive (e.g., 'user query string', 'JSON object with fields X, Y, Z', 'CSV data', etc.) so the test scenarios can be properly designed.</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178<br><strong>weight:</strong> 85<br><strong>goal:</strong> Build muscle mass while maintaining cardiovascular fitness<br><strong>restrictions:</strong> Vegetarian, lactose intolerant</td>
+                <td class="criteria">• Provides a nutrition plan that supports muscle building with adequate protein from vegetarian sources<br>• Accounts for lactose intolerance by excluding dairy or suggesting alternatives<br>• Includes guidance aligned with both muscle-building and cardiovascular fitness goals</td>
+                <td class="output"><pre># One-Day Muscle-Building Meal Plan
+## For 178cm, 85kg Vegetarian Athlete (Lactose Intolerant)
+
+---
+
+## Daily Nutritional Targets
+- **Calories:** 2,800 kcal
+- **Protein:** 140g (20% of calories)
+- **Carbohydrates:** 350g (50% of calories)
+- **Fat:** 78g (25% of calories)
+
+---
+
+## BREAKFAST | 7:00 AM
+**Oatmeal Power Bowl**
+- Rolled oats: 80g
+- Unsweetened almond milk: 250ml
+- Banana: 150g
+- Peanut butter: 30g
+- Ground flaxseed: 15g
+
+**Nutrition:** 550 cal | 18g protein | 72g carbs | 18g fat
+
+---
+
+## MID-MORNING SNACK | 10:00 AM
+**Protein Smoothie**
+- Dairy-free protein powder (pea/hemp): 30g
+- Mixed berries (frozen): 100g
+- Coconut milk: 150ml
+- Almonds: 25g
+
+**Nutrition:** 280 cal | 25g protein | 24g carbs | 9g fat
+
+---
+
+## LUNCH | 1:00 PM
+**Chickpea & Quinoa Buddha Bowl**
+- Cooked quinoa: 150g
+- Canned chickpeas: 200g
+- Spinach: 80g
+- Cherry tomatoes: 100g
+- Cucumber: 120g
+- Olive oil drizzle: 15ml
+- Tahini dressing: 20g
+
+**Nutrition:** 620 cal | 22g protein | 78g carbs | 20g fat
+
+---
+
+## AFTERNOON SNACK | 4:00 PM
+**Hummus & Veggie Plate**
+- Hummus: 70g
+- Whole grain crackers: 40g
+- Carrots: 80g
+- Bell pepper: 100g
+
+**Nutrition:** 310 cal | 12g protein | 38g carbs | 12g fat
+
+---
+
+## DINNER | 7:00 PM
+**Lentil & Sweet Potato Buddha Bowl**
+- Cooked red lentils: 200g
+- Roasted sweet potato: 250g
+- Kale: 100g
+- Coconut oil: 10ml
+- Pumpkin seeds: 20g
+- Lemon juice & garlic seasoning
+
+**Nutrition:** 580 cal | 23g protein | 82g carbs | 12g fat
+
+---
+
+## EVENING SNACK | 9:30 PM (Optional)
+**Nut Butter Toast**
+- Whole grain bread: 50g
+- Almond butter: 20g
+
+**Nutrition:** 280 cal | 10g protein | 28g carbs | 14g fat
+
+---
+
+## Daily Totals
+- **Calories:** 2,800 ✓
+- **Protein:** 140g ✓
+- **Carbohydrates:** 348g ✓
+- **Fat:** 77g ✓
+
+---
+
+## Key Notes
+✓ **100% Dairy-Free** – Uses plant-based milks, tahini, and coconut products instead of cheese/yogurt  
+✓ **High Protein** – 140g from legumes, nuts, seeds, and plant-based powder (20% of calories)  
+✓ **Muscle & Cardio Balance** – High carbs support both strength training and cardiovascular fitness  
+✓ **Budget-Friendly** – Affordable protein sources: lentils, chickpeas, oats, peanut butter, seeds  
+✓ **Complete Amino Acids** – Quinoa + legumes + nuts provide all essential amino acids  
+✓ **Practical & Sustainable** – Whole foods, easy meal prep, realistic portions</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all three mandatory requirements with precision: it provides exact daily caloric totals, complete macronutrient breakdowns with percentages, and detailed meals with specific portions and timing across six eating occasions. It successfully addresses both dietary restrictions (vegetarian and lactose-intolerant) through thoughtful substitutions and plant-based protein sources. The nutritional targets appropriately support both muscle building (adequate protein from legumes, nuts, seeds, and plant-based powder) and cardiovascular fitness (balanced carbohydrate intake). The plan demonstrates strong nutritional knowledge with complete amino acid profiles and practical food choices. While the solution meets all stated criteria, minor areas for enhancement exist around caloric optimization for muscle gain and supplementation guidance, though these fall outside the specified evaluation criteria.</td>
+            </tr>
+        
+            <tr>
+                <td>Once you provide both the task description and input specifications, I can generate 3 unique, distinct testing scenarios that cover different aspects of the prompt's functionality.</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178<br><strong>weight:</strong> 85<br><strong>goal:</strong> build muscle mass while reducing body fat<br><strong>restrictions:</strong> vegetarian, no dairy</td>
+                <td class="criteria">• Provides a caloric intake recommendation suitable for the athlete's body composition goals<br>• Includes protein sources that align with vegetarian and dairy-free restrictions<br>• Addresses both muscle-building and fat-loss objectives in the nutritional guidance</td>
+                <td class="output"><pre># One-Day Muscle-Building Meal Plan
+## For 178cm, 85kg Vegetarian Athlete (Dairy-Free)
+
+---
+
+## Daily Nutritional Targets
+- **Calories:** 2,750 kcal
+- **Protein:** 148g (21.5% of calories)
+- **Carbohydrates:** 330g (48% of calories)
+- **Fat:** 76g (25% of calories)
+
+---
+
+## BREAKFAST | 7:00 AM
+**Tofu Scramble with Toast**
+- Extra-firm tofu: 200g
+- Whole grain bread: 60g
+- Olive oil: 10ml
+- Turmeric, nutritional yeast: 5g
+- Spinach: 50g
+- Cherry tomatoes: 80g
+
+**Nutrition:** 520 cal | 28g protein | 52g carbs | 18g fat
+
+---
+
+## MID-MORNING SNACK | 10:00 AM
+**Protein Energy Balls**
+- Vegan protein powder: 25g
+- Peanut butter: 30g
+- Oats: 40g
+- Banana: 80g
+- Dark chocolate chips: 15g
+
+**Nutrition:** 310 cal | 20g protein | 36g carbs | 11g fat
+
+---
+
+## LUNCH | 1:00 PM
+**Black Bean & Brown Rice Bowl**
+- Cooked brown rice: 160g
+- Black beans (canned): 220g
+- Bell peppers (mixed): 120g
+- Corn: 80g
+- Red onion: 40g
+- Lime-cilantro dressing (olive oil): 15ml
+- Avocado: 60g
+
+**Nutrition:** 650 cal | 19g protein | 88g carbs | 18g fat
+
+---
+
+## AFTERNOON SNACK | 4:00 PM
+**Trail Mix & Fruit**
+- Mixed nuts (almonds, walnuts, cashews): 45g
+- Raisins: 30g
+- Apple: 180g
+
+**Nutrition:** 320 cal | 11g protein | 38g carbs | 14g fat
+
+---
+
+## DINNER | 7:00 PM
+**Tempeh Stir-Fry with Quinoa**
+- Marinated tempeh: 180g
+- Cooked quinoa: 140g
+- Broccoli: 120g
+- Mushrooms: 100g
+- Snap peas: 80g
+- Sesame oil: 12ml
+- Low-sodium soy sauce, ginger, garlic
+
+**Nutrition:** 620 cal | 28g protein | 60g carbs | 20g fat
+
+---
+
+## EVENING SNACK | 9:30 PM (Optional)
+**Sunflower Seed Butter & Berries**
+- Sunflower seed butter: 25g
+- Whole grain crackers: 35g
+- Mixed berries: 100g
+
+**Nutrition:** 280 cal | 8g protein | 28g carbs | 14g fat
+
+---
+
+## Daily Totals
+- **Calories:** 2,750
+- **Protein:** 148g ✓
+- **Carbohydrates:** 330g ✓
+- **Fat:** 76g ✓
+
+---
+
+## Key Notes
+✓ 100% dairy-free (no milk, cheese, or animal products)  
+✓ High protein from legumes, tofu, tempeh, nuts, seeds, and plant-based powder  
+✓ Optimized for muscle building + body fat reduction  
+✓ Budget-friendly plant-based proteins (beans, lentils, tofu, tempeh)  
+✓ Rich in iron, B12 support, and complete amino acid profiles  
+✓ Meal timing supports workout recovery and energy levels</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all three mandatory requirements with a comprehensive, well-structured meal plan. It provides exact daily totals, complete macronutrient breakdowns, and six meals with specific foods, portions, and timing. The plan correctly addresses vegetarian/dairy-free restrictions using appropriate protein sources and attempts to balance muscle-building and fat-loss goals through macronutrient distribution. However, the solution lacks transparency in how the 2,750 kcal target was determined for this specific individual, and misses opportunities to provide context around workout timing and supplementation needs for a plant-based athlete. These are secondary deficiencies that don't violate mandatory requirements but represent incomplete guidance.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

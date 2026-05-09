@@ -1,0 +1,63 @@
+[
+  {
+    "output": "# One-Day Muscle-Building Meal Plan\n## For 178cm, 85kg Vegetarian Athlete (No Dairy)\n\n---\n\n## Daily Nutritional Targets\n- **Calories:** 2,800 kcal\n- **Protein:** 140g (20% of calories)\n- **Carbohydrates:** 350g (50% of calories)\n- **Fat:** 78g (25% of calories)\n\n---\n\n## BREAKFAST | 7:00 AM\n**Oatmeal Power Bowl**\n- Rolled oats: 80g\n- Unsweetened soy milk: 250ml\n- Banana: 150g\n- Peanut butter: 30g\n- Ground flaxseed: 15g\n\n**Nutrition:** 550 cal | 18g protein | 72g carbs | 18g fat\n\n---\n\n## MID-MORNING SNACK | 10:00 AM\n**Protein Smoothie**\n- Dairy-free protein powder (pea/hemp blend): 30g\n- Mixed berries (frozen): 100g\n- Oat milk: 150ml\n- Almonds: 25g\n\n**Nutrition:** 280 cal | 25g protein | 24g carbs | 9g fat\n\n---\n\n## LUNCH | 1:00 PM\n**Chickpea & Quinoa Buddha Bowl**\n- Cooked quinoa: 150g\n- Canned chickpeas (drained): 200g\n- Spinach: 80g\n- Cherry tomatoes: 100g\n- Cucumber: 120g\n- Olive oil drizzle: 15ml\n- Tahini dressing: 20g\n\n**Nutrition:** 620 cal | 22g protein | 78g carbs | 20g fat\n\n---\n\n## AFTERNOON SNACK | 4:00 PM\n**Hummus & Veggie Plate**\n- Hummus: 70g\n- Whole grain crackers: 40g\n- Carrot sticks: 80g\n- Bell pepper strips: 100g\n\n**Nutrition:** 310 cal | 12g protein | 38g carbs | 12g fat\n\n---\n\n## DINNER | 7:00 PM\n**Lentil & Sweet Potato Stir-Fry**\n- Cooked red lentils: 200g\n- Roasted sweet potato: 250g\n- Kale: 100g\n- Coconut oil: 10ml\n- Pumpkin seeds: 20g\n- Garlic & turmeric seasoning\n\n**Nutrition:** 580 cal | 23g protein | 82g carbs | 12g fat\n\n---\n\n## EVENING SNACK | 9:30 PM (Optional)\n**Nut Butter Toast**\n- Whole grain bread: 50g\n- Almond butter: 20g\n\n**Nutrition:** 280 cal | 10g protein | 28g carbs | 14g fat\n\n---\n\n## Daily Totals\n- **Calories:** 2,800 \u2713\n- **Protein:** 140g \u2713\n- **Carbohydrates:** 348g \u2713\n- **Fat:** 77g \u2713\n\n---\n\n## Key Notes\n\u2713 100% dairy-free (uses plant-based milks & tahini instead of dairy products)  \n\u2713 High protein from legumes, nuts, seeds, and plant-based protein powder  \n\u2713 Optimized for muscle growth + cardiovascular fitness maintenance  \n\u2713 Budget-friendly protein sources (lentils, chickpeas, oats, peanut butter)  \n\u2713 All portions specified in grams for precise tracking  \n\u2713 Timed meals support muscle recovery and sustained energy",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178 cm",
+        "weight": "85 kg",
+        "goal": "Build muscle mass while maintaining cardiovascular fitness",
+        "restrictions": "Vegetarian, no dairy"
+      },
+      "solution_criteria": [
+        "Provides a nutrition plan that meets protein requirements for muscle building using vegetarian sources",
+        "Includes both strength training and cardiovascular exercise recommendations aligned with stated goal",
+        "Respects dietary restrictions (vegetarian, no dairy) in all recommendations",
+        "Offers realistic, actionable guidance without requiring external tools or calculations"
+      ],
+      "task_description": "",
+      "scenario": "Unable to generate test scenarios - the task_description field is empty. Please provide a clear description of what the prompt should accomplish, and I'll create 3 diverse testing ideas tailored to that specific task."
+    },
+    "score": 5,
+    "reasoning": "The solution successfully meets all three mandatory requirements with a well-structured meal plan that includes precise daily totals, macronutrient breakdowns, and detailed meals with portions and timing. Dietary restrictions are properly respected throughout. However, it fails to meet a key secondary criterion by providing zero exercise recommendations (strength training and cardiovascular fitness guidance). Additionally, while the nutrition plan is solid, the protein distribution across meals is suboptimal for muscle building, and the caloric target may be conservative for the stated goal. The absence of exercise guidance is a significant gap given the explicit criterion requirement."
+  },
+  {
+    "output": "# One-Day Muscle-Building Meal Plan\n## For 178cm, 85kg Vegetarian Athlete (Lactose Intolerant)\n\n---\n\n## Daily Nutritional Targets\n- **Calories:** 2,800 kcal\n- **Protein:** 140g (20% of calories)\n- **Carbohydrates:** 350g (50% of calories)\n- **Fat:** 78g (25% of calories)\n\n---\n\n## BREAKFAST | 7:00 AM\n**Oatmeal Power Bowl**\n- Rolled oats: 80g\n- Unsweetened almond milk: 250ml\n- Banana: 150g\n- Peanut butter: 30g\n- Ground flaxseed: 15g\n\n**Nutrition:** 550 cal | 18g protein | 72g carbs | 18g fat\n\n---\n\n## MID-MORNING SNACK | 10:00 AM\n**Protein Smoothie**\n- Dairy-free protein powder (pea/hemp): 30g\n- Mixed berries (frozen): 100g\n- Coconut milk: 150ml\n- Almonds: 25g\n\n**Nutrition:** 280 cal | 25g protein | 24g carbs | 9g fat\n\n---\n\n## LUNCH | 1:00 PM\n**Chickpea & Quinoa Buddha Bowl**\n- Cooked quinoa: 150g\n- Canned chickpeas: 200g\n- Spinach: 80g\n- Cherry tomatoes: 100g\n- Cucumber: 120g\n- Olive oil drizzle: 15ml\n- Tahini dressing: 20g\n\n**Nutrition:** 620 cal | 22g protein | 78g carbs | 20g fat\n\n---\n\n## AFTERNOON SNACK | 4:00 PM\n**Hummus & Veggie Plate**\n- Hummus: 70g\n- Whole grain crackers: 40g\n- Carrots: 80g\n- Bell pepper: 100g\n\n**Nutrition:** 310 cal | 12g protein | 38g carbs | 12g fat\n\n---\n\n## DINNER | 7:00 PM\n**Lentil & Sweet Potato Buddha Bowl**\n- Cooked red lentils: 200g\n- Roasted sweet potato: 250g\n- Kale: 100g\n- Coconut oil: 10ml\n- Pumpkin seeds: 20g\n- Lemon juice & garlic seasoning\n\n**Nutrition:** 580 cal | 23g protein | 82g carbs | 12g fat\n\n---\n\n## EVENING SNACK | 9:30 PM (Optional)\n**Nut Butter Toast**\n- Whole grain bread: 50g\n- Almond butter: 20g\n\n**Nutrition:** 280 cal | 10g protein | 28g carbs | 14g fat\n\n---\n\n## Daily Totals\n- **Calories:** 2,800 \u2713\n- **Protein:** 140g \u2713\n- **Carbohydrates:** 348g \u2713\n- **Fat:** 77g \u2713\n\n---\n\n## Key Notes\n\u2713 **100% Dairy-Free** \u2013 Uses plant-based milks, tahini, and coconut products instead of cheese/yogurt  \n\u2713 **High Protein** \u2013 140g from legumes, nuts, seeds, and plant-based powder (20% of calories)  \n\u2713 **Muscle & Cardio Balance** \u2013 High carbs support both strength training and cardiovascular fitness  \n\u2713 **Budget-Friendly** \u2013 Affordable protein sources: lentils, chickpeas, oats, peanut butter, seeds  \n\u2713 **Complete Amino Acids** \u2013 Quinoa + legumes + nuts provide all essential amino acids  \n\u2713 **Practical & Sustainable** \u2013 Whole foods, easy meal prep, realistic portions",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178",
+        "weight": "85",
+        "goal": "Build muscle mass while maintaining cardiovascular fitness",
+        "restrictions": "Vegetarian, lactose intolerant"
+      },
+      "solution_criteria": [
+        "Provides a nutrition plan that supports muscle building with adequate protein from vegetarian sources",
+        "Accounts for lactose intolerance by excluding dairy or suggesting alternatives",
+        "Includes guidance aligned with both muscle-building and cardiovascular fitness goals"
+      ],
+      "task_description": "",
+      "scenario": "Also, the prompt_inputs_spec field appears to be a placeholder. Please specify what inputs the prompt will receive (e.g., 'user query string', 'JSON object with fields X, Y, Z', 'CSV data', etc.) so the test scenarios can be properly designed."
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all three mandatory requirements with precision: it provides exact daily caloric totals, complete macronutrient breakdowns with percentages, and detailed meals with specific portions and timing across six eating occasions. It successfully addresses both dietary restrictions (vegetarian and lactose-intolerant) through thoughtful substitutions and plant-based protein sources. The nutritional targets appropriately support both muscle building (adequate protein from legumes, nuts, seeds, and plant-based powder) and cardiovascular fitness (balanced carbohydrate intake). The plan demonstrates strong nutritional knowledge with complete amino acid profiles and practical food choices. While the solution meets all stated criteria, minor areas for enhancement exist around caloric optimization for muscle gain and supplementation guidance, though these fall outside the specified evaluation criteria."
+  },
+  {
+    "output": "# One-Day Muscle-Building Meal Plan\n## For 178cm, 85kg Vegetarian Athlete (Dairy-Free)\n\n---\n\n## Daily Nutritional Targets\n- **Calories:** 2,750 kcal\n- **Protein:** 148g (21.5% of calories)\n- **Carbohydrates:** 330g (48% of calories)\n- **Fat:** 76g (25% of calories)\n\n---\n\n## BREAKFAST | 7:00 AM\n**Tofu Scramble with Toast**\n- Extra-firm tofu: 200g\n- Whole grain bread: 60g\n- Olive oil: 10ml\n- Turmeric, nutritional yeast: 5g\n- Spinach: 50g\n- Cherry tomatoes: 80g\n\n**Nutrition:** 520 cal | 28g protein | 52g carbs | 18g fat\n\n---\n\n## MID-MORNING SNACK | 10:00 AM\n**Protein Energy Balls**\n- Vegan protein powder: 25g\n- Peanut butter: 30g\n- Oats: 40g\n- Banana: 80g\n- Dark chocolate chips: 15g\n\n**Nutrition:** 310 cal | 20g protein | 36g carbs | 11g fat\n\n---\n\n## LUNCH | 1:00 PM\n**Black Bean & Brown Rice Bowl**\n- Cooked brown rice: 160g\n- Black beans (canned): 220g\n- Bell peppers (mixed): 120g\n- Corn: 80g\n- Red onion: 40g\n- Lime-cilantro dressing (olive oil): 15ml\n- Avocado: 60g\n\n**Nutrition:** 650 cal | 19g protein | 88g carbs | 18g fat\n\n---\n\n## AFTERNOON SNACK | 4:00 PM\n**Trail Mix & Fruit**\n- Mixed nuts (almonds, walnuts, cashews): 45g\n- Raisins: 30g\n- Apple: 180g\n\n**Nutrition:** 320 cal | 11g protein | 38g carbs | 14g fat\n\n---\n\n## DINNER | 7:00 PM\n**Tempeh Stir-Fry with Quinoa**\n- Marinated tempeh: 180g\n- Cooked quinoa: 140g\n- Broccoli: 120g\n- Mushrooms: 100g\n- Snap peas: 80g\n- Sesame oil: 12ml\n- Low-sodium soy sauce, ginger, garlic\n\n**Nutrition:** 620 cal | 28g protein | 60g carbs | 20g fat\n\n---\n\n## EVENING SNACK | 9:30 PM (Optional)\n**Sunflower Seed Butter & Berries**\n- Sunflower seed butter: 25g\n- Whole grain crackers: 35g\n- Mixed berries: 100g\n\n**Nutrition:** 280 cal | 8g protein | 28g carbs | 14g fat\n\n---\n\n## Daily Totals\n- **Calories:** 2,750\n- **Protein:** 148g \u2713\n- **Carbohydrates:** 330g \u2713\n- **Fat:** 76g \u2713\n\n---\n\n## Key Notes\n\u2713 100% dairy-free (no milk, cheese, or animal products)  \n\u2713 High protein from legumes, tofu, tempeh, nuts, seeds, and plant-based powder  \n\u2713 Optimized for muscle building + body fat reduction  \n\u2713 Budget-friendly plant-based proteins (beans, lentils, tofu, tempeh)  \n\u2713 Rich in iron, B12 support, and complete amino acid profiles  \n\u2713 Meal timing supports workout recovery and energy levels",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178",
+        "weight": "85",
+        "goal": "build muscle mass while reducing body fat",
+        "restrictions": "vegetarian, no dairy"
+      },
+      "solution_criteria": [
+        "Provides a caloric intake recommendation suitable for the athlete's body composition goals",
+        "Includes protein sources that align with vegetarian and dairy-free restrictions",
+        "Addresses both muscle-building and fat-loss objectives in the nutritional guidance"
+      ],
+      "task_description": "",
+      "scenario": "Once you provide both the task description and input specifications, I can generate 3 unique, distinct testing scenarios that cover different aspects of the prompt's functionality."
+    },
+    "score": 8,
+    "reasoning": "The solution fully satisfies all three mandatory requirements with a comprehensive, well-structured meal plan. It provides exact daily totals, complete macronutrient breakdowns, and six meals with specific foods, portions, and timing. The plan correctly addresses vegetarian/dairy-free restrictions using appropriate protein sources and attempts to balance muscle-building and fat-loss goals through macronutrient distribution. However, the solution lacks transparency in how the 2,750 kcal target was determined for this specific individual, and misses opportunities to provide context around workout timing and supplementation needs for a plant-based athlete. These are secondary deficiencies that don't violate mandatory requirements but represent incomplete guidance."
+  }
+]

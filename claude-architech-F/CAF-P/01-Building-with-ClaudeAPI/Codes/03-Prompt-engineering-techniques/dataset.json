@@ -1,0 +1,48 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "85 kg",
+      "goal": "Build muscle mass while maintaining cardiovascular fitness",
+      "restrictions": "Vegetarian, no dairy"
+    },
+    "solution_criteria": [
+      "Provides a nutrition plan that meets protein requirements for muscle building using vegetarian sources",
+      "Includes both strength training and cardiovascular exercise recommendations aligned with stated goal",
+      "Respects dietary restrictions (vegetarian, no dairy) in all recommendations",
+      "Offers realistic, actionable guidance without requiring external tools or calculations"
+    ],
+    "task_description": "",
+    "scenario": "Unable to generate test scenarios - the task_description field is empty. Please provide a clear description of what the prompt should accomplish, and I'll create 3 diverse testing ideas tailored to that specific task."
+  },
+  {
+    "prompt_inputs": {
+      "height": "178",
+      "weight": "85",
+      "goal": "Build muscle mass while maintaining cardiovascular fitness",
+      "restrictions": "Vegetarian, lactose intolerant"
+    },
+    "solution_criteria": [
+      "Provides a nutrition plan that supports muscle building with adequate protein from vegetarian sources",
+      "Accounts for lactose intolerance by excluding dairy or suggesting alternatives",
+      "Includes guidance aligned with both muscle-building and cardiovascular fitness goals"
+    ],
+    "task_description": "",
+    "scenario": "Also, the prompt_inputs_spec field appears to be a placeholder. Please specify what inputs the prompt will receive (e.g., 'user query string', 'JSON object with fields X, Y, Z', 'CSV data', etc.) so the test scenarios can be properly designed."
+  },
+  {
+    "prompt_inputs": {
+      "height": "178",
+      "weight": "85",
+      "goal": "build muscle mass while reducing body fat",
+      "restrictions": "vegetarian, no dairy"
+    },
+    "solution_criteria": [
+      "Provides a caloric intake recommendation suitable for the athlete's body composition goals",
+      "Includes protein sources that align with vegetarian and dairy-free restrictions",
+      "Addresses both muscle-building and fat-loss objectives in the nutritional guidance"
+    ],
+    "task_description": "",
+    "scenario": "Once you provide both the task description and input specifications, I can generate 3 unique, distinct testing scenarios that cover different aspects of the prompt's functionality."
+  }
+]
