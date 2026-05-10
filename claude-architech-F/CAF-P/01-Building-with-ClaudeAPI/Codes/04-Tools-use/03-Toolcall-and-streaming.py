@@ -6,6 +6,40 @@ from anthropic.types import ToolParam
 from anthropic.types import Message
 import json
 
+"""
+FINE-GRAINED TOOL STREAMING EXPLANATION:
+
+Two modes for handling tool argument streaming:
+
+1. STANDARD MODE (fine_grained=False) — Default
+   ├─ API validates JSON at top-level key-value boundaries
+   ├─ Buffers chunks until a complete key-value pair is valid
+   ├─ You receive bursts of chunks after each validation passes
+   ├─ snapshot (cumulative JSON) is always valid and parseable
+   ├─ json.loads(snapshot) guaranteed to succeed
+   └─ Best for: Reliability, guaranteed valid JSON, typical use cases
+
+2. FINE-GRAINED MODE (fine_grained=True) — Beta Feature
+   ├─ API DISABLES JSON validation
+   ├─ Sends chunks immediately as Claude generates them (no buffering)
+   ├─ snapshot may contain incomplete/invalid JSON: {"key": unde or {"a": 1
+   ├─ json.loads(snapshot) will raise JSONDecodeError
+   ├─ Your code MUST wrap json.loads in try/except
+   └─ Best for: Real-time UX, immediate feedback on tool args, showing progress
+
+When to enable fine-grained (set fine_grained=True in run_conversation):
+   • You need to show users live progress on tool argument generation
+   • You want to start processing partial tool results immediately
+   • Buffering delays negatively impact your application's responsiveness
+   • You're comfortable implementing robust JSON error handling
+
+Key Difference:
+   Standard:     {...complete key...} → validate → send burst of chunks
+   Fine-grained: {... → send immediately → ...complete key...} → validate later
+
+The final message from stream.get_final_message() is always valid JSON regardless of mode.
+"""
+
 
 # ===== INITIALIZATION =====
 # Load environment variables (API keys) from .env file
@@ -198,7 +232,15 @@ def chat(messages, system=None, temperature=0.5, stop_sequences=[], tools=None):
     return message
 
 def chat_stream(messages, system=None, temperature=0.5, stop_sequences=[], tools=None, tool_choice=None, fine_grained=False):
-    """Stream Claude API response with real-time token output and tool call detection."""
+    """Stream Claude API response with real-time token output and tool call detection.
+
+    Args:
+        fine_grained: When True, enables fine-grained tool streaming where:
+            - JSON validation is DISABLED on the API side
+            - chunks arrive as fast as Claude generates them (no buffering delays)
+            - you must handle potentially invalid/incomplete JSON yourself
+            - use when you need immediate progress updates over strict JSON safety
+    """
     # Build API request parameters for streaming
     params = {
         "model": model,  # Claude model to use
@@ -222,7 +264,17 @@ def chat_stream(messages, system=None, temperature=0.5, stop_sequences=[], tools
         params["tool_choice"] = tool_choice
 
     # Add fine-grained streaming beta feature if enabled
-    # Provides more granular control over streaming events
+    # IMPORTANT: When fine_grained=True:
+    #   - API validation of tool input JSON is DISABLED
+    #   - You receive chunks immediately without validation buffering
+    #   - Tool arguments may arrive in partial/invalid JSON fragments
+    #   - Your code must handle json.JSONDecodeError gracefully
+    #
+    # When fine_grained=False (standard mode):
+    #   - API pre-validates chunks at top-level key-value pair boundaries
+    #   - You only receive chunks with complete, valid key-value pairs
+    #   - Chunks may arrive in bursts after validation completes
+    #   - json.loads() should always succeed on the snapshot
     if fine_grained:
         params["betas"] = ["fine-grained-tool-streaming-2025-05-14"]
 
@@ -300,8 +352,17 @@ def run_tools(message):
     # Step 4: Return all results for sending back to Claude
     return tool_result_blocks
 
-def run_conversation(messages, tools=[], tool_choice=None, fine_grained= False):
-    """Run the multi-turn conversation loop with streaming: get Claude response → execute tools if needed → repeat until final answer."""
+def run_conversation(messages, tools=[], tool_choice=None, fine_grained=False):
+    """Run the multi-turn conversation loop with streaming: get Claude response → execute tools if needed → repeat until final answer.
+
+    Args:
+        fine_grained: Enable fine-grained tool streaming mode (default: False).
+            Standard mode (False): API buffers and validates JSON at key-value boundaries.
+                → Chunks arrive in validated batches → json.loads() always works → higher latency
+            Fine-grained mode (True): API skips JSON validation, sends chunks immediately.
+                → Chunks may be incomplete/invalid JSON → json.loads() may fail → immediate responsiveness
+                → Use when you need real-time progress on tool argument generation
+    """
     # System prompt: guides Claude's behavior and role for this conversation
     system_prompt = "You are a helpful assistant that provides comprehensive information about locations. When a user asks about a location, provide both weather and air quality information if available."
 
@@ -334,14 +395,27 @@ def run_conversation(messages, tools=[], tool_choice=None, fine_grained= False):
                     print(chunk.partial_json, end="", flush=True)
 
                     if fine_grained:
-                        # Fine-grained mode: SDK does not pre-validate chunks,
-                        # so snapshot may be incomplete mid-key-value-pair.
-                        # Validate that chunks parse as JSON; store for potential use in debugging or analysis.
-                        # The final authoritative tool inputs come from stream.get_final_message().
+                        # FINE-GRAINED MODE: JSON validation is DISABLED on the API side
+                        #
+                        # In standard mode (fine_grained=False):
+                        #   - API validates chunks at top-level key-value pair boundaries
+                        #   - snapshot always contains valid JSON when received
+                        #   - you can safely json.loads(snapshot) without error handling
+                        #
+                        # In fine-grained mode (fine_grained=True):
+                        #   - API validation is OFF → chunks arrive immediately
+                        #   - snapshot may be mid-key, mid-value, or mid-nested-object
+                        #   - snapshot can be INVALID JSON: {"key": undefined} or {"key": 1
+                        #   - json.loads(snapshot) will raise JSONDecodeError for incomplete JSON
+                        #   - Your code MUST handle these errors gracefully
+                        #
+                        # Use case: Show real-time progress on tool argument generation,
+                        # even if chunks temporarily look like invalid JSON. The final
+                        # parsed arguments from stream.get_final_message() are still guaranteed valid.
                         try:
                             current_args = json.loads(chunk.snapshot)  # For debugging/validation only
                         except json.JSONDecodeError:
-                            pass  # Incomplete JSON fragment — keep accumulating
+                            pass  # Incomplete JSON fragment — keep accumulating until next chunk
 
             # Step 3: Get the final message object from the stream
             response = stream.get_final_message()
