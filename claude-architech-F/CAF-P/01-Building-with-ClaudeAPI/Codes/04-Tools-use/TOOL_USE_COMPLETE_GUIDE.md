@@ -1,14 +1,17 @@
 # Complete Guide to Tool Use with Claude
 
 ## Table of Contents
-1. [Tool Use Fundamentals](#tool-use-fundamentals)
-2. [Types of Tools](#types-of-tools)
-3. [Tool Use Patterns](#tool-use-patterns)
-4. [Streaming with Tools](#streaming-with-tools)
-5. [Batch Processing](#batch-processing)
-6. [Real-World Tool Examples](#real-world-tool-examples)
-7. [Best Practices](#best-practices)
-8. [Comparison Table](#comparison-table)
+
+1. [Tool Use Fundamentals](#tool-use-fundamentals) — What tools are and how they work
+2. [Types of Tools](#types-of-tools) — Custom vs built-in tools
+3. [Tool Use Patterns](#tool-use-patterns) — Single-turn and multi-turn agent loops
+4. [Streaming with Tools](#streaming-with-tools) — Standard and fine-grained streaming modes
+5. [Batch Processing](#batch-processing) — Efficient batch tool execution
+6. [Real-World Tool Examples](#real-world-tool-examples) — Weather agent, code generation, research
+7. [Best Practices](#best-practices) — Error handling, validation, loop prevention
+8. [Comparison Table](#comparison-table) — Characteristics, patterns, and modes
+9. [Quick Reference](#quick-reference) — Code snippets for common patterns
+10. [Summary](#summary) — Key takeaways and next steps
 
 ---
 

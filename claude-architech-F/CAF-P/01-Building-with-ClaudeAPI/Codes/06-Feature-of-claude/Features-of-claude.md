@@ -1,5 +1,13 @@
 # Features of Claude — Personal Revision Notes
 
+## Contents
+
+1. [Extended Thinking](#extended-thinking) — Advanced reasoning with visible thought process
+2. [Vision Capabilities](#vision-capabilities) — Image analysis and understanding
+3. [PDF Document Processing](#pdf-document-processing) — Direct PDF analysis and multi-document handling
+4. [Direct PDF vs RAG](#direct-pdf-vs-rag-when-to-use-which) — Comparing direct analysis with RAG approach
+5. [Citations](#citations-show-your-work) — Source attribution and transparency
+
 ---
 
 ## Extended Thinking

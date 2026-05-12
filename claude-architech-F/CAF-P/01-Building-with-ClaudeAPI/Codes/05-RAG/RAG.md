@@ -2,6 +2,23 @@
 
 RAG lets you work with documents too large to fit in a single prompt by breaking them into chunks and retrieving only the most relevant pieces at query time.
 
+## Contents
+
+1. [The Problem](#the-problem) — Why prompt stuffing doesn't scale
+2. [Two Approaches](#two-approaches) — Prompt stuffing vs RAG
+3. [How RAG Works](#how-rag-works) — Three-step pipeline
+4. [Trade-offs](#trade-offs) — Benefits vs challenges
+5. [When to Use RAG](#when-to-use-rag) — Decision criteria
+6. [Text Chunking Strategies](#text-chunking-strategies) — Five chunking approaches
+7. [Retrieval Methods](#retrieval-finding-relevant-chunks) — Semantic + keyword search
+8. [Text Embeddings](#text-embeddings) — Vector representations
+9. [Complete RAG Pipeline](#complete-rag-pipeline-end-to-end-walkthrough) — Full workflow
+10. [RAG Implementation](#rag-implementation-code-walkthrough) — Step-by-step code
+11. [Hybrid Search](#hybrid-search-semantic--bm25-lexical) — Combining semantic and BM25
+12. [Reciprocal Rank Fusion](#merging-results-reciprocal-rank-fusion-rrf) — Merging search results
+
+---
+
 ## The Problem
 
 Large documents (e.g. an 800-page financial report) can't be stuffed into a prompt wholesale. Simply including everything hits hard context limits, degrades response quality, and increases cost and latency.
