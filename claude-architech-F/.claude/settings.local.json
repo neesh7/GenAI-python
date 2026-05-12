@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(Get-Content \"d:\\\\Codes\\\\claude-architech-F\\\\CAF-P\\\\Claude-101.md\" -Raw)"
+      "Bash(Get-Content \"d:\\\\Codes\\\\claude-architech-F\\\\CAF-P\\\\Claude-101.md\" -Raw)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

@@ -165,4 +165,108 @@
 
 ---
 
-*79 questions across fundamentals, streaming, prompt engineering, evaluation, tool use, RAG, hybrid search (BM25 + RRF), MCP, and system design — directly tied to the implementations in this repo.*
+## Section 11: Extended Thinking
+
+**Conceptual**
+66. What is extended thinking and how is it different from standard Claude generation?
+67. Extended thinking has a cost trade-off. What are you paying for, and when is it worth the cost?
+68. What does a `ThinkingBlock` contain versus a `TextBlock` in an extended thinking response?
+69. What is "redacted thinking" and when does it occur? Is it an error or expected behavior?
+70. Why does extended thinking include a cryptographic signature system? What problem does it solve?
+
+**Practical**
+71. What are the two incompatible features with extended thinking? Why can't they work together?
+72. Write code to enable extended thinking with a `thinking_budget` of 5000 tokens and extract both the thinking and text from the response.
+73. How would you test that your application gracefully handles redacted thinking blocks without crashing?
+74. When should you enable extended thinking: before or after optimizing your prompt? Why?
+
+---
+
+## Section 12: Vision Capabilities
+
+**Conceptual**
+75. What types of content can Claude analyze in images beyond text? (Give at least three examples)
+76. Why can't you send 100 images each at 8000px resolution in a single request, but you can send multiple images at 2000px resolution?
+77. How are image tokens calculated? What's the formula for token cost?
+78. Prompting with images: why does a simple question like "How many objects?" often fail, while a step-by-step methodology succeeds?
+
+**Practical**
+79. Write the code structure to include a satellite image (base64 encoded) with a text prompt in a single user message.
+80. Design a one-shot prompting example for marble counting: show the expected format and what makes it effective.
+81. You're building a fire risk assessment system using satellite imagery. What are the five key analysis steps you'd structure into your prompt?
+82. Implement code to compare two satellite images with the prompt: "Which has higher fire risk and why?"
+
+---
+
+## Section 13: PDF Document Processing
+
+**Conceptual**
+83. Why does processing PDFs with Claude (as documents) work differently from converting PDFs to images first?
+84. What can Claude extract from PDFs that goes beyond simple text extraction?
+85. How do you structure a PDF document block differently from an image block in the message API?
+86. What is the key difference between processing a PDF with base64 encoding vs a URL source?
+
+**Practical**
+87. Write the code to encode a PDF file to base64 and send it to Claude with a summarization prompt.
+88. What media type should you use when sending a PDF as a document block? Why does it matter?
+89. Design a prompt to extract financial data from a 50-page annual report. What structure would you use to ensure consistent output?
+
+---
+
+## Section 14: Direct PDF Analysis vs RAG
+
+**Conceptual**
+90. When should you use direct PDF analysis instead of RAG? Give specific document sizes/use cases.
+91. What is the main cost difference between directly analyzing a PDF vs using RAG for repeated queries?
+92. Why is RAG better for a searchable document library with 100+ PDFs?
+93. For a single question about a 500-page legal contract, which approach is better and why?
+
+**Practical**
+94. Calculate the cost comparison: You have 10 PDFs (50 pages each) and 100 queries. Should you use direct analysis or RAG? Show the reasoning.
+95. When would you use both approaches together in the same system? Describe the architecture.
+
+---
+
+## Section 15: Citations
+
+**Conceptual**
+96. What problem do citations solve that regular document analysis doesn't address?
+97. How does enabling citations change the structure of Claude's response?
+98. What information is included in a citation object? List all the fields.
+99. Why does a citation include a cryptographic signature, and what does it protect against?
+100. When are citations NOT necessary? Give three use cases where you can skip them.
+
+**Practical**
+101. Write the code to enable citations in a PDF document block. What two fields must you add?
+102. How would you build a UI that shows citation markers and lets users click to see the source page?
+103. A user asks Claude about information in a document. Claude cites pages 5-7. The user claims the info isn't on page 5. How would you debug this?
+104. Implement code to extract and display all citations from a Claude response about a PDF, showing the cited text and page numbers.
+
+---
+
+## Section 16: Multi-Turn Document Conversations
+
+**Conceptual**
+105. Why is multi-turn conversation more useful than single queries for document analysis?
+106. In a multi-turn PDF conversation, how does Claude maintain context about which document it's analyzing?
+107. What are the benefits of citation-enabled multi-turn conversations vs standard conversations?
+
+**Practical**
+108. Design a multi-turn conversation flow for a research assistant analyzing a 100-page research paper. What would the first 5 turns look like?
+109. Implement code that sends a PDF once, then asks 5 follow-up questions without re-sending the document.
+
+---
+
+## Section 17: PDF Comparison & Batch Analysis
+
+**Conceptual**
+110. Can Claude analyze multiple PDFs in a single API call? What are the limits?
+111. Why would you compare two PDFs instead of analyzing them separately?
+
+**Practical**
+112. Write code to send two PDFs and ask: "Which document has more risk factors and why?"
+113. Design a batch analysis pipeline that processes 10 PDFs with the same prompt. What would the structure be?
+
+---
+
+*113 questions across fundamentals, streaming, prompt engineering, evaluation, tool use, RAG, extended thinking, vision, PDF processing, citations, multi-turn conversations, and document comparison — directly tied to the implementations in this repo.*
