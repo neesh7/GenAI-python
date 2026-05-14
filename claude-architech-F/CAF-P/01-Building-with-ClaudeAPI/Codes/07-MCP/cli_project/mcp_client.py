@@ -54,11 +54,13 @@ class MCPClient:
         return await self.session().call_tool(tool_name, tool_input)
 
     async def list_prompts(self) -> list[types.Prompt]:
-        # TODO: Return a list of prompts defined by the MCP server
-        return []
+        #Return a list of prompts defined by the MCP server
+        result = await self.session().list_prompts()
+        return result.prompts
+        
 
     async def get_prompt(self, prompt_name, args: dict[str, str]):
-        # TODO: Get a particular prompt defined by the MCP server
+        # Get a particular prompt defined by the MCP server
         return []
 
     async def read_resource(self, uri: str) -> Any:

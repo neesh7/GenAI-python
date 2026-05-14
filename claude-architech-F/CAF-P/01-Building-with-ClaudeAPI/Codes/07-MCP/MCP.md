@@ -1993,6 +1993,330 @@ Prompts let you encode best practices into your MCP server, ensuring all clients
 
 ---
 
+# Using Prompts in MCP Clients
+
+## Overview
+
+On the client side, you need to implement methods that work with server-provided prompts. The client fetches prompts from the server and integrates them into Claude conversations.
+
+**Key principle:** Prompts define a set of **user and assistant messages** that can be used directly by the client. These should be high-quality, well-tested, and relevant to the overall purpose of the MCP server.
+
+---
+
+## Method 1: List Available Prompts
+
+Retrieve all prompts offered by the MCP server:
+
+```python
+async def list_prompts(self) -> list[types.Prompt]:
+    # Get all available prompts from the MCP server
+    result = await self.session().list_prompts()
+    return result.prompts
+```
+
+**What it does:**
+1. Calls the session's built-in `list_prompts()` method
+2. Extracts the prompts array from the result
+3. Returns the list of available prompts
+
+**Example usage:**
+```python
+async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+    prompts = await client.list_prompts()
+    for prompt in prompts:
+        print(f"Prompt: {prompt.name}")
+        print(f"Description: {prompt.description}")
+        print(f"Arguments: {prompt.arguments}")
+```
+
+**Output:**
+```
+Prompt: format
+Description: Rewrites the contents of the document in Markdown Format.
+Arguments: [{'name': 'doc_id', 'description': 'Id of the document to format'}]
+
+Prompt: summarize
+Description: Summarize a document into key points.
+Arguments: [{'name': 'doc_id', ...}]
+```
+
+---
+
+## Method 2: Get a Specific Prompt with Arguments
+
+Retrieve a specific prompt with arguments interpolated:
+
+```python
+async def get_prompt(self, prompt_name: str, args: dict[str, str]):
+    # Request a specific prompt with arguments
+    result = await self.session().get_prompt(prompt_name, args)
+    return result.messages
+```
+
+**What it does:**
+1. Takes the prompt name (e.g., `"format"`)
+2. Takes an arguments dictionary with expected keys
+3. Sends request to server with arguments
+4. Server passes arguments as keyword arguments to prompt function
+5. Returns the interpolated messages
+
+**Example usage:**
+```python
+# Get the format prompt for a specific document
+messages = await client.get_prompt(
+    "format",
+    {"doc_id": "report.pdf"}
+)
+
+# Messages now contain the interpolated prompt
+# Example: "The id of the document you need to reformat is: report.pdf"
+```
+
+---
+
+## How Prompt Arguments Work
+
+When you define a prompt function on the server, it accepts parameters:
+
+```python
+# Server side
+@mcp.prompt(name="format", description="...")
+def format_document(
+    doc_id: str = Field(description="Id of the document to format")
+) -> list[base.Message]:
+    prompt = f"Reformat document: {doc_id}"
+    return [base.UserMessage(prompt)]
+```
+
+When the client calls `get_prompt`, arguments get passed as keyword arguments:
+
+```python
+# Client side
+result = await client.get_prompt(
+    "format",
+    {"doc_id": "report.pdf"}  # This becomes: format_document(doc_id="report.pdf")
+)
+```
+
+The server inserts the values into the prompt template before returning messages.
+
+---
+
+## Complete Client Method
+
+Here's the complete implementation in your MCPClient class:
+
+```python
+async def list_prompts(self) -> list[types.Prompt]:
+    """List all available prompts from the MCP server."""
+    result = await self.session().list_prompts()
+    return result.prompts
+
+async def get_prompt(self, prompt_name: str, args: dict[str, str]):
+    """Get a specific prompt with arguments interpolated."""
+    result = await self.session().get_prompt(prompt_name, args)
+    return result.messages
+```
+
+---
+
+## Using Prompts with Claude
+
+### Complete Workflow
+
+```
+1. USER SELECTS PROMPT
+   Type: /format report.pdf
+   
+2. CLIENT LISTS PROMPTS
+   prompts = await client.list_prompts()
+   
+3. CLIENT FINDS PROMPT
+   prompt_obj = prompts[0]  # "format"
+   
+4. CLIENT GETS PROMPT WITH ARGS
+   messages = await client.get_prompt("format", {"doc_id": "report.pdf"})
+   
+5. SEND TO CLAUDE
+   response = await claude.messages.create(
+       model="...",
+       messages=messages,  # Pre-built messages from prompt
+       tools=[...]  # Your MCP tools
+   )
+   
+6. CLAUDE EXECUTES
+   Claude uses the prompt instructions + tools to complete task
+```
+
+### Example: Format Document via Prompt
+
+```python
+async def format_document_command(doc_id: str):
+    """User command: /format report.pdf"""
+    
+    async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+        # Get tools for Claude to use
+        tools = await client.list_tools()
+        
+        # Get the format prompt
+        prompt_messages = await client.get_prompt(
+            "format",
+            {"doc_id": doc_id}
+        )
+        
+        # Send to Claude
+        response = await claude.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=2048,
+            messages=prompt_messages,  # Prompt provides the instructions
+            tools=[{
+                "name": tool.name,
+                "description": tool.description,
+                "input_schema": tool.inputSchema
+            } for tool in tools]
+        )
+        
+        # Claude now follows the prompt instructions
+        # and uses tools as needed
+        return response
+```
+
+---
+
+## Testing Prompts in CLI
+
+Once implemented, prompts appear as commands in your application:
+
+```
+User: /format report.pdf
+   ↓
+App shows available arguments:
+   doc_id (required): Id of the document to format
+   ↓
+User enters: report.pdf
+   ↓
+App fetches prompt: get_prompt("format", {"doc_id": "report.pdf"})
+   ↓
+App sends prompt messages to Claude
+   ↓
+Claude executes using prompt instructions + available tools
+```
+
+---
+
+## Real-World Example: Interactive CLI
+
+```python
+async def interactive_prompt_menu():
+    """User selects and executes prompts interactively."""
+    
+    async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+        # Step 1: List available prompts
+        prompts = await client.list_prompts()
+        
+        print("Available Prompts:")
+        for i, prompt in enumerate(prompts):
+            print(f"{i+1}. {prompt.name} - {prompt.description}")
+        
+        # Step 2: User selects a prompt
+        choice = int(input("Select prompt (1-3): ")) - 1
+        selected_prompt = prompts[choice]
+        
+        # Step 3: Collect arguments
+        args = {}
+        for arg in selected_prompt.arguments:
+            value = input(f"Enter {arg['name']}: ")
+            args[arg['name']] = value
+        
+        # Step 4: Get the prompt with arguments
+        messages = await client.get_prompt(selected_prompt.name, args)
+        
+        # Step 5: Send to Claude
+        tools = await client.list_tools()
+        response = await claude.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            messages=messages,
+            tools=[{
+                "name": tool.name,
+                "description": tool.description,
+                "input_schema": tool.inputSchema
+            } for tool in tools]
+        )
+        
+        print(response.content[0].text)
+```
+
+---
+
+## Prompts vs Resources vs Tools
+
+| Aspect | Tools | Resources | Prompts |
+|--------|-------|-----------|---------|
+| **Purpose** | Actions | Data | Instructions |
+| **Called by** | Claude (tool use) | App (direct fetch) | App (before Claude) |
+| **Returns** | Result of action | Data content | Message templates |
+| **Example** | `edit_document()` | `docs://documents/x` | Format instructions |
+| **Integration** | Multi-turn with Claude | Context injection | Single shot to Claude |
+
+---
+
+## Best Practices for Using Prompts
+
+### 1. **Cache Prompt Arguments**
+Store frequently used arguments:
+```python
+common_args = {"doc_id": "report.pdf", "length": "medium"}
+messages = await client.get_prompt("summarize", common_args)
+```
+
+### 2. **Validate Arguments Before Requesting**
+Check that required arguments are provided:
+```python
+required_args = {"doc_id", "format"}
+provided_args = set(user_input.keys())
+if not required_args.issubset(provided_args):
+    print(f"Missing: {required_args - provided_args}")
+```
+
+### 3. **Combine Multiple Prompts**
+Chain prompts for complex workflows:
+```python
+# First: Extract metadata
+meta_messages = await client.get_prompt("extract_metadata", {"doc_id": "x"})
+# Then: Format document
+format_messages = await client.get_prompt("format", {"doc_id": "x"})
+# Finally: Summarize
+summary_messages = await client.get_prompt("summarize", {"doc_id": "x"})
+```
+
+### 4. **Handle Prompt Errors Gracefully**
+```python
+try:
+    messages = await client.get_prompt("format", args)
+except ValueError as e:
+    print(f"Prompt error: {e}")
+    # Fallback to basic instruction
+    messages = [base.UserMessage("Please reformat this document")]
+```
+
+---
+
+## Complete MCP Client API Summary
+
+Your MCPClient now supports:
+
+| Method | Purpose | Returns |
+|--------|---------|---------|
+| `list_tools()` | Get available tools | `list[types.Tool]` |
+| `call_tool(name, input)` | Execute a tool | `types.CallToolResult` |
+| `list_prompts()` | Get available prompts | `list[types.Prompt]` |
+| `get_prompt(name, args)` | Get prompt with args | `list[base.Message]` |
+| `read_resource(uri)` | Fetch resource data | Data (text, JSON, etc.) |
+
+Together, these methods provide complete access to all MCP server capabilities!
+
+---
+
 ## The Complete MCP Server API
 
 Your MCP servers now provide:
