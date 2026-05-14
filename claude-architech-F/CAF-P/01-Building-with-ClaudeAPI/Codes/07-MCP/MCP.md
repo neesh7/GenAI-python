@@ -1184,6 +1184,366 @@ This is the power of separation: **server and client are independent processes**
 
 ---
 
+# Building an MCP Client: Connecting Your Application
+
+## Understanding the Client Architecture
+
+Now that we have our MCP server working, it's time to build the **client side**. The client is what allows your application to communicate with the MCP server and access its functionality.
+
+**Important distinction:** In most real-world projects, you implement **either** an MCP client **OR** an MCP server, not both. We're building both here for educational purposes — to show you how they work together.
+
+---
+
+## Client Components
+
+The MCP client consists of two main components:
+
+### 1. Client Session
+The actual connection to the server (provided by the MCP Python SDK):
+```python
+from mcp import ClientSession
+```
+This handles the low-level protocol communication.
+
+### 2. MCPClient Class
+A custom wrapper class we create to make using the session easier:
+```python
+class MCPClient:
+    def __init__(self, command: str, args: list[str], env: Optional[dict] = None):
+        self._session: Optional[ClientSession] = None
+        self._exit_stack: AsyncExitStack = AsyncExitStack()
+    
+    async def connect(self):
+        # Establish connection to server
+        ...
+```
+
+**Why wrap it?** The client session requires proper **resource cleanup** when you're done. We wrap it in our custom class to handle cleanup automatically using async context managers.
+
+---
+
+## How the Client Fits Into Your Application
+
+Our application needs to do two main things with the MCP server:
+
+1. **Get available tools** — Retrieve all tools from the server to send to Claude
+2. **Execute tools** — Run specific tools when Claude requests them
+
+The MCP client provides these capabilities through simple method calls.
+
+```
+Your App
+    ↓
+"Give me tools" ← MCPClient.list_tools()
+    ↓
+MCP Server → [tool1, tool2, tool3...]
+    ↓
+"Execute tool1 with params" ← MCPClient.call_tool()
+    ↓
+MCP Server → result
+    ↓
+Your App
+```
+
+---
+
+## Implementing the Core Methods
+
+### Method 1: List Available Tools
+
+```python
+async def list_tools(self) -> list[types.Tool]:
+    # Get all available tools from the MCP server
+    result = await self.session().list_tools()
+    return result.tools
+```
+
+**What it does:**
+1. Accesses the client session (connection to server)
+2. Calls the SDK's built-in `list_tools()` function
+3. Extracts and returns the tools list
+
+**Example usage:**
+```python
+client = MCPClient("uv", ["run", "mcp_server.py"])
+await client.connect()
+tools = await client.list_tools()
+# Returns: [Tool(name='read_doc_contents', ...), Tool(name='edit_document', ...)]
+```
+
+### Method 2: Execute a Specific Tool
+
+```python
+async def call_tool(
+    self, tool_name: str, tool_input: dict
+) -> types.CallToolResult | None:
+    # Execute a tool with the given parameters
+    return await self.session().call_tool(tool_name, tool_input)
+```
+
+**What it does:**
+1. Takes the tool name (e.g., "read_doc_contents")
+2. Takes the parameters Claude wants to pass (e.g., `{"doc_id": "report.pdf"}`)
+3. Sends the request to the MCP server
+4. Returns the result
+
+**Example usage:**
+```python
+result = await client.call_tool(
+    "read_doc_contents", 
+    {"doc_id": "report.pdf"}
+)
+# Returns: CallToolResult with document content
+```
+
+---
+
+## Connection and Cleanup
+
+### Async Context Manager Pattern
+
+The client uses Python's async context manager pattern for automatic cleanup:
+
+```python
+async with MCPClient(
+    command="uv",
+    args=["run", "mcp_server.py"]
+) as client:
+    tools = await client.list_tools()
+    result = await client.call_tool("read_doc_contents", {"doc_id": "report.pdf"})
+    # Connection is automatically cleaned up when exiting the block
+```
+
+### What happens automatically:
+
+1. **Enter (`__aenter__`):** Establishes connection to server
+2. **Use (`async with`):** Use tools and methods normally
+3. **Exit (`__aexit__`):** Cleans up connection and resources
+
+This ensures proper cleanup even if errors occur.
+
+---
+
+## Testing the Client
+
+To verify the client works, we can run a simple test:
+
+```python
+async def test_client():
+    async with MCPClient(
+        command="uv",
+        args=["run", "mcp_server.py"]
+    ) as client:
+        # Test listing tools
+        tools = await client.list_tools()
+        print(f"Found {len(tools)} tools:")
+        for tool in tools:
+            print(f"  - {tool.name}")
+        
+        # Test executing a tool
+        result = await client.call_tool(
+            "read_doc_contents",
+            {"doc_id": "report.pdf"}
+        )
+        print(f"\nTool result: {result}")
+```
+
+When run, this outputs:
+```
+Found 2 tools:
+  - read_doc_contents
+  - edit_document
+
+Tool result: meta=None content=[TextContent(...)] isError=False
+```
+
+---
+
+## The Client in Your Application Flow
+
+Here's how the client integrates into the complete application:
+
+```
+1. USER INPUT
+   "What's in report.pdf?"
+       ↓
+2. APP USES CLIENT
+   tools = await client.list_tools()
+       ↓
+3. SEND TO CLAUDE
+   messages=[...], tools=[tool schemas from step 2]
+       ↓
+4. CLAUDE DECIDES
+   "I need to call read_doc_contents"
+       ↓
+5. APP EXECUTES VIA CLIENT
+   result = await client.call_tool("read_doc_contents", {"doc_id": "report.pdf"})
+       ↓
+6. SEND RESULT TO CLAUDE
+   "Tool executed, result: ..."
+       ↓
+7. CLAUDE RESPONDS
+   "The report details a 20m condenser tower"
+       ↓
+8. USER GETS ANSWER
+```
+
+---
+
+## Key Client Responsibilities
+
+The MCP client abstracts away several complex tasks:
+
+| Task | Without Client | With Client |
+|------|---|---|
+| **Connection management** | Manual stdio setup | Automatic via context manager |
+| **Message protocol** | Handle JSON/MCP protocol | Transparent to your code |
+| **Resource cleanup** | Manual cleanup (error-prone) | Automatic |
+| **Tool listing** | Construct ListToolsRequest | Simple `list_tools()` call |
+| **Tool execution** | Construct CallToolRequest | Simple `call_tool()` call |
+
+The client makes server integration as simple as calling methods.
+
+---
+
+## Comparison: With vs Without Client
+
+### Without MCP Client (Manual Approach)
+```python
+# Complex setup and protocol handling
+server_params = StdioServerParameters(command="uv", args=["run", "mcp_server.py"])
+transport = await stdio_client(server_params)
+session = await ClientSession(transport[0], transport[1])
+await session.initialize()
+
+# Manually construct and send messages
+tools_result = await session.list_tools()  # Still fairly simple with SDK
+
+# Manual cleanup (prone to errors)
+await session.close()
+await transport.close()
+```
+
+### With MCP Client (Our Approach)
+```python
+# Clean and simple
+async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+    tools = await client.list_tools()
+    result = await client.call_tool("read_doc_contents", {"doc_id": "report.pdf"})
+    # Cleanup is automatic
+```
+
+The client class hides the complexity and provides a clean interface.
+
+---
+
+## Putting It All Together
+
+Now that our client can list tools and call them, we have a complete system:
+
+### Complete Application Flow
+
+```
+User: "Read report.pdf and tell me what it says"
+    ↓
+App: Uses MCPClient to get tools from server
+    ↓
+Claude: Sees tools and decides to use read_doc_contents
+    ↓
+App: Uses MCPClient to execute the tool
+    ↓
+Claude: Receives result and formulates response
+    ↓
+User: "The report details a 20m condenser tower..."
+```
+
+### Example: The Complete Conversation
+
+```python
+async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+    # Get tools
+    tools = await client.list_tools()
+    
+    # Send to Claude with user question
+    messages = [
+        {"role": "user", "content": "What's in report.pdf?"}
+    ]
+    
+    response = claude.messages.create(
+        model="claude-3-5-sonnet-20241022",
+        max_tokens=1024,
+        tools=[{
+            "name": tool.name,
+            "description": tool.description,
+            "input_schema": tool.inputSchema
+        } for tool in tools],
+        messages=messages
+    )
+    
+    # Claude decides to use read_doc_contents
+    tool_use = response.content[0]  # {"name": "read_doc_contents", "input": {"doc_id": "report.pdf"}}
+    
+    # Execute the tool
+    result = await client.call_tool(
+        tool_use.name,
+        tool_use.input
+    )
+    
+    # Send result back to Claude
+    # Claude now has the document content and can answer the user
+```
+
+---
+
+## Client Design Patterns
+
+### Pattern 1: Single Client Instance
+For applications that make many calls:
+```python
+class MyApp:
+    def __init__(self):
+        self.client = None
+    
+    async def startup(self):
+        self.client = MCPClient("uv", ["run", "mcp_server.py"])
+        await self.client.connect()
+    
+    async def shutdown(self):
+        await self.client.cleanup()
+    
+    async def handle_user_request(self, query):
+        tools = await self.client.list_tools()
+        # ... use tools with Claude
+```
+
+### Pattern 2: Context Manager (Per-Request)
+For applications where clients are short-lived:
+```python
+async def handle_request(user_query):
+    async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+        tools = await client.list_tools()
+        # ... process request
+        # Client cleanup happens automatically
+```
+
+Choose pattern 1 for long-running servers, pattern 2 for serverless/per-request architecture.
+
+---
+
+## Next: Integration with Claude
+
+Once your client is working:
+
+1. ✅ Create MCPClient class
+2. ✅ Implement `list_tools()` method
+3. ✅ Implement `call_tool()` method
+4. ⏭️ Integrate with Claude's tool use system
+5. ⏭️ Build your application logic
+
+The client is your bridge to Claude integration — it provides the tools, Claude decides which to use, and the client executes them.
+
+---
+
 # Testing MCP Servers: The MCP Inspector
 
 ## The Problem: Testing Without Claude
