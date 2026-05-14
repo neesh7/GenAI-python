@@ -1599,6 +1599,412 @@ Resources and tools together form the complete MCP server API.
 
 ---
 
+# Prompts in MCP Servers: Pre-Built Instructions
+
+## What are Prompts?
+
+**Prompts** in MCP servers let you define **pre-built, high-quality instructions** that clients can use instead of writing their own prompts from scratch.
+
+Think of them as **carefully crafted templates** that give better results than what users might come up with on their own.
+
+---
+
+## Why Use Prompts?
+
+### The Problem
+A user could type: *"convert report.pdf to markdown"*
+
+This would work, but they'd probably get inconsistent results.
+
+### The Solution
+Provide a tested prompt that includes:
+- ✅ Specific formatting instructions
+- ✅ Structure requirements
+- ✅ Output specifications
+- ✅ Best practices for the task
+- ✅ Expected format examples
+
+**Key insight:** Users can accomplish tasks on their own, but they get **more consistent and higher-quality results** when using prompts developed and tested by MCP server authors.
+
+---
+
+## How Prompts Work
+
+Prompts define a set of **user and assistant messages** that clients can use directly. When a client requests a prompt, your server returns messages ready to send to Claude.
+
+### Basic Flow
+
+```
+Client requests: "Get me the format_document prompt"
+    ↓
+Server returns: [UserMessage(...), AssistantMessage(...), ...]
+    ↓
+Client sends messages directly to Claude
+    ↓
+Claude executes using the prompt instructions
+```
+
+### Key Features
+
+- ✅ **Define once** — Write the prompt in your server
+- ✅ **Reuse everywhere** — All clients get the same quality
+- ✅ **Parameter interpolation** — Insert dynamic data into prompts
+- ✅ **Message structure** — Return complete conversation threads
+- ✅ **Best practices built-in** — Benefit from server author's expertise
+
+---
+
+## Implementing Prompts
+
+### Step 1: Import Message Types
+
+```python
+from mcp.server.fastmcp import FastMCP, base
+from pydantic import Field
+
+mcp = FastMCP("DocumentMCP", log_level="ERROR")
+```
+
+### Step 2: Define Your Prompt
+
+```python
+@mcp.prompt(
+    name="format",
+    description="Rewrites the contents of a document in Markdown format."
+)
+def format_document(
+    doc_id: str = Field(description="Id of the document to format")
+) -> list[base.Message]:
+    """
+    A prompt that instructs Claude to reformat a document to markdown.
+    """
+    prompt_text = f"""
+Your goal is to reformat a document to be written with markdown syntax.
+
+The document you need to reformat has id: {doc_id}
+
+When reformatting:
+- Add headers (#, ##, ###) to organize content
+- Use bullet points and numbered lists
+- Create tables where appropriate
+- Use bold and italics for emphasis
+- Include code blocks for technical content
+- Maintain the original information and meaning
+
+Use the 'edit_document' tool to apply changes to the document.
+After reformatting is complete, verify the changes look correct.
+"""
+    
+    return [
+        base.UserMessage(prompt_text)
+    ]
+```
+
+**What it does:**
+1. Uses `@mcp.prompt()` decorator to define a prompt
+2. Takes parameters (like `doc_id`)
+3. Returns a list of `base.Message` objects
+4. Messages can be `UserMessage`, `AssistantMessage`, etc.
+
+---
+
+## Message Types
+
+### UserMessage
+Messages from the user that set up the task:
+
+```python
+@mcp.prompt(name="analyze", description="Analyze a document")
+def analyze_document(doc_id: str) -> list[base.Message]:
+    return [
+        base.UserMessage(f"Please analyze the document with id: {doc_id}")
+    ]
+```
+
+### AssistantMessage
+Pre-filled assistant responses that guide Claude:
+
+```python
+@mcp.prompt(name="format", description="Format as markdown")
+def format_prompt() -> list[base.Message]:
+    return [
+        base.UserMessage("Format this as markdown"),
+        base.AssistantMessage("I'll reformat the document using markdown syntax..."),
+        base.UserMessage("Here's the document content to format...")
+    ]
+```
+
+This creates a conversation thread that Claude continues.
+
+---
+
+## Real-World Example: Complete Formatting Prompt
+
+```python
+@mcp.prompt(
+    name="summarize",
+    description="Summarize a document into key points."
+)
+def summarize_document(
+    doc_id: str = Field(description="Id of the document to summarize"),
+    length: str = Field(
+        description="Summary length: brief, medium, or detailed",
+        default="medium"
+    )
+) -> list[base.Message]:
+    """
+    A comprehensive summarization prompt with length options.
+    """
+    length_guide = {
+        "brief": "3-5 bullet points",
+        "medium": "5-10 bullet points",
+        "detailed": "10-15 bullet points or paragraphs"
+    }
+    
+    prompt_text = f"""
+You are a document summarization expert. Your task is to create a {length} summary of a document.
+
+Document ID: {doc_id}
+Summary Style: {length} ({length_guide.get(length, "medium summary")})
+
+When summarizing:
+1. Extract the most important information
+2. Remove redundant details
+3. Organize information logically
+4. Use clear, concise language
+5. Preserve key statistics and dates
+6. Highlight any critical findings or recommendations
+
+Format your summary as:
+- Key Points (bullet list)
+- Important Details (if applicable)
+- Recommendations (if applicable)
+
+After completing the summary, confirm that all critical information has been captured.
+"""
+    
+    return [
+        base.UserMessage(prompt_text)
+    ]
+```
+
+**How it's used:**
+```python
+# Client requests the prompt
+prompt_messages = await client.get_prompt(
+    "summarize",
+    {"doc_id": "report.pdf", "length": "detailed"}
+)
+
+# Server returns messages with interpolated values
+# Client sends to Claude, who follows the instructions
+```
+
+---
+
+## Testing Prompts with Inspector
+
+### Step 1: Start Inspector
+```bash
+mcp dev mcp_server.py
+```
+
+### Step 2: Open Browser
+Navigate to `http://localhost:6277`
+
+### Step 3: Find Prompts Section
+Look for **Prompts** in the inspector interface
+
+### Step 4: Test Your Prompt
+1. Select your prompt from the list
+2. Enter any required parameters
+3. Click "Get Prompt"
+4. See the generated messages
+
+**Inspector shows:**
+```
+Prompt: format
+Description: Rewrites the contents of a document in Markdown format.
+Parameters: doc_id (required)
+
+Generated Messages:
+[
+  {
+    "type": "user",
+    "content": "Your goal is to reformat a document..."
+  }
+]
+```
+
+This verifies parameter interpolation and message structure before using in production.
+
+---
+
+## Prompts vs Tools vs Resources
+
+| Feature | Tools | Resources | Prompts |
+|---------|-------|-----------|---------|
+| **Purpose** | Perform actions | Fetch data | Provide instructions |
+| **Example** | Edit document | List documents | Format document instructions |
+| **Who decides** | Claude | Your app | Your server |
+| **API analogy** | POST/PUT/DELETE | GET | Template/Configuration |
+| **Client integration** | Call via Claude | Read directly | Get and use |
+
+---
+
+## When to Use Prompts
+
+### ✅ Good Use Cases
+- Complex, multi-step tasks that benefit from careful instruction
+- Domain-specific expertise you want to encapsulate
+- Tasks where consistency is important
+- Workflows that should follow specific patterns
+- Reusable instructions for common operations
+
+### ❌ Not Necessary
+- Simple, straightforward requests
+- Tasks where user input is the key factor
+- One-off operations with no standard pattern
+- Highly customizable workflows
+
+---
+
+## Best Practices for Prompts
+
+### 1. **Focus on Core Value**
+Only create prompts for tasks central to your server's purpose.
+
+```python
+# ✅ Good - Core to document server
+@mcp.prompt(name="format", description="Format to markdown")
+
+# ❌ Not necessary - Too generic
+@mcp.prompt(name="hello", description="Say hello")
+```
+
+### 2. **Write Detailed Instructions**
+Be specific about what you want Claude to do.
+
+```python
+# ❌ Vague
+return [base.UserMessage("Summarize the document")]
+
+# ✅ Specific
+return [base.UserMessage("""
+Summarize the document in 5-10 bullet points.
+Focus on: key findings, risks, and recommendations.
+Use technical language where appropriate.
+Format as markdown with clear hierarchy.
+""")]
+```
+
+### 3. **Test Thoroughly**
+Verify prompts work with various inputs.
+
+```python
+# Test with different doc_ids
+await client.get_prompt("format", {"doc_id": "report.pdf"})
+await client.get_prompt("format", {"doc_id": "notes.md"})
+await client.get_prompt("format", {"doc_id": "data.csv"})
+```
+
+### 4. **Clear Descriptions**
+Help users understand what each prompt does.
+
+```python
+@mcp.prompt(
+    name="format",
+    # This description is what clients see
+    description="Rewrites document content in well-structured Markdown format with proper headers, lists, and formatting."
+)
+def format_document(...):
+    ...
+```
+
+### 5. **Leverage Your Expertise**
+Include best practices and domain knowledge.
+
+```python
+@mcp.prompt(name="analyze", description="Analyze for security risks")
+def analyze_security(doc_id: str) -> list[base.Message]:
+    return [
+        base.UserMessage(f"""
+Analyze document {doc_id} for security risks.
+
+Check for:
+1. Hardcoded credentials
+2. Unencrypted data transmission
+3. Weak authentication mechanisms
+4. SQL injection vulnerabilities
+5. Cross-site scripting (XSS) risks
+6. Insecure dependencies
+
+Provide:
+- Severity level (Critical, High, Medium, Low)
+- Description of each risk
+- Recommended fixes
+- References to security standards (OWASP, CWE)
+""")
+    ]
+```
+
+---
+
+## Real Application: Document Processing Pipeline
+
+```python
+@mcp.prompt(name="extract_metadata", description="Extract key metadata from document")
+def extract_metadata(doc_id: str) -> list[base.Message]:
+    return [base.UserMessage(f"Extract from {doc_id}: title, author, date, keywords")]
+
+@mcp.prompt(name="format", description="Format to markdown")
+def format_document(doc_id: str) -> list[base.Message]:
+    return [base.UserMessage(f"Reformat {doc_id} as markdown")]
+
+@mcp.prompt(name="summarize", description="Create summary")
+def summarize_document(doc_id: str) -> list[base.Message]:
+    return [base.UserMessage(f"Summarize {doc_id} in 5 key points")]
+
+# Client workflow
+async with MCPClient(...) as client:
+    # Get list of available prompts
+    prompts = await client.list_prompts()  # Shows all 3 prompts
+    
+    # Use each prompt in sequence
+    metadata = await client.get_prompt("extract_metadata", {"doc_id": "report.pdf"})
+    formatted = await client.get_prompt("format", {"doc_id": "report.pdf"})
+    summary = await client.get_prompt("summarize", {"doc_id": "report.pdf"})
+    
+    # Send to Claude for execution
+```
+
+---
+
+## Summary: Prompts Benefits
+
+✅ **Quality Assurance** — Tested, optimized instructions  
+✅ **Consistency** — Same results across all clients  
+✅ **Expertise Sharing** — Server author's domain knowledge  
+✅ **Parameter Flexibility** — Dynamic values in templates  
+✅ **Message Threading** — Complete conversation structures  
+✅ **Inspector Testing** — Verify before use  
+
+Prompts let you encode best practices into your MCP server, ensuring all clients benefit from carefully crafted, high-quality instructions.
+
+---
+
+## The Complete MCP Server API
+
+Your MCP servers now provide:
+
+1. **Tools** — Actions clients can request (edit, create, delete)
+2. **Resources** — Data clients can fetch (files, metadata, lists)
+3. **Prompts** — Instructions clients can use (workflows, templates)
+
+Together, these three features create a complete API for AI applications.
+
+---
+
 ## Next: Connecting the MCP Client
 
 Once the server is running, the MCP client connects to it and:
