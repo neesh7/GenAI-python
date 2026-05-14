@@ -1724,6 +1724,140 @@ result = await client.call_tool(
 # Returns: CallToolResult with document content
 ```
 
+### Method 3: Read Resources from Server
+
+Resources allow you to **fetch data directly from the server** without Claude making decisions. This is perfect for document mentions (`@document_name`) and autocomplete.
+
+```python
+async def read_resource(self, uri: str) -> Any:
+    # Read a resource from the MCP server
+    result = await self.session().read_resource(AnyUrl(uri))
+    resource = result.contents[0]
+    
+    # Handle different content types
+    if isinstance(resource, types.TextResourceContents):
+        if resource.mimeType == "application/json":
+            return json.loads(resource.text)
+        return resource.text
+```
+
+**What it does:**
+1. Takes a resource URI (e.g., `"docs://documents/report.pdf"`)
+2. Sends ReadResourceRequest to the MCP server
+3. Parses the response based on MIME type
+4. Returns the parsed data
+
+**Example usage:**
+```python
+# Get plain text resource
+text_content = await client.read_resource("docs://documents/deposition.md")
+# Returns: "This deposition covers the testimony of Angela Smith, P.E."
+
+# Get JSON resource
+json_content = await client.read_resource("api://documents/metadata")
+# Returns: {"total": 6, "formats": ["pdf", "md", "docx"]}
+```
+
+**How it fits into your app:**
+```
+User types: "Summarize @report.pdf"
+    ↓
+Your app detects @mention
+    ↓
+App calls: await client.read_resource("docs://documents/report.pdf")
+    ↓
+Server returns: "The report details a 20m condenser tower..."
+    ↓
+Your app injects into Claude's prompt
+    ↓
+Claude analyzes and responds
+```
+
+---
+
+## Required Imports for Resource Reading
+
+To use the resource reading functionality, you need these imports:
+
+```python
+import json
+from pydantic import AnyUrl
+from mcp import types
+
+# Then use them in your client:
+async def read_resource(self, uri: str) -> Any:
+    result = await self.session().read_resource(AnyUrl(uri))
+    resource = result.contents[0]
+    
+    if isinstance(resource, types.TextResourceContents):
+        if resource.mimeType == "application/json":
+            return json.loads(resource.text)
+        return resource.text
+```
+
+**Why these imports?**
+- `json` — Parse JSON resources into Python objects
+- `AnyUrl` — Properly validate and handle URI parameters
+- `types` — Access TextResourceContents and other MCP types
+
+---
+
+## Resource vs Tool: Client Perspective
+
+| Aspect | Tools | Resources |
+|--------|-------|-----------|
+| **How called** | `await client.call_tool(name, input)` | `await client.read_resource(uri)` |
+| **Server decides** | Tool execution | Resource data |
+| **When to use** | Actions (edit, create) | Data fetching |
+| **Claude involved** | Yes (Claude calls tools) | Optional (app can fetch directly) |
+| **Example** | Edit document | Get document contents |
+
+---
+
+## Real-World Example: Document Mention Feature
+
+```python
+async def handle_user_message(user_input: str):
+    # Detect @mentions
+    mentions = re.findall(r'@(\S+)', user_input)
+    
+    # Fetch resource data for each mention
+    document_context = {}
+    async with MCPClient("uv", ["run", "mcp_server.py"]) as client:
+        for mention in mentions:
+            # Read the document resource
+            content = await client.read_resource(f"docs://documents/{mention}")
+            document_context[mention] = content
+    
+    # Build enhanced prompt with document content
+    enhanced_message = user_input
+    for mention, content in document_context.items():
+        enhanced_message += f"\n\n@{mention} contains:\n{content}"
+    
+    # Send to Claude with full context
+    response = await claude.messages.create(
+        model="claude-3-5-sonnet-20241022",
+        messages=[{"role": "user", "content": enhanced_message}]
+    )
+    
+    return response
+```
+
+**What happens:**
+```
+User: "Compare @report.pdf and @financials.docx"
+    ↓
+App detects: ["report.pdf", "financials.docx"]
+    ↓
+App reads both resources
+    ↓
+App builds message with both documents injected
+    ↓
+Claude sees both documents in prompt
+    ↓
+Claude compares them directly
+```
+
 ---
 
 ## Connection and Cleanup
