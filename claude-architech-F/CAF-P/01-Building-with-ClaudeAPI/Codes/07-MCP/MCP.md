@@ -1171,6 +1171,434 @@ The server will:
 
 ---
 
+# Resources in MCP Servers: Exposing Data
+
+## What are Resources?
+
+**Resources** allow you to expose data to clients, similar to **GET request handlers** in a typical HTTP server. They're perfect for scenarios where you need to **fetch information** rather than perform actions.
+
+### Tools vs Resources
+
+| Aspect | Tools | Resources |
+|--------|-------|-----------|
+| **Purpose** | Perform actions (create, update, delete) | Fetch data (read-only) |
+| **API Analogy** | POST/PUT/DELETE requests | GET requests |
+| **Use Case** | Document editing, sending emails | Document listing, file browsing |
+| **Client Impact** | Claude decides when to call | Data context for Claude |
+
+---
+
+## Understanding Resources Through an Example
+
+Imagine building a **document mention feature** where users type `@document_name` to reference files.
+
+This requires two operations:
+
+1. **Get a list of all available documents** (for autocomplete)
+2. **Fetch the contents of a specific document** (when mentioned)
+
+**How it works:**
+```
+User types: "Can you summarize @report.pdf?"
+    ↓
+Your app reads from the @-mention
+    ↓
+Your app uses MCP client to fetch document content
+    ↓
+App injects document into Claude's prompt
+    ↓
+Claude analyzes the injected document and responds
+```
+
+Without resources, you'd have to manually code all this. With MCP resources, the server exposes the data, and clients can automatically fetch what they need.
+
+---
+
+## How Resources Work
+
+Resources follow a **request-response pattern**:
+
+```
+MCP Client: "I want resource: docs://documents/report.pdf"
+    ↓
+MCP Server receives: ReadResourceRequest
+    ↓
+MCP Server executes: fetch_doc(doc_id="report.pdf")
+    ↓
+MCP Server returns: "The report details a 20m condenser tower..."
+    ↓
+MCP Client receives: ReadResourceResult
+```
+
+The **URI** acts like an address for the resource you want to access.
+
+---
+
+## Two Types of Resources
+
+### Type 1: Direct Resources (Static)
+
+URIs that don't change — they always point to the same data.
+
+**Example:** `docs://documents`
+
+```python
+@mcp.resource(
+    "docs://documents",
+    mime_type="application/json"
+)
+def list_docs() -> list[str]:
+    """Return all available document IDs."""
+    return list(docs.keys())
+```
+
+**Usage:**
+```
+Client requests: docs://documents
+Server returns: ["report.pdf", "deposition.md", "financials.docx"]
+```
+
+### Type 2: Templated Resources (Parameterized)
+
+URIs with parameters — they fetch different data based on parameters.
+
+**Example:** `docs://documents/{doc_id}`
+
+```python
+@mcp.resource(
+    "docs://documents/{doc_id}",
+    mime_type="text/plain"
+)
+def fetch_doc(doc_id: str) -> str:
+    """Fetch a specific document by ID."""
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    return docs[doc_id]
+```
+
+**How it works:**
+
+The Python SDK **automatically parses parameters from the URI** and passes them as keyword arguments:
+
+```
+Client requests: docs://documents/report.pdf
+    ↓
+SDK extracts: doc_id = "report.pdf"
+    ↓
+SDK calls: fetch_doc(doc_id="report.pdf")
+    ↓
+Server returns: "The report details a 20m condenser tower..."
+```
+
+---
+
+## MIME Types: Describing Resource Data
+
+The `mime_type` parameter tells clients what kind of data you're returning:
+
+```python
+# Plain text content
+@mcp.resource("docs://documents/{doc_id}", mime_type="text/plain")
+def fetch_doc(doc_id: str) -> str:
+    return docs[doc_id]
+
+# JSON structured data
+@mcp.resource("docs://metadata", mime_type="application/json")
+def get_metadata() -> dict:
+    return {"total_docs": len(docs), "last_updated": "2025-01-15"}
+
+# HTML content
+@mcp.resource("docs://preview/{doc_id}", mime_type="text/html")
+def get_html_preview(doc_id: str) -> str:
+    return f"<h1>{doc_id}</h1><p>{docs[doc_id]}</p>"
+
+# Binary image data
+@mcp.resource("images/{filename}", mime_type="image/png")
+def get_image(filename: str) -> bytes:
+    with open(f"images/{filename}", "rb") as f:
+        return f.read()
+```
+
+**Common MIME Types:**
+- `text/plain` — Plain text
+- `text/html` — HTML content
+- `application/json` — JSON data
+- `image/png`, `image/jpeg` — Images
+- `application/pdf` — PDF documents
+
+**Benefits:**
+- ✅ Clients know how to interpret the data
+- ✅ Claude can use appropriate handling
+- ✅ Clear API contracts
+- ✅ Tool-agnostic data exchange
+
+---
+
+## Implementing Resources in Your Server
+
+### Step 1: Add Direct Resource (List Documents)
+
+```python
+@mcp.resource(
+    "docs://documents",
+    mime_type="application/json"
+)
+def list_docs() -> list[str]:
+    """Return a list of all available document IDs."""
+    return list(docs.keys())
+```
+
+### Step 2: Add Templated Resource (Fetch Document)
+
+```python
+@mcp.resource(
+    "docs://documents/{doc_id}",
+    mime_type="text/plain"
+)
+def fetch_doc(doc_id: str) -> str:
+    """Fetch the contents of a specific document."""
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    return docs[doc_id]
+```
+
+### Step 3: Update Server Initialization
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("DocumentMCP", log_level="ERROR")
+
+docs = {
+    "report.pdf": "The report details a 20m condenser tower.",
+    "deposition.md": "This deposition covers Angela Smith's testimony.",
+    # ... more documents
+}
+
+@mcp.tool(...)
+def read_document(...):
+    # ... existing tool code
+
+@mcp.resource(...)
+def list_docs() -> list[str]:
+    return list(docs.keys())
+
+@mcp.resource(...)
+def fetch_doc(doc_id: str) -> str:
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    return docs[doc_id]
+
+if __name__ == "__main__":
+    mcp.run(transport="stdio")
+```
+
+---
+
+## Testing Resources with the Inspector
+
+### Running Your Server
+
+```bash
+uv run mcp dev mcp_server.py
+```
+
+Then open the inspector at `http://localhost:6277`.
+
+### What You'll See
+
+The inspector shows two sections:
+
+**1. Resources: Static Resources**
+```
+docs://documents
+├─ MIME Type: application/json
+├─ Description: (auto-generated)
+└─ Click to view data
+```
+
+**2. Resource Templates: Templated Resources**
+```
+docs://documents/{doc_id}
+├─ Parameters: doc_id (string)
+├─ MIME Type: text/plain
+└─ Enter parameter value to test
+```
+
+### Testing Steps
+
+**Test Direct Resource:**
+1. Click on `docs://documents`
+2. See returned list: `["report.pdf", "deposition.md", "financials.docx"]`
+
+**Test Templated Resource:**
+1. Click on `docs://documents/{doc_id}`
+2. Enter `doc_id = "report.pdf"`
+3. See returned content: `"The report details a 20m condenser tower."`
+4. Try with invalid ID to test error handling
+5. See error: `"Doc with id invalid.pdf not found"`
+
+---
+
+## Real-World Use Cases
+
+### Use Case 1: Document Mention Feature
+
+```python
+# User types: "Summarize @report.pdf"
+# Your app:
+# 1. Detects @mention
+# 2. Uses client to read: docs://documents/report.pdf
+# 3. Injects content into Claude's prompt
+# 4. Claude analyzes and responds
+```
+
+### Use Case 2: Autocomplete
+
+```python
+# User starts typing: "Show me @re..."
+# Your app:
+# 1. Uses client to read: docs://documents
+# 2. Gets list: ["report.pdf", "requirements.md", ...]
+# 3. Filters to matches: ["report.pdf", "requirements.md"]
+# 4. Shows autocomplete suggestions
+```
+
+### Use Case 3: File Browser
+
+```python
+# User clicks "Browse files"
+# Your app:
+# 1. Uses client to read: docs://documents (direct resource)
+# 2. Shows: report.pdf, deposition.md, etc.
+# 3. User selects report.pdf
+# 4. Your app reads: docs://documents/report.pdf (templated resource)
+# 5. Shows preview/content
+```
+
+### Use Case 4: Metadata Queries
+
+```python
+@mcp.resource("docs://metadata", mime_type="application/json")
+def get_metadata() -> dict:
+    return {
+        "total_documents": len(docs),
+        "documents": list(docs.keys()),
+        "last_updated": "2025-01-15",
+        "total_size_bytes": sum(len(d) for d in docs.values())
+    }
+```
+
+---
+
+## Key Differences: Resources vs Tools
+
+When deciding between resources and tools, ask:
+
+**Use Resources if:**
+- ✅ You're exposing data (reading)
+- ✅ The operation is read-only
+- ✅ Data is context for Claude (mention feature)
+- ✅ Multiple clients need the same data
+- ✅ You want automatic serialization
+
+**Use Tools if:**
+- ✅ You're performing actions
+- ✅ State changes (create, update, delete)
+- ✅ Client decides when to call
+- ✅ Complex logic with side effects
+- ✅ Requires parameter validation
+
+---
+
+## Combining Resources and Tools
+
+Most servers use **both** resources and tools:
+
+```python
+@mcp.tool(
+    name="edit_document",
+    description="Edit a document"
+)
+def edit_document(doc_id: str, old_str: str, new_str: str):
+    """Tool: Modifies document state."""
+    if doc_id not in docs:
+        raise ValueError(f"Doc {doc_id} not found")
+    docs[doc_id] = docs[doc_id].replace(old_str, new_str)
+    return docs[doc_id]
+
+@mcp.resource(
+    "docs://documents/{doc_id}",
+    mime_type="text/plain"
+)
+def fetch_doc(doc_id: str) -> str:
+    """Resource: Exposes document data."""
+    if doc_id not in docs:
+        raise ValueError(f"Doc {doc_id} not found")
+    return docs[doc_id]
+```
+
+**Complete flow:**
+```
+1. Tool `edit_document` → Modifies document
+2. Resource `docs://documents/{doc_id}` → Fetches updated content
+3. Client shows updated content to user
+```
+
+---
+
+## Error Handling
+
+Resources use the same error handling as tools:
+
+```python
+@mcp.resource("docs://documents/{doc_id}", mime_type="text/plain")
+def fetch_doc(doc_id: str) -> str:
+    if doc_id not in docs:
+        # Raise ValueError for meaningful error
+        raise ValueError(f"Doc with id {doc_id} not found")
+    
+    if not doc_id.endswith(('.pdf', '.md', '.txt')):
+        # Validate format
+        raise ValueError(f"Unsupported document format: {doc_id}")
+    
+    return docs[doc_id]
+```
+
+When an error is raised:
+1. MCP Server catches the exception
+2. Returns error to client
+3. Client sees meaningful error message
+4. Claude can inform user or try alternative approach
+
+---
+
+## Summary: Resources Benefits
+
+✅ **Clean API** — Define once, use everywhere  
+✅ **Automatic Serialization** — SDK handles conversion  
+✅ **MIME Type Hints** — Clients understand data format  
+✅ **Parameter Parsing** — URIs become function arguments  
+✅ **Error Handling** — Exceptions become error messages  
+✅ **Read-Only Semantics** — Clear intent vs tools  
+✅ **Inspector Testing** — Test without client code  
+
+Resources provide a clean way to make data available to MCP clients, enabling features like document mentions, file browsing, autocomplete, or any scenario where you need to fetch information from your server.
+
+---
+
+## Next: Combining with Client
+
+Once resources are defined, MCP clients can:
+1. List available resources
+2. Request resource data with URIs
+3. Use returned data in their applications
+4. Build features like document mentions and autocomplete
+
+Resources and tools together form the complete MCP server API.
+
+---
+
 ## Next: Connecting the MCP Client
 
 Once the server is running, the MCP client connects to it and:
