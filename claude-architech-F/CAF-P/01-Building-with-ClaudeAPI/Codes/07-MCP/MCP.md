@@ -2329,6 +2329,213 @@ Together, these three features create a complete API for AI applications.
 
 ---
 
+# MCP Server Primitives: The Complete Picture
+
+## Understanding Control Flow
+
+MCP has three core primitives, each controlled by a different actor:
+
+### **Tools** — Model-Controlled
+
+```
+Claude decides when to call these
+    ↓
+Results are used by Claude
+    ↓
+Used for: Giving additional functionality to Claude
+```
+
+**Who controls?** **Claude** (the AI model)
+
+**When called?** When Claude decides they're useful
+
+**Who uses results?** Claude uses them to answer questions
+
+**Examples:**
+- Edit documents
+- Trigger builds
+- Send emails
+- Fetch real-time data
+
+**Example flow:**
+```
+User: "Update the report to include 2024 data"
+    ↓
+Claude: "I need to read the report and edit it"
+    ↓
+Claude calls: read_document() → edit_document()
+    ↓
+Claude: "Done! I've updated the report."
+```
+
+---
+
+### **Resources** — App-Controlled
+
+```
+Our app decides when to call these
+    ↓
+Results are used primarily by our app
+    ↓
+Used for: Getting data into our app, Adding context to messages
+```
+
+**Who controls?** **Your application**
+
+**When called?** When your app logic decides it needs data
+
+**Who uses results?** Your app uses them (optionally passes to Claude)
+
+**Examples:**
+- Fetch document content for display
+- List available files for autocomplete
+- Get metadata for context
+- Search results for mentions (@document)
+
+**Example flow:**
+```
+User types: "Summarize @report.pdf"
+    ↓
+App detects: @report.pdf mention
+    ↓
+App calls: read_resource("docs://documents/report.pdf")
+    ↓
+App gets: Document content
+    ↓
+App injects into prompt to Claude
+    ↓
+Claude: "Here's the summary..."
+```
+
+---
+
+### **Prompts** — User-Controlled
+
+```
+The user decides when to use these
+    ↓
+Used for: Workflows to run based on user input
+    ↓
+Like: Slash command, button click, or menu option
+```
+
+**Who controls?** **The user/your app**
+
+**When called?** When user explicitly selects/requests (via `/command`, button, menu)
+
+**Who uses results?** Claude uses the prompt instructions
+
+**Examples:**
+- `/format document.txt` — Format to markdown
+- `/analyze build-123` — Analyze for failures
+- `/explain config.yml` — Explain configuration
+- `/research topic` — Research using documents
+
+**Example flow:**
+```
+User: /format report.pdf
+    ↓
+App detects: User selected format command
+    ↓
+App calls: get_prompt("format", {"doc_id": "report.pdf"})
+    ↓
+App sends prompt messages to Claude
+    ↓
+Claude follows prompt: "Format this as markdown"
+    ↓
+Claude calls tools as needed to complete task
+```
+
+---
+
+## Control Flow Comparison
+
+| Aspect | Tools | Resources | Prompts |
+|--------|-------|-----------|---------|
+| **Who controls?** | Claude (AI Model) | Your App | User/App |
+| **When called?** | When Claude decides | When app needs data | When user requests |
+| **Who uses result?** | Claude | Your app (context/display) | Claude (as instructions) |
+| **Integration with Claude?** | Direct (tool use) | Indirect (context) | Direct (instructions) |
+| **Decision maker** | AI | Application logic | Human/UI |
+| **Used for** | Additional functionality | Data fetching | Guided workflows |
+
+---
+
+## Decision Tree: Which to Use?
+
+```
+Does Claude need to DO something?
+├─ YES → Use TOOL (Claude decides when to call)
+│   Example: edit_document, trigger_build
+│
+└─ NO → Do you need DATA?
+   ├─ YES → Use RESOURCE (Your app decides when to fetch)
+   │   Example: get_document, list_files
+   │
+   └─ NO → Is there a USER WORKFLOW?
+      └─ YES → Use PROMPT (User triggers via /command)
+          Example: /format, /analyze, /summarize
+```
+
+---
+
+## Real-World Scenario: Build System MCP
+
+Let's see how all three work together:
+
+```python
+# TOOLS - Claude can trigger builds
+@mcp.tool(name="trigger_build")
+def trigger_build(branch: str) -> str:
+    """Claude decides when to trigger"""
+    return run_build(branch)
+
+# RESOURCES - App fetches status
+@mcp.resource("builds://current/{branch}")
+def get_build_status(branch: str) -> dict:
+    """App decides when to check status"""
+    return get_latest_build(branch)
+
+# PROMPTS - User runs workflows
+@mcp.prompt(name="debug_failure")
+def debug_prompt(build_id: str) -> list[base.Message]:
+    """User explicitly asks to debug"""
+    return [base.UserMessage(f"Debug build {build_id}...")]
+```
+
+**User interaction:**
+```
+User: /debug_failure 456
+    ↓
+App gets prompt (USER CONTROLS)
+    ↓
+Claude follows instructions: "Analyze this build failure"
+    ↓
+Claude calls: trigger_build("main") (CLAUDE CONTROLS)
+    ↓
+Your app fetches: get_build_status("main") (APP CONTROLS)
+    ↓
+Claude gets all info, provides analysis
+```
+
+---
+
+## Key Insight
+
+The three primitives solve **who decides**:
+
+- **Tools** answer: "What should Claude be able to do?"
+- **Resources** answer: "What data should my app have access to?"
+- **Prompts** answer: "What workflows should users be able to trigger?"
+
+Each is controlled by a different actor, making MCP flexible for any architecture.
+
+---
+
+## Next: Connecting the MCP Client
+
+---
+
 ## Next: Connecting the MCP Client
 
 Once the server is running, the MCP client connects to it and:

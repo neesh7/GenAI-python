@@ -269,4 +269,60 @@
 
 ---
 
-*113 questions across fundamentals, streaming, prompt engineering, evaluation, tool use, RAG, extended thinking, vision, PDF processing, citations, multi-turn conversations, and document comparison — directly tied to the implementations in this repo.*
+## Section 18: Prompt Caching
+
+**Conceptual**
+114. What is the core problem that prompt caching solves? Why is it necessary?
+115. Explain the difference between content that gets cached and content that gets processed fresh in each request.
+116. What is a "cache breakpoint" and how many can you have per request?
+117. Why must cached content be at least 1024 tokens? What's the problem with caching tiny requests?
+118. What does it mean that "cache is identity-based"? What happens if you change one character?
+119. How long does the cache persist? What happens when it expires?
+120. What is the cost difference between `cache_creation_input_tokens` and `cache_read_input_tokens`?
+121. Why is caching system prompts and tool definitions more valuable than caching user questions?
+
+**Practical**
+122. Write code to cache a system prompt using the longhand format with `cache_control`.
+123. Write code to cache tool definitions by cloning the tools list and adding `cache_control` to the last tool.
+124. Design a caching strategy for a legal document analyzer that processes 50 questions about the same 500-page document. What gets cached? What doesn't?
+125. Calculate cost savings: System (5K) + Tools (1.7K) + Document (20K) + 50 questions (500 each). Without vs with caching?
+126. How would you detect whether a cache hit actually occurred? What metrics would you monitor?
+127. A user reports that caching isn't saving money. Walk through your debugging approach.
+
+---
+
+## Section 19: Files API & Code Execution
+
+**Conceptual**
+128. What is the Files API and how is it different from base64 encoding files in messages?
+129. Why are Files API and Code Execution designed to work together?
+130. What is the Docker environment in which code execution runs? What are its constraints?
+131. Why can't Claude's code execution make external API calls or access the network?
+132. When Claude executes code multiple times in one response, what does that mean? Is it iteration?
+133. What types of content blocks appear when Claude uses code execution?
+134. Name three things you can do with Files API + Code Execution that would be impractical otherwise.
+135. What is a `code_execution_output` block and what does it contain?
+
+**Practical**
+136. Write code to upload a CSV file using the Files API and get back a file ID.
+137. Write a request that includes a file ID reference (not base64) and enables code execution.
+138. Design a workflow for analyzing a 100MB dataset: upload → request analysis → download results. Walk through each step.
+139. You want Claude to create a visualization (plot) from data. How do you retrieve the generated plot file?
+140. Build a practical example: Upload `streaming_churn.csv`, ask Claude to identify churn drivers and create visualizations. Show the complete code.
+141. What limitations would prevent you from using Files API + Code Execution for real-time stock price analysis?
+142. How would you handle a case where the code execution fails? Can Claude iterate and fix the code?
+
+---
+
+## Section 20: Architecture & Best Practices
+
+**Conceptual**
+143. When should you use caching vs when is it not worth the complexity?
+144. How would you choose between: (a) direct PDF analysis, (b) RAG, (c) Files API + code execution for document processing?
+145. For a production system serving 1000 concurrent users, what are the cost implications of each feature (streaming, tool use, caching)?
+146. Design a modular API client that supports: streaming, tools, caching, and code execution. What are the core abstractions?
+147. How would you add observability to a system using all of Claude's features? What metrics matter most?
+
+---
+
+*147 questions across fundamentals, streaming, prompt engineering, evaluation, tool use, RAG, extended thinking, vision, PDF processing, citations, multi-turn conversations, document comparison, prompt caching, files API, code execution, and architecture — directly tied to the implementations in this repo.*
