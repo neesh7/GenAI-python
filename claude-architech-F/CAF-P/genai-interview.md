@@ -325,4 +325,66 @@
 
 ---
 
-*147 questions across fundamentals, streaming, prompt engineering, evaluation, tool use, RAG, extended thinking, vision, PDF processing, citations, multi-turn conversations, document comparison, prompt caching, files API, code execution, and architecture — directly tied to the implementations in this repo.*
+## Section 21: Agents & Workflows
+
+**Conceptual**
+
+148. What is the fundamental difference between a workflow and an agent? When would you choose one over the other?
+
+149. Explain the evaluator-optimizer workflow pattern. Walk through the three components and give a practical example.
+
+150. What is a parallelization workflow and when is it more effective than a single complex prompt? Give an example with at least 3 parallel sub-tasks.
+
+151. Describe the chaining workflow pattern. Why does breaking a task into sequential steps often produce better results than trying to do everything in one prompt?
+
+152. What is a routing workflow and how does it differ from the other three patterns? When would you use it?
+
+153. In agent design, why are abstract tools better than highly specialized tools? Give an example with both approaches.
+
+154. What is environment inspection and why is it critical for agents? How would you implement it for file operations vs UI interactions?
+
+155. A user asks Claude to write an article with 5 specific constraints (no AI mention, no emojis, no clichés, professional tone, technical content). Would you use a workflow or agent? Why?
+
+156. You're building a video creation system that needs to handle 10 different content types. Would parallelization, routing, or chaining be more appropriate? Justify your choice.
+
+157. Compare the reliability, predictability, and testability of workflows vs agents. What are the trade-offs?
+
+158. When designing agent tools, what principle should guide your tool selection? What mistakes would you avoid?
+
+**Practical**
+
+159. Design a workflow for a legal document analyzer that: (1) extracts key clauses, (2) grades contract quality, (3) iterates if quality is low. Name the pattern and describe each step.
+
+160. A material designer app evaluates whether parts are suitable for metal, polymer, ceramic, composite, elastomer, or wood. Design this as a parallelization workflow. What would the final aggregation step look like?
+
+161. You're asked to improve Claude's performance on a long prompt that keeps violating certain constraints. Design a chaining solution with at least 2 steps.
+
+162. Build a routing system that categorizes customer support requests into: Billing, Technical, Account, or Returns. Each category gets a specialized handling pipeline. Describe the categorization step and one specialized pipeline.
+
+163. You have an agent with these tools: `bash`, `read`, `write`, `edit`, `glob`, `grep`. A user asks: "Refactor all functions in src/ to use async/await." Walk through how Claude would use these basic tools to accomplish a complex task.
+
+164. Design an environment inspection strategy for an agent that generates and modifies code. What would it need to verify after each action?
+
+165. Write pseudo-code for a chaining workflow that: (1) generates content, (2) revises based on specific criteria, (3) validates against requirements. What does the revision step look like?
+
+166. Your workflow has these steps: analyze → plan → implement → test. Between which steps would you add non-LLM processing? Why?
+
+167. A user asks "Plan my vacation" (agent) vs "Convert this image to a 3D model" (workflow). Explain why each is appropriate for its approach.
+
+168. Compare these two approaches: (A) Single complex prompt asking Claude to evaluate 3 marketing strategies, (B) Parallelization with 3 separate evaluation prompts then aggregation. What are the pros/cons?
+
+**Advanced Scenarios**
+
+169. You have an agent with tools for database queries, API calls, and file operations. The agent is supposed to help with data analysis. Why is environment inspection critical here, and what should it verify after each tool call?
+
+170. Design a hybrid system that uses a routing workflow to categorize requests, then deploys specialized agents for unpredictable request types within each category. How would you structure this?
+
+171. Your parallelization workflow returns conflicting recommendations. Design a resolution strategy using another Claude call. How would you present the conflicting results?
+
+172. A chaining workflow has 5 sequential steps. Step 3 sometimes fails. How would you detect the failure and implement recovery? Should you loop back or redesign the workflow?
+
+173. You're optimizing a workflow for cost. Which steps benefit most from prompt caching? Why?
+
+---
+
+*173 questions across fundamentals, streaming, prompt engineering, evaluation, tool use, RAG, extended thinking, vision, PDF processing, citations, multi-turn conversations, document comparison, prompt caching, files API, code execution, architecture, and agents & workflows — directly tied to the implementations in this repo.*
