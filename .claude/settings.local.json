@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python _build_scenarios.py)"
+      "Bash(python _build_scenarios.py)",
+      "Bash(python reorganize.py)"
     ]
   }
 }

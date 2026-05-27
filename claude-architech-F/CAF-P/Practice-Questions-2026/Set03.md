@@ -1,96 +1,11 @@
-Anthropic Claude Certified Architect - 3 Full Practice Exams
-Course image
-Practice Test 3: Practice Test 3: Claude Certified Architect Foundations (v2.0)
-Course content
-Start
-Practice Test 1: Practice Test 1: Claude Certified Architect Foundations (v2.0)
-Start
-Practice Test 2: Practice Test 2: Claude Certified Architect Foundations (v2.0)
-Start
-Practice Test 3: Practice Test 3: Claude Certified Architect Foundations (v2.0)
-information alert
-Schedule learning time
-Learning a little each day adds up. Research shows that students who make learning a habit are more likely to reach their goals. Set time aside to learn and get reminders using your learning scheduler.
-Master all 5 CCA-F domains with 180 scenario-based questions, detailed explanations, and links to official documentation
-Rating: 4.4 out of 5
-4.4
-156 ratings
-5,578
-Students
-180 questions
-Total
-Last updated April 2026
-English
-What you'll learn
-Choose the right agentic architecture patterns, including coordinator-subagent designs, loop control flow, and escalation strategies
-Evaluate MCP tool and resource designs, distinguishing effective patterns from common anti-patterns tested on the exam
-Configure Claude Code for team workflows using markdown hierarchy, custom commands, plan mode, and MCP integration
-Apply prompt engineering and structured output techniques such as few-shot prompting, prompt chaining, and JSON schemas
-Diagnose context management issues in multi-turn and multi-agent systems using summarization, scratchpad, and session tools
-Identify your weak areas across all five exam domains so you can focus your remaining study time before the real exam
-Description
-This course contains the use of artificial intelligence.
+# Practice Exam Set 3 - Organized by Domain
 
-Are you preparing for the Claude Certified Architect - Foundations certification? These three full-length practice exams are the most thorough preparation resource available, designed to match the real exam's format, difficulty, and domain coverage as closely as possible.
+This document organizes the practice exam questions by domain instead of sequential order.
+Questions within each domain maintain their original order (Q1, Q2, Q3, etc.)
 
-What makes these practice exams different?
+---
 
-Every question in these exams is scenario-based, just like the real certification. You won't find simple factual recall questions here. Instead, each question places you in a realistic production context and asks you to make the kind of architectural judgment calls that working solution architects face every day: choosing between orchestration patterns, designing tool interfaces, configuring Claude Code workflows, engineering reliable prompts, and managing context windows effectively.
-
-Realistic exam structure and domain distribution:
-
-Each practice exam contains 60 multiple-choice questions with 1 correct answer and 3 plausible distractors
-
-Questions follow the exact domain weightings from the official exam guide: Agentic Architecture & Orchestration (27%), Tool Design & MCP Integration (18%), Claude Code Configuration & Workflows (20%), Prompt Engineering & Structured Output (20%), and Context Management & Reliability (15%)
-
-Each exam randomly selects 4 of 6 scenarios from the exam guide (Customer Support Resolution Agent, Code Generation with Claude Code, Multi-Agent Research System, Developer Productivity with Claude, Claude Code for Continuous Integration, and Structured Data Extraction), matching the real exam's scenario selection process
-
-Incorrect answer choices include realistic anti-patterns that someone with incomplete knowledge might choose, testing your ability to distinguish best practices from common mistakes
-
-Detailed explanations that teach, not just test:
-
-After each question, you'll receive a thorough explanation covering why the correct approach works, why each distractor fails, and the underlying architectural principle at play. Explanations include direct links to official Anthropic documentation so you can dive deeper into any topic where you need more preparation.
-
-Built with quality controls:
-
-Every question was validated against 11 quality criteria, including technical accuracy verification against the official exam guide, answer length parity checks (so the correct answer never stands out), topic scope compliance with the exam guide's in-scope and out-of-scope lists, and verification that no invented features or APIs appear in any answer choice. Questions are also checked for duplication across all three exams to maximize the breadth of topics covered.
-
-These practice exams are an ideal complement to the free preparation courses offered by Anthropic. If you've completed the coursework and want to validate your readiness before sitting for the real certification, these exams will show you exactly where you stand and where to focus your remaining study time.
-
-Who this course is for:
-Solution architects and developers preparing to take the Claude Certified Architect - Foundations certification exam
-Engineers who have completed Anthropic's free certification preparation courses and want to validate their readiness before the real exam
-Developers with 6+ months of experience building production applications with Claude APIs, the Agent SDK, Claude Code, or MCP who want structured exam practice
-Technical leads responsible for designing Claude-based systems who want to benchmark their knowledge of orchestration patterns, tool design, and context management best practices
-Anyone who has reviewed the official exam guide and wants realistic, scenario-based practice that closely mirrors the actual certification exam format
-Instructor
-Sundog Education by Frank Kane
-Teaching one million learners ML, AI, AWS, and Data Eng.!
-Sundog Education's mission is to make highly valuable career skills in data engineering, data science, generative AI, AWS, and machine learning accessible to everyone in the world. Our consortium of expert instructors shares our knowledge in these emerging fields with you, at prices anyone can afford. 
-
-Sundog Education is led by Frank Kane and owned by Frank's company, Sundog Software LLC. Frank spent 9 years at Amazon and IMDb, developing and managing the technology that automatically delivers product and movie recommendations to hundreds of millions of customers, all the time. As an Amazon “bar raiser,” he held veto authority over hiring decisions across the company, interviewed over 1,000 candidates, and hired and managed hundreds. He holds 26 issued patents in the fields of distributed computing, data mining, and machine learning. In 2012, Frank left to start his own company, Sundog Software, which has taught over one million students around the world about machine learning, data engineering, and managing engineers.
-
-Requirements
-Familiarity with Claude and the Anthropic API (how to send messages, use tools, and work with structured output)
-Completion of (or equivalent knowledge to) the free certification preparation courses available at Anthropic's certification portal
-Review of the official Claude Certified Architect - Foundations Exam Guide
-Basic understanding of the Claude Agent SDK, Model Context Protocol (MCP), and Claude Code concepts
-Hands-on experience building applications with Claude is strongly recommended; the exam tests practical judgment, not just conceptual knowledge
-Get the app
-About us
-Help and Support
-Terms
-Privacy policy
-Sitemap
-Accessibility statement
-© 2026 Udemy, Inc.
-Practice Test 3: Practice Test 3: Claude Certified Architect Foundations (v2.0)
-Practice Test 3: Claude Certified Architect Foundations (v2.0) - Results
-Attempt 1
-
-
-
-
+## Agentic Architecture & Orchestration (16 questions)
 
 Question 1
 Skipped
@@ -119,60 +34,9 @@ Learn more about agent orchestration patterns in the Agent SDK documentation and
 
 Domain
 Agentic Architecture & Orchestration
-Question 2
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your pilot review for database migration pull requests produces uneven feedback. Claude catches obvious syntax issues, but misses risks such as rollback safety, data retention, backward compatibility, and fixture setup because the team has not yet clarified what a good review should cover. You need to improve the workflow before enabling required CI checks. What should you do next?
-Correct answer
-Run an interview-style refinement pass where Claude asks maintainers targeted questions, then fold clarified criteria into the CI review prompt.
-Explanation
-This is the best next step because the problem is not just prompt wording, it is unclear requirements. Having Claude ask targeted questions helps surface assumptions and review criteria the team may not have considered before the CI workflow becomes mandatory.
-Proceed with required CI enforcement now, using developer complaints from failed builds to discover missing criteria.
-Explanation
-Turning on enforcement before clarifying criteria risks blocking valid pull requests and eroding trust in the CI review. Developer complaints are useful feedback, but relying on production friction as the primary discovery mechanism is a reactive anti-pattern.
-Create several examples from previous clean migrations, then require Claude to imitate those comments exactly during review.
-Explanation
-Examples can improve formatting and consistency, but clean migrations may not expose the edge cases the review must catch. Requiring exact imitation can also overfit the review behavior instead of helping the team discover missing decision criteria.
-Add a broad instruction to be extremely thorough, then suppress review comments unless Claude reports high confidence.
-Explanation
-Vague instructions such as being thorough do not define which migration risks matter or how to classify them. Self-reported confidence is not a reliable substitute for explicit criteria, and it can still miss important issues or suppress useful findings.
-Overall explanation
-Correct approach: When the team has not yet clarified the important criteria, an interview-style refinement pass is a strong fit. Claude can ask maintainers targeted questions about rollback behavior, compatibility guarantees, fixture expectations, data retention, and other domain-specific risks, then those answers can be converted into explicit CI review guidance.
 
-Underlying principle: Iterative refinement works best when the refinement method matches the failure mode. If Claude is missing issues because requirements are underspecified, the priority is to surface and structure the missing requirements before enforcing the workflow.
+---
 
-Why the alternatives fail: Vague instructions such as be thorough and confidence-based filtering do not create concrete review criteria. Few-shot examples are useful for format and ambiguous-case handling, but imitating clean examples will not reliably uncover hidden edge cases. Enabling required checks before criteria are stable creates avoidable false positives and developer distrust.
-
-For more on Claude Code workflows and prompt iteration practices, see Claude Code Overview and Prompt Engineering.
-
-Domain
-Claude Code Configuration & Workflows
-Question 3
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. Your team uses the system to investigate an unfamiliar legacy repository that powers citation extraction. After several hours, the coordinator starts answering follow-up questions with generic claims about "typical pipeline patterns" and contradicts earlier discoveries about specific classes and data flows. The earlier discoveries were recorded only in long conversation turns mixed with verbose Read, Grep, and test outputs. What change would most effectively preserve accurate findings for later questions?
-Add a final synthesis subagent that summarizes the entire conversation only after answers begin becoming inconsistent.
-Explanation
-Waiting until inconsistency appears is reactive and risks losing important details before they are captured. A one-time summary of the entire conversation can also compress away exact class names, file paths, and data-flow facts.
-Correct answer
-Have each exploration subagent write key findings to scratchpad files at known paths, and require later prompts to reference them.
-Explanation
-Scratchpad files create durable state outside the shrinking or noisy conversation context. Requiring later prompts to reference those files helps the coordinator reuse exact prior findings instead of relying on degraded conversational memory.
-Increase the coordinator's context budget and retain every verbose tool output in conversation history for later retrieval.
-Explanation
-A larger context budget delays the problem but does not solve context degradation or attention dilution. Keeping every verbose tool output increases noise and makes important findings harder to retrieve reliably.
-Ask the coordinator to answer from memory unless uncertain, then rerun broad repository searches for missing details.
-Explanation
-Self-assessed uncertainty is not a reliable trigger for recovering missing context. Broad searches also waste time and may produce inconsistent rediscoveries instead of preserving the exact findings already established.
-Overall explanation
-Durable exploration state is essential during long codebase investigations because conversational context accumulates noisy tool results and eventually degrades. Having agents maintain scratchpad files with specific findings, file paths, class names, dependency relationships, and open questions gives later prompts a stable reference point outside the volatile conversation history.
-
-The underlying principle is to separate working memory from persistent state. Conversation history is useful for immediate coherence, but scratchpad files preserve exact discoveries across long sessions, context compaction, and subagent handoffs.
-
-Simply increasing context or retaining all tool output is an anti-pattern because it increases attention burden and can worsen lost-in-the-middle behavior. Relying on the coordinator's memory or uncertainty estimates is also fragile, while late conversation-wide summarization can omit the exact repository facts needed for accurate follow-up answers.
-
-For related practices, review Claude Code Overview and Agent SDK.
-
-Domain
-Context Management & Reliability
 Question 4
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A customer writes: "I need a refund for a damaged item, I was charged twice for another order, and I cannot access my account email." In testing, the agent often resolves only the first issue it investigates, then closes the case with an incomplete answer. When instructed to "handle everything," it sometimes mixes order details across issues or gives three disconnected replies. What workflow design best improves first-contact resolution for this pattern?
@@ -200,351 +64,9 @@ Learn more about agentic orchestration and tool-based workflows in the Agent SDK
 
 Domain
 Agentic Architecture & Orchestration
-Question 5
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. While updating refund-policy handling, you ask Claude Code to change a guard clause in a large tool adapter file. The attempted edit fails because the selected text appears in several similar handlers for returns, billing credits, and refunds. You need only the refund handler changed without altering adjacent cases. What should you do next?
-Run Bash with a broad search-and-replace command targeting the repeated text throughout the support module.
-Explanation
-A broad search-and-replace is an anti-pattern for non-unique code snippets because it maximizes the chance of unintended edits. It bypasses the file-level context needed to preserve unrelated handlers that happen to share similar text.
-Use Grep to locate all duplicates, then ask Claude to modify every matching snippet for consistency.
-Explanation
-Grep is useful for finding content, but changing every duplicate is not justified when only the refund handler should change. This would spread a targeted policy update into unrelated return or billing logic and create avoidable regressions.
-Correct answer
-Load the full file with Read, identify the intended refund block, then Write the complete corrected file.
-Explanation
-When a targeted edit cannot uniquely identify the text to replace, inspecting the full file provides the surrounding context needed to make a safe change. Writing the complete corrected file avoids accidentally modifying the wrong duplicate snippet while preserving the rest of the file intentionally.
-Keep retrying Edit with the same replacement until Claude chooses the correct matching occurrence automatically.
-Explanation
-Retrying the same ambiguous edit does not add new information or resolve the non-unique anchor problem. It risks repeated failure or an accidental change to the wrong occurrence if the tool cannot distinguish the intended location.
-Overall explanation
-Correct approach: When a targeted Edit operation fails because the anchor text is not unique, the reliable fallback is to use Read to inspect the full file and then Write the corrected complete file. This gives Claude enough context to locate the intended block and avoids changing similar code in unrelated handlers.
 
-Underlying principle: Built-in tools should be selected based on the operation's precision needs. Edit is appropriate for targeted modifications when the matching text is unique, while Read plus Write is safer when ambiguity prevents a reliable targeted edit.
+---
 
-Why the alternatives fail: Retrying the same ambiguous edit does not resolve the missing context. Using Grep to find duplicates can support investigation, but modifying every match violates the stated requirement to change only one handler. A broad Bash search-and-replace is especially risky because it performs mechanical changes without understanding which occurrence belongs to the refund path.
-
-Learn more about Claude Code workflows and tool-based code editing in the Claude Code Overview.
-
-Domain
-Tool Design & MCP Integration
-Question 6
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your CI review uses tool_use to produce a JSON finding object with required fields file_path, start_line, severity, owner_team, linked_ticket, and suggested_fix. In PRs that lack ownership or ticket metadata, reviews contain plausible but nonexistent owner teams and tickets, which downstream automation routes incorrectly. What schema change best addresses this while preserving useful findings?
-Keep all fields required and add stronger prompt wording telling Claude never to invent values from context.
-Explanation
-Stronger wording does not remove the schema pressure to populate fields that may be absent from the source. When a field is required, the model may still produce plausible values to satisfy the schema, especially when downstream parsing expects every field.
-Infer absent metadata from repository naming conventions so every finding contains complete routing information for automation.
-Explanation
-Inferring missing metadata from naming conventions is an anti-pattern because it converts weak assumptions into structured facts. This can route comments or tickets incorrectly and makes the output appear more certain than the evidence supports.
-Correct answer
-Redesign the schema so unavailable source-dependent fields are nullable or optional, with instructions to return null unless directly evidenced.
-Explanation
-This addresses the root cause by allowing the structured output to represent absence of evidence without forcing fabricated values. The model can still return valid findings while leaving fields like owner_team or linked_ticket empty when the PR does not provide that information.
-Reject any finding missing routing metadata before posting comments, ensuring only fully populated findings reach developers.
-Explanation
-Rejecting otherwise valid findings loses useful review signal simply because unrelated routing metadata is unavailable. The better design is to preserve the finding while explicitly representing missing source-dependent fields rather than discarding the entire result.
-Overall explanation
-Nullable or optional fields are the right schema design when source documents, diffs, or CI context may not contain every desired value. Tool use with JSON schemas can enforce syntactically valid structured output, but the schema should not force Claude to invent values for fields like owner_team or linked_ticket when the PR does not provide them.
-
-The underlying principle is to distinguish required facts needed for a valid finding from source-dependent metadata that may be absent. Required fields are appropriate for core review data such as file_path, severity, and suggested_fix when those are necessary to act on the finding. Optional or nullable fields let downstream automation handle missing information explicitly.
-
-Keeping all fields required and relying on stronger prompt wording creates pressure to fabricate. Inferring metadata from repository naming conventions is also unsafe because it turns heuristics into apparently authoritative structured data. Rejecting findings that lack routing metadata reduces false routes, but it also suppresses valid code review issues that developers still need to see.
-
-Learn more about structured output with tool use in Tool Use and broader prompting patterns in Prompt Engineering.
-
-Domain
-Prompt Engineering & Structured Output
-Question 7
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. A pipeline extracts insurance policy exclusions from packets containing the policy, riders, emails, and broker notes. The first pass captures detailed snippets, but a middle step condenses each packet into a short narrative before final JSON extraction. Audit reviewers find accurate-looking exclusions in final records, but they cannot determine which document or passage supports each exclusion, especially when riders override earlier policy language. What change best addresses this failure mode?
-Ask Claude to include citations only for exclusions it considers uncertain, keeping straightforward final records easier to read.
-Explanation
-Selective citation based on perceived uncertainty is an anti-pattern for audit workflows because confident-looking claims can still be wrong or unsupported. Provenance should be required for all extracted facts that downstream systems may rely on, not only for fields the model flags as uncertain.
-Increase the final synthesis context budget so Claude can reread all original packet documents before producing each JSON record.
-Explanation
-Providing more context at the final step does not guarantee that each extracted fact remains tied to its supporting passage. It also increases cost and attention burden, and it does not fix the provenance loss caused by the intermediate compression step.
-Append a packet-level bibliography to every final JSON record so reviewers can manually search likely source documents.
-Explanation
-A bibliography shows which documents were processed, but it does not connect individual exclusions to specific passages. Reviewers would still need to manually infer support, and conflicting or overriding language could remain ambiguous.
-Correct answer
-Change intermediate handoffs so each extracted fact carries its source document, location, and supporting excerpt into final synthesis.
-Explanation
-This preserves provenance at the same granularity as the extracted information, so downstream systems can trace each final field back to supporting evidence. It directly addresses the failure introduced by compression, where a summary keeps the conclusion but drops the source relationship needed for auditability.
-Overall explanation
-Correct approach: The pipeline should preserve provenance through every transformation by keeping each extracted fact paired with its source document, location, and supporting excerpt. This prevents the middle summarization step from flattening evidence into unsupported narrative conclusions.
-
-Underlying principle: Source attribution is commonly lost when findings are compressed without preserving claim-source relationships. In structured extraction systems, provenance should be part of the data contract, not a later presentation detail added after synthesis.
-
-A packet-level bibliography is insufficient because it lists possible sources without connecting specific JSON fields to evidence. Simply increasing the final context budget can worsen cost and attention issues while still failing to preserve field-level traceability. Selective citation based on model uncertainty is also unreliable, since confidence is not a substitute for evidence.
-
-For reliable downstream integration, design schemas and handoff formats that carry evidence metadata alongside extracted values, using nullable fields when information is absent rather than fabricating support. Learn more about structured tool outputs in Tool Use and prompt design patterns in Prompt Engineering.
-
-Domain
-Context Management & Reliability
-Question 8
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A new CI review prompt loads the same repository guidance for every pull request. Review comments for generated API clients and database migrations now cite React accessibility rules and frontend naming standards, creating noisy false positives. The repository already keeps file-type conventions in separate markdown snippets, and you want Claude Code to consider each snippet only when the reviewed files are relevant. What should you configure?
-Add every convention to root CLAUDE.md and instruct Claude to ignore sections unrelated to each pull request.
-Explanation
-This is an anti-pattern because it loads all guidance for every review and relies on the model to filter irrelevant sections. The noisy false positives already show that broad, always-loaded instructions are contaminating reviews for unrelated file types.
-Place directory-level CLAUDE.md files near current source folders and duplicate rules for generated or relocated files.
-Explanation
-Directory-level CLAUDE.md files can scope instructions by folder, but they are weaker when conventions need to follow file patterns across locations. Duplicating guidance for generated or relocated files creates maintenance drift and can reintroduce inconsistent review behavior.
-Correct answer
-Create focused .claude/rules/ files with YAML frontmatter paths globs targeting generated clients, migrations, and frontend files.
-Explanation
-Path-specific rule files are designed for conditional convention loading based on file paths. YAML frontmatter paths fields with glob patterns let Claude Code load only the relevant guidance for matching files, reducing irrelevant context and false positive review comments.
-Create separate project slash commands for each file type and require CI to choose one command before review.
-Explanation
-Project slash commands are useful for reusable workflows, but they are not the native mechanism for conditionally loading conventions by file path. This also moves responsibility into CI command selection, increasing orchestration complexity and risking mismatches when a pull request touches mixed file types.
-Overall explanation
-Path-specific rules are the right fit when Claude Code should load guidance only for files matching particular path patterns. Files in .claude/rules/ can use YAML frontmatter with paths glob patterns, which lets conventions activate conditionally instead of being injected into every CI review.
-
-The underlying tradeoff is precision versus broad context. Keeping all guidance in a root CLAUDE.md increases token usage and asks the model to ignore irrelevant rules, which is exactly how unrelated React guidance can leak into migration or generated-client reviews.
-
-Slash commands are better for invokable workflows, not automatic convention scoping by changed file. Directory-level CLAUDE.md files can help with folder-local standards, but duplicated rules are brittle when generated files, tests, or conventions span multiple locations.
-
-For more details on Claude Code memory and configuration patterns, see CLAUDE.md Configuration and the Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
-Question 9
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. After changing the pull request review prompt from "find all potential reliability issues" to "be conservative and include only actionable comments," the bot still flags defensive null checks as bugs and ordinary retry loops as performance defects. Developers dismiss more than half of its comments and say they cannot predict what the bot considers worth reporting. What change should you make next?
-Post all findings as non-blocking informational comments so developers can ignore false positives without changing review criteria.
-Explanation
-Making comments non-blocking reduces immediate workflow friction but does not improve precision. Developers still receive noisy feedback, which can erode trust in accurate findings over time.
-Require every finding to include a self-reported confidence score, then suppress comments below a configured confidence threshold.
-Explanation
-Self-reported confidence is not a reliable proxy for correctness or developer value. The bot may remain confidently wrong on ambiguous code patterns if the prompt still lacks clear reporting criteria.
-Add stronger wording that Claude must be extremely conservative and should only comment when it feels completely certain.
-Explanation
-This repeats the same weak pattern that already failed: relying on vague caution language. Terms like extremely conservative and completely certain do not tell the model which code patterns are reportable versus acceptable.
-Correct answer
-Replace broad caution language with concrete report and skip criteria for each review category, including representative true-positive and non-issue examples.
-Explanation
-General caution language does not define the actual decision boundary for what should be reported. Concrete category-specific criteria and examples make the review behavior more predictable and reduce false positives in the areas developers are dismissing.
-Overall explanation
-Broad caution instructions are not enough. Phrases like be conservative or only include actionable comments sound useful, but they do not define the boundary between a valid finding and an acceptable pattern. A stronger prompt should specify what to report and what to skip for each review category, with examples showing true positives and common non-issues.
-
-The underlying principle is that review prompts need operational criteria, not subjective intensity words. If defensive null checks are being flagged as bugs and ordinary retry loops as performance defects, the prompt should define when those patterns are actually problematic, such as unreachable logic, swallowed errors, unbounded retries, or incorrect fallback behavior.
-
-Increasing vague wording, filtering by self-reported confidence, or making all findings informational are anti-patterns because they do not fix the model's decision boundary. They may reduce perceived urgency, but they leave developers with noisy comments and inconsistent judgments. For more guidance on prompt specificity and examples, see Prompt Engineering.
-
-Domain
-Prompt Engineering & Structured Output
-Question 10
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A new GitHub Actions step invokes <code>claude "Review the changed files for regressions"</code> and then stalls until the CI timeout. The repository checkout is valid, and the same prompt works when a developer runs it manually in a terminal. What change should you make to the pipeline command?
-Redirect stdin from /dev/null so Claude Code cannot wait for additional input during the CI job.
-Explanation
-Redirecting stdin is a shell workaround, not the documented Claude Code interface for automated runs. It may change input behavior, but it does not put Claude Code into its intended non-interactive execution mode.
-Add --output-format json and --json-schema so the runner receives a parseable response without prompts.
-Explanation
-Structured output flags are useful when CI needs machine-parseable findings, such as inline pull request comments. They do not, by themselves, address the interactive execution behavior that causes the job to stall.
-Correct answer
-Run Claude Code with the -p or --print flag so it processes the prompt and exits after output.
-Explanation
-Claude Code is interactive by default, which is useful in a terminal but inappropriate for automated CI jobs. The -p or --print flag is the documented way to run Claude Code from scripts so it produces output and exits without waiting for further input.
-Append prompt instructions telling Claude to avoid follow-up questions and finish the review automatically.
-Explanation
-Prompt instructions are not a reliable way to control CLI process behavior in an automated pipeline. The hang is caused by how Claude Code is invoked, not by insufficient review instructions inside the prompt.
-Overall explanation
-Correct CI invocation: Claude Code is interactive by default, so automated runners should invoke it with -p or --print. This tells Claude Code to process the supplied prompt, write the result to standard output, and exit, which prevents CI jobs from waiting indefinitely for terminal interaction.
-
-Underlying principle: CI/CD pipelines require deterministic process behavior. Use documented command-line execution modes for automation rather than relying on shell workarounds or prompt wording to influence whether a process remains interactive.
-
-Why the other approaches fail: Redirecting stdin is an anti-pattern because it treats a CLI mode issue as a Unix stream issue. --output-format json and --json-schema are valuable for structured results, but they solve machine parsing, not interactive execution. Prompting Claude to avoid follow-up questions cannot reliably control whether the Claude Code CLI waits for input.
-
-Learn more in the Claude Code CLI documentation and the Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
-Question 11
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A researcher adds an internal corpus MCP server that exposes tools for searching licensed journals and exporting citation metadata. The coordinator uses it successfully on that researcher's laptop, but teammates running the same workflow see only the default tools and produce reports with weaker public web citations. The server needs to be part of the team's reproducible research setup without exposing credentials. What should you change?
-Describe the server in CLAUDE.md and instruct the coordinator to request those research tools by name.
-Explanation
-CLAUDE.md can provide instructions and project context, but it does not register MCP servers or make tools available. Naming unavailable tools in prompts is an anti-pattern because the agent cannot call tools that were not configured and discovered.
-Correct answer
-Define the shared server in the repository's .mcp.json, using environment variable placeholders for credentials rather than committed secrets.
-Explanation
-Project-scoped MCP configuration is the right fit for shared team tooling because it travels with the repository. Environment variable placeholders allow each environment to supply its own credentials without committing sensitive values.
-Add the server to each developer profile in ~/.claude.json, then document manual setup steps in the project README.
-Explanation
-User-level configuration is intended for personal or experimental MCP servers, not shared team tooling. This would preserve the current inconsistency because each developer must manually configure the server.
-Let each subagent call generic web search when MCP tools are unavailable, avoiding repository-level server configuration.
-Explanation
-Falling back to generic web search hides the configuration problem and degrades citation quality for licensed journal research. It also makes results depend on incidental tool availability rather than a reproducible team setup.
-Overall explanation
-Project-scoped MCP configuration is the appropriate choice when an MCP server is part of a shared repository workflow. A repository-level .mcp.json makes the server discoverable for everyone using the project, while environment variable placeholders let each developer or automation environment provide credentials safely.
-
-User-level configuration in ~/.claude.json is better suited to personal or experimental servers because it does not travel with the repository. Instructions in CLAUDE.md can guide behavior, but they cannot make unavailable MCP tools callable. Substituting generic web search is an anti-pattern because it masks misconfiguration and produces lower-quality, less reproducible research outputs.
-
-The underlying principle is scope configuration to the collaboration boundary: shared team integrations belong at project scope, while personal tools belong at user scope. Learn more in the Claude Code Overview and the MCP Overview.
-
-Domain
-Tool Design & MCP Integration
-Question 12
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A report-generation subagent must update a shared Markdown template used for final research reports. The template contains the same phrase, "TODO: add source summary," in several sections, and repeated attempts to make a targeted replacement keep failing because the match is not unique. What should you do next?
-Use Grep to locate every matching phrase, then replace all occurrences so the failed edit cannot recur.
-Explanation
-Grep is useful for finding content locations, but replacing every matching phrase ignores the requirement to update only the intended section. This would overcorrect the file and could damage other template sections that still need placeholders.
-Use Bash with a scripted search-and-replace command to bypass Edit and update the template automatically.
-Explanation
-A scripted replacement can be fast, but it does not solve the ambiguity unless the script is carefully constrained by inspected file context. Bypassing the safer file workflow risks making the same wrong replacement more quickly.
-Keep retrying Edit with broader surrounding text until one replacement succeeds without manually inspecting the full file.
-Explanation
-This is an anti-pattern because broader text does not guarantee the anchor is unique or that the correct section is changed. Repeated blind edits can accidentally modify the wrong occurrence and make the template less reliable.
-Correct answer
-Use Read to load the full template, modify the intended section, then Write the complete corrected file back.
-Explanation
-When a targeted edit cannot identify a unique match, loading the file and rewriting the complete corrected contents is the reliable fallback. This preserves control over exactly which repeated section changes, instead of depending on ambiguous text matching.
-Overall explanation
-Reliable file modification depends on choosing the right built-in tool pattern for the failure mode. When Edit cannot find a unique anchor because the same text appears multiple times, the safer fallback is to inspect the full file with Read, make the intended change in context, and replace the file using Write.
-
-The underlying tradeoff is precision versus convenience. Edit is efficient for targeted changes when the match text is unique, but repeated placeholders or boilerplate make targeted matching unreliable. In that case, full-file replacement gives the agent explicit control over which section changes.
-
-Blindly retrying broader edits, replacing every match, or using shell search-and-replace are anti-patterns when the problem is ambiguity. Those approaches may succeed mechanically while changing the wrong occurrence or damaging other parts of the report template.
-
-Learn more about Claude Code's development workflow and built-in tool usage in the Claude Code Overview.
-
-Domain
-Tool Design & MCP Integration
-Question 13
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your pipeline extracts obligations from vendor contracts, policy memos, and meeting notes into a consolidated compliance matrix. Reviewers find that when two sources support the same obligation with slightly different wording, final rows contain a polished obligation statement and a bibliography list, but no row-level evidence trail. Auditors reject several rows because they cannot verify which excerpts were merged into each statement. What should you change?
-Store the full input documents alongside the final matrix and instruct auditors to search them when evidence is needed.
-Explanation
-Keeping source documents is useful for audit storage, but it does not solve row-level traceability. Auditors still need to know which passages support each synthesized statement without redoing the extraction work manually.
-Choose the highest-confidence source for each obligation during deduplication and discard lower-confidence supporting excerpts before synthesis.
-Explanation
-Discarding supporting excerpts is an anti-pattern because it removes corroborating evidence and hides source diversity. Confidence scoring cannot replace provenance, especially when multiple sources jointly support a synthesized claim.
-Correct answer
-Require each extracted obligation to carry source excerpts and locations, then preserve and merge that evidence into each synthesized matrix row.
-Explanation
-This preserves provenance at the level where reviewers need it: each synthesized obligation row. When multiple sources support the same obligation, the system can merge the supporting evidence rather than reducing it to an unactionable bibliography.
-Add a final verification prompt asking Claude to reconstruct citations for each matrix row after synthesis is complete.
-Explanation
-Reconstructing citations after synthesis is unreliable because attribution may already have been lost in earlier steps. The model may infer plausible sources rather than preserve the actual evidence used to create each row.
-Overall explanation
-Correct approach: Multi-source synthesis needs provenance that survives every handoff. Each extracted obligation should include its supporting excerpt, document identifier, and location metadata, and the synthesis step should preserve and merge those evidence records into the final matrix row.
-
-Underlying principle: A final bibliography proves only that documents were consulted, not which passages support each synthesized claim. For downstream validation and audit workflows, attribution must be maintained as structured data rather than recreated from memory after the fact.
-
-Why the alternatives fail: Asking Claude to reconstruct citations after synthesis risks plausible but incorrect attribution. Storing full documents without row-level links pushes verification work onto auditors. Selecting only one high-confidence source discards useful corroboration and can hide uncertainty or source diversity.
-
-For related patterns, review Prompt Engineering and the broader Claude documentation at Claude API & SDK.
-
-Domain
-Context Management & Reliability
-Question 14
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During evaluation, the document analysis subagent sometimes initiates new web searches instead of analyzing the assigned PDFs, while the report generator occasionally rewrites evidence summaries before formatting them. Engineers added the extra tools to reduce coordinator round trips, but citation quality and role consistency have declined. What change best addresses the design issue?
-Keep the broad tool access, but add stronger prompts telling each subagent to avoid using tools outside its primary role.
-Explanation
-Prompt instructions can improve behavior, but they do not reduce the underlying tool selection burden or prevent role drift reliably. When tool availability itself is the problem, scoped tool access is more robust than asking agents not to use available tools.
-Correct answer
-Restrict each subagent to role-relevant tools, adding only narrow cross-role utilities for frequent simple checks like source metadata lookup.
-Explanation
-Scoped tool access keeps each subagent focused on its specialization and reduces tool selection confusion. Allowing only narrow cross-role utilities for common simple needs preserves efficiency without letting subagents take over responsibilities better handled by other agents or the coordinator.
-Move all tool access to the coordinator and require subagents to return plain text requests whenever they need information.
-Explanation
-Centralizing every tool call in the coordinator prevents misuse, but it creates unnecessary round trips for simple high-frequency checks. A better design keeps specialized tools with the appropriate subagents and allows narrow cross-role utilities where they provide clear value.
-Give all subagents the same complete tool list so each agent can independently choose the fastest path to completion.
-Explanation
-Providing every subagent with all tools is an anti-pattern because it increases decision complexity and encourages cross-specialization misuse. The observed web searching and evidence rewriting are exactly the kind of role drift caused by overly broad tool access.
-Overall explanation
-Scoped tool access improves reliability by matching each subagent's tools to its actual responsibility: document analysis tools for the document analyzer, synthesis tools for the synthesizer, and reporting tools for the report generator. When a subagent frequently needs a small adjacent capability, such as checking source metadata, a narrow cross-role utility can reduce latency without collapsing role boundaries.
-
-The underlying tradeoff is between autonomy and tool selection reliability. Giving every subagent every tool may seem flexible, but it increases decision complexity and causes agents to misuse tools outside their specialization. Moving every tool call to the coordinator overcorrects, increasing orchestration overhead even for simple repeated checks.
-
-Stronger prompts alone are also insufficient because they leave the confusing tool surface unchanged. The more reliable architecture constrains tool availability first, then uses descriptions and prompts to guide selection within the appropriate scope. Learn more about tool design and tool selection in Tool Use and about agent orchestration in the Agent SDK.
-
-Domain
-Tool Design & MCP Integration
-Question 15
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction tool captures payment_method using a JSON Schema enum of credit_card, ach, wire, and check. In validation logs, documents with wording like "paid through marketplace balance" or no stated payment method either fail enum validation or get coerced into one of the existing categories, which misleads downstream reporting. What schema change best handles these edge cases while preserving structured categories?
-Correct answer
-Extend the enum with unclear and other, plus a required detail field when other is selected.
-Explanation
-This preserves structured categories while giving the model valid outputs for ambiguous or novel cases. The unclear value handles missing or ambiguous source evidence, while other plus a detail field captures new categories without forcing an inaccurate existing label.
-Replace the enum with an unrestricted string so novel payment descriptions pass validation without schema changes.
-Explanation
-An unrestricted string reduces validation failures but removes the normalization benefits that downstream systems expect from structured categories. It also makes aggregation and quality checks harder because equivalent values can be expressed many different ways.
-Reject any document containing unfamiliar payment wording and route it directly to human review before extraction.
-Explanation
-Human review is appropriate for some high-risk ambiguous cases, but rejecting every unfamiliar wording is unnecessarily broad. The schema can represent uncertainty and extensible categories directly, allowing downstream workflows to decide which records need review.
-Force Claude to choose the closest existing enum value and add a confidence score for downstream filtering.
-Explanation
-Forcing the closest category creates misleading structured data when the source does not support any existing enum value. A confidence score may help review routing, but it does not fix the schema design problem or prevent inaccurate categorization.
-Overall explanation
-Schema design should represent real source uncertainty. When a field has known categories but source documents may contain missing, ambiguous, or novel values, the schema should not force the model into inaccurate labels. Adding unclear supports cases where the document does not provide enough evidence, while other plus a detail field preserves the original meaning for categories not yet modeled.
-
-The tradeoff is structure versus flexibility. A closed enum gives downstream systems consistent categories, but it needs safe escape hatches for production data variety. A fully unrestricted string is flexible but weakens validation, aggregation, and quality monitoring.
-
-Anti-patterns fail in different ways. Forcing the nearest enum value creates false precision and can corrupt analytics. Sending all unfamiliar wording to human review wastes reviewer capacity when the extraction can preserve uncertainty structurally. Confidence scores can complement review routing, but they are not a substitute for a schema that admits ambiguous and extensible cases.
-
-For further learning, see Anthropic's guidance on structured tool outputs in Tool Use and broader prompt and schema practices in Prompt Engineering.
-
-Domain
-Prompt Engineering & Structured Output
-Question 16
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. During a production incident review, logs show the message "Refund approval token missing" appears only after escalation handoffs. You need Claude Code to inspect the repository and identify every code path that emits or handles this message before changing anything. Which approach should you take first?
-Correct answer
-Use Grep to search repository contents for the exact error string and refund handler names, then Read matching files.
-Explanation
-Grep is the appropriate built-in tool for searching file contents, including exact error messages, function names, and import statements. Starting with content search narrows the investigation to relevant files before using Read to understand the surrounding code paths.
-Use Glob to find refund-related filenames, then review only those files and skip content searches across unrelated paths.
-Explanation
-Glob is useful for matching file paths or filename patterns, not for finding text inside files. Restricting review to refund-named files can miss handlers, shared middleware, escalation adapters, or constants stored under unrelated filenames.
-Use Edit to open likely refund modules one by one, searching manually before making targeted code changes.
-Explanation
-Edit is intended for targeted modifications using unique text matches, not for repository-wide investigation. Manually opening likely modules is slower and less reliable than searching all file contents for the known error text.
-Read every support-agent source file into context, then ask Claude to identify where the error originates.
-Explanation
-Reading every source file upfront wastes context and increases the risk of attention dilution. A targeted content search is more reliable because it locates the exact references before loading surrounding files.
-Overall explanation
-Grep is the right starting point when the investigation depends on text inside files, such as an exact error message, function name, import statement, or constant. Searching repository contents first identifies the smallest relevant set of files, then Read can be used to inspect those files in context before any changes are made.
-
-Glob and Read serve different purposes. Glob is useful for finding files by path or extension pattern, but it does not answer where a string appears inside code. Reading every file upfront is a context-management anti-pattern because verbose, irrelevant content can dilute attention and make later reasoning less reliable.
-
-Edit is not an investigation tool. It is best used after you know the specific file and unique text to change. For debugging a production symptom, the sound workflow is targeted discovery first, contextual reading second, modification last.
-
-Learn more about Claude Code and its built-in development workflow at Claude Code Overview.
-
-Domain
-Tool Design & MCP Integration
-Question 17
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your repository's root CLAUDE.md has grown to 1,200 lines after adding review criteria, testing standards, API conventions, deployment notes, and migration guidance. CI-invoked Claude Code now produces noisy feedback that blends unrelated standards, and teams frequently create conflicting edits when updating guidance for their area. What restructuring approach best improves maintainability while preserving shared repository behavior?
-Keep all guidance in root CLAUDE.md, but add stronger headings telling Claude to ignore sections unrelated to each pull request.
-Explanation
-Stronger headings may help readability, but the entire file still remains loaded as a large mixed-context instruction source. This is an anti-pattern because it relies on Claude selectively ignoring irrelevant guidance rather than reducing irrelevant context structurally.
-Correct answer
-Move narrowly scoped guidance into topic-specific files under .claude/rules/, leaving root CLAUDE.md with only universal CI review principles.
-Explanation
-Splitting a large instruction file into focused rule files improves maintainability by separating unrelated guidance into clear modules. Keeping only universal guidance in the root CLAUDE.md preserves shared repository behavior while reducing the chance that unrelated standards influence CI review output.
-Move the CI review checklist into ~/.claude/CLAUDE.md on the build runner to reduce repository instruction size.
-Explanation
-User-level CLAUDE.md files are scoped to a specific user or environment and are not shared through the repository. Putting CI review guidance there would make behavior depend on runner configuration rather than version-controlled project configuration, reducing reproducibility for the team.
-Copy the relevant paragraphs into each package's CLAUDE.md so every directory contains a complete local instruction set.
-Explanation
-Duplicating guidance across many directory-level files creates maintenance drift and increases the chance that different areas receive inconsistent standards. Directory-level CLAUDE.md files can be useful for local conventions, but copying complete instruction sets everywhere worsens the conflict and update problem described.
-Overall explanation
-Topic-specific modularization is the best fit when a repository-level CLAUDE.md becomes large, noisy, and hard to maintain. Moving focused guidance into files under .claude/rules/ lets teams organize standards such as testing, API conventions, and deployment guidance without forcing every concern into one monolithic memory file.
-
-The architectural principle is reduce irrelevant context while preserving shared configuration. A concise root CLAUDE.md can hold universal CI review expectations, while focused rule files make ownership and updates clearer. This improves maintainability and reduces accidental cross-application of unrelated guidance.
-
-Keeping one giant file with stronger headings is an anti-pattern because it asks Claude to ignore irrelevant material instead of structurally limiting what it must consider. Duplicating complete guidance across directory-level files creates drift, and moving shared CI instructions into ~/.claude/CLAUDE.md removes them from version-controlled project configuration.
-
-Learn more in CLAUDE.md Configuration and the Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
 Question 18
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. Last week, a long research investigation produced a draft report on a market topic. Since then, several source documents were replaced and the web index was refreshed. When the coordinator resumes the named investigation session, it repeatedly cites withdrawn documents and treats old search outputs as current, even after the user points out the updates. What should you do before continuing the report?
@@ -572,58 +94,9 @@ For related concepts on agent workflows and session management, see the Agent SD
 
 Domain
 Agentic Architecture & Orchestration
-Question 19
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A new CI job asks Claude Code to improve coverage for a data normalization utility. The first generated tests pass, but they miss null inputs, timezone boundary cases, and duplicate IDs. Follow-up prompts like "be more thorough" produce inconsistent additions and occasional regressions. What workflow should you use to make improvement more reliable?
-Ask Claude to assign confidence scores to each proposed test, then merge only cases above a fixed threshold.
-Explanation
-Self-reported confidence is not a reliable substitute for executing tests against defined expected behavior. A fixed confidence threshold can filter out useful cases or admit flawed ones without measuring actual correctness.
-Correct answer
-Create a targeted test suite for expected behavior and edge cases, then iterate by feeding Claude the specific failing results.
-Explanation
-This creates an objective feedback loop rather than relying on vague prompt refinement. Specific failing test results give Claude concrete evidence about what behavior is still incorrect, making each iteration focused and measurable.
-Have CI randomly rerun Claude Code until generated tests cover the missed cases, stopping after three unsuccessful attempts.
-Explanation
-Random reruns and arbitrary attempt limits are anti-patterns because they do not communicate what failed or why. They may eventually produce different output, but they do not create a disciplined improvement process.
-Rewrite the prompt to say be exhaustive and conservative, then accept only tests whose descriptions sound sufficiently precise.
-Explanation
-Vague instructions like exhaustive and conservative do not provide objective success criteria. Judging tests by whether their descriptions sound precise is a weak proxy for behavioral coverage and can still miss important edge cases.
-Overall explanation
-Test-driven iteration works because it gives Claude concrete, executable feedback. Instead of asking for generally better output, you define expected behavior and edge cases, run the tests, then provide the exact failures so Claude can make targeted corrections.
 
-The underlying principle is to replace subjective review with an objective feedback loop. CI is especially well suited for this because test output, stack traces, assertion messages, and failing inputs can be fed back into the next Claude Code pass.
+---
 
-Vague instructions such as "be exhaustive" or "be conservative" often fail because they do not specify which behaviors are missing. Self-reported confidence scores are also unreliable unless calibrated against real outcomes, and random reruns with arbitrary limits waste cycles without improving the information available to the model.
-
-For more background on iterative prompting and development workflows, see Claude Code Overview and Prompt Engineering.
-
-Domain
-Claude Code Configuration & Workflows
-Question 20
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A new MCP server exposes a working literature database tool that searches licensed journals and returns abstracts, DOI links, publication dates, and citation-ready source metadata. In test runs, the web-search subagent often uses general web search for peer-reviewed evidence, while the document-analysis subagent scans exported PDFs manually. The MCP tool appears in the available tool list, but its surfaced description is only "Search articles by query." What change should you make first?
-Add coordinator instructions requiring academic prompts to include the word literature so keyword matching routes agents correctly.
-Explanation
-Keyword routing is brittle and can fail when users phrase requests differently or when non-academic tasks mention similar terms. It bypasses the model's ability to choose tools based on semantic task fit and does not improve the tool's discoverability.
-Correct answer
-Rewrite the MCP tool description to specify coverage, accepted queries, returned citation metadata, and when agents should prefer it.
-Explanation
-Tool descriptions are the primary signal Claude uses when deciding whether a tool is relevant. Expanding the description with capabilities, inputs, outputs, and boundaries helps agents choose the literature database when its curated metadata is the best fit.
-Rename the tool to authoritative_research_supertool while leaving its inputs, outputs, and usage boundaries unchanged for stronger agent selection.
-Explanation
-A more dramatic name alone does not explain what the tool does, what it returns, or when to use it instead of alternatives. Ambiguous or promotional names can even increase misuse because the model still lacks operational boundaries.
-Remove web search and file-search tools from all research subagents so the literature database becomes the only retrieval path.
-Explanation
-Removing other tools may force usage, but it reduces agent flexibility and can break workflows that legitimately require web sources or local documents. The problem is unreliable selection of a useful MCP tool, not evidence that every other retrieval tool is inappropriate.
-Overall explanation
-Effective MCP adoption starts with clear tool descriptions. When an MCP tool is connected and works manually but agents prefer generic alternatives, the first fix is to make the tool's purpose, inputs, outputs, and selection boundaries explicit. In this case, describing licensed journal coverage, accepted query formats, DOI and citation metadata, and when to prefer the tool over web search gives Claude the information needed for reliable tool choice.
-
-The underlying principle is that MCP tools are still model-selected tools, so their descriptions function as the agent's interface contract. Restricting every other retrieval tool may create forced usage, but it harms legitimate workflows and masks the underlying selection problem. Keyword-based routing is an anti-pattern because it depends on phrasing rather than task semantics, and renaming without clarifying capabilities leaves the same ambiguity in place.
-
-For further reading, see MCP Tools and Anthropic's Tool Use documentation.
-
-Domain
-Tool Design & MCP Integration
 Question 21
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A user asks for a report comparing how proposed AI copyright regulations affect music licensing, film post-production, and book publishing in the United States and European Union. Test runs produce reports that mix jurisdictions, duplicate background sections, and leave some industry-specific risks unresolved because the coordinator sends the whole prompt to one research pass before synthesis. What workflow change best improves coverage and consistency?
@@ -651,166 +124,9 @@ For more on multi-agent orchestration and tool-driven agent workflows, see the A
 
 Domain
 Agentic Architecture & Orchestration
-Question 22
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extractor processes vendor contracts and outputs schema-valid records, but downstream reviewers report that obligation summaries vary from terse fragments to long paraphrases, evidence snippets sometimes include irrelevant surrounding text, and action_owner wording is inconsistent. The prompt already contains detailed field definitions and length guidance, but changes have not stabilized outputs. What should you do next?
-Set temperature to zero and rely on deterministic decoding to standardize all reviewer-facing extraction wording across documents.
-Explanation
-Lower temperature can reduce randomness, but it does not define what the correct output style should be. Deterministic decoding may consistently reproduce an undesirable pattern when the model has not been shown the expected format for varied source language.
-Expand the field descriptions with stricter prose rules for every obligation type, then ask Claude to be more consistent.
-Explanation
-The prompt already contains detailed field definitions and length guidance, so adding more prose is unlikely to solve the formatting drift. Vague consistency instructions are weaker than concrete demonstrations of the desired transformation and can add token overhead without clarifying edge cases.
-Reject any record whose summaries exceed a fixed word limit, then rerun the full document automatically.
-Explanation
-A fixed word limit catches only one surface symptom and does not teach the model how to choose evidence boundaries or owner wording. Automatically rerunning the full document without targeted guidance can repeat the same errors and may discard valid obligations that require slightly longer summaries.
-Correct answer
-Add 2 to 4 representative input and ideal output examples showing concise obligations, evidence boundaries, and owner wording.
-Explanation
-Few-shot examples are the strongest next step when detailed instructions alone produce inconsistent formatting and actionability. Representative input and ideal output pairs demonstrate exactly how ambiguous source text should be transformed, helping Claude generalize the desired pattern across new contracts.
-Overall explanation
-Few-shot prompting is most effective when the issue is inconsistent formatting, actionability, or judgment despite detailed written instructions. Concrete input and ideal output examples show the model how to transform messy contract language into concise obligations, bounded evidence snippets, and consistent owner labels.
 
-The key principle is that examples communicate behavioral patterns better than additional prose when outputs depend on judgment. In extraction workflows, schemas can enforce field presence and types, but examples help stabilize the content placed inside those fields.
+---
 
-Adding stricter prose repeats an approach that has already failed, fixed word limits treat symptoms without teaching the extraction behavior, and temperature changes cannot substitute for clear demonstrations. The best practice is to include a small set of targeted examples covering common ambiguity patterns rather than a large generic example bank.
-
-Learn more about using examples to improve reliability in Prompt Engineering and about structured extraction patterns in Tool Use.
-
-Domain
-Prompt Engineering & Structured Output
-Question 23
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. Production logs show two failure patterns in refund handling: intermittent gateway timeouts that often succeed on the next attempt, and permanent failures such as refund window expired or missing permission. Today the MCP tool sets <code>isError</code> and returns the same short failure message for both, so the agent sometimes repeats impossible operations and sometimes gives up on recoverable ones. What change best improves recovery behavior?
-Configure the agent to retry every failed refund operation three times before showing the final error to the customer.
-Explanation
-A fixed retry count treats all failures as if they might recover, which wastes time on permanent business or permission failures. It also fails to encode why the failure happened, so the agent still cannot communicate or escalate intelligently.
-Disable automatic retries for process_refund and escalate all failed refund attempts to avoid duplicate backend operations.
-Explanation
-This avoids duplicate attempts but sacrifices recovery for intermittent backend problems that could succeed on retry. Escalating every failure lowers first-contact resolution and ignores the observed distinction between recoverable and permanent failures.
-Correct answer
-Add errorCategory and isRetryable fields to tool failures, retrying only failures marked retryable and preserving user-facing explanations.
-Explanation
-This gives the agent enough structured information to choose the correct recovery path. Transient failures can be retried, while permanent business or permission failures can be explained or escalated without wasting attempts.
-Have the agent inspect failure message wording for timeout or permission keywords before deciding whether another attempt is useful.
-Explanation
-Parsing natural language error text is brittle because wording can change and similar phrases may have different meanings. Recovery decisions should be driven by structured metadata, not keyword matching in human-readable messages.
-Overall explanation
-Structured error metadata lets the agent distinguish failures that should be retried from failures that require explanation, clarification, or escalation. In practice, the MCP tool should return an error result with machine-readable fields such as errorCategory and isRetryable, alongside a human-readable explanation the agent can use with the customer.
-
-The key reliability principle is that retry behavior should be based on explicit semantics, not a generic failed status. Intermittent gateway timeouts are often worth retrying, while refund-window expiration and missing permission are not resolved by repeating the same tool call.
-
-Fixed retry counts are an anti-pattern when used as the primary recovery strategy because they waste attempts on permanent failures and do not improve the agent's understanding. Parsing natural language error strings is also brittle, since wording changes can silently break recovery logic. Escalating all failures is overly conservative and undermines the first-contact resolution goal.
-
-Learn more about tool result handling in MCP Tools and Claude tool orchestration in Tool Use.
-
-Domain
-Tool Design & MCP Integration
-Question 24
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your automated PR review has started posting comments that claim error-path tests are missing. Manual spot checks show many flagged cases are already covered through table-driven tests, shared fixtures, or helper-generated cases, but some genuinely uncovered branches still need comments. What change would most effectively improve the review prompt?
-Tell Claude to report only high-confidence missing-test findings and suppress anything that might already be covered indirectly.
-Explanation
-Vague confidence instructions do not teach Claude how to recognize coverage in table-driven tests, fixtures, or helper-generated cases. This may reduce some comments, but it also risks suppressing genuine gaps without addressing the underlying ambiguity.
-Require CI to flag gaps only when changed files lack a same-directory test file with matching filename patterns.
-Explanation
-Filename heuristics are brittle because many legitimate test suites use centralized fixtures, integration tests, or generated test cases in different locations. This approach replaces semantic review with pattern matching and can both miss real gaps and create false positives.
-Add a fixed minimum test-count rule per changed file and comment whenever the threshold is not met.
-Explanation
-A fixed test-count threshold is an anti-pattern because test adequacy depends on behavior, branches, and risk, not raw test counts. It would encourage noisy comments on well-tested small changes and overlook poorly tested complex changes that happen to meet the count.
-Correct answer
-Add targeted examples showing varied existing test structures and genuine gaps, including why each should be reported or skipped.
-Explanation
-Targeted examples teach Claude how to interpret ambiguous coverage evidence across different test organization patterns. Showing both acceptable existing coverage and real gaps helps the model generalize judgment instead of assuming unfamiliar test structures are missing tests.
-Overall explanation
-Few-shot prompting is especially useful when Claude must apply judgment to ambiguous review situations, such as determining whether a branch is already covered by table-driven tests, shared fixtures, or helper-generated cases. Concrete examples can show what evidence counts as existing coverage, what evidence is insufficient, and how to explain a finding when a real gap exists.
-
-The key principle is that examples help Claude generalize judgment to novel patterns, rather than relying only on literal instructions or brittle keyword matches. Including both positive and negative cases is important because the review must avoid false positives while still catching genuine missing tests.
-
-Confidence-only wording is too vague to resolve the ambiguity, and filename or count-based rules are heuristic anti-patterns that ignore how real test suites are organized. For CI review prompts, the better tradeoff is to encode nuanced examples that demonstrate the desired review behavior without hard-coding simplistic rules.
-
-Learn more about examples and prompt design in Prompt Engineering and about Claude Code workflows in Claude Code Overview.
-
-Domain
-Prompt Engineering & Structured Output
-Question 25
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your pull request review job has become noisy after teams added security audit steps, release-note checks, dependency migration guidance, and test generation procedures to the repository's main Claude instructions. Simple documentation-only PRs now receive irrelevant warnings, while specialized jobs still need the detailed procedures when explicitly run. What configuration approach best balances consistency with focused context?
-Duplicate the complete workflow prompt inside each CI command, avoiding shared Claude Code configuration files entirely.
-Explanation
-Duplicating prompts across CI commands makes updates error-prone and increases the chance that review jobs diverge over time. It also misses the maintainability benefit of project configuration and reusable skills for repeatable workflows.
-Store workflow instructions in user-scoped skills on the CI runner, updating them manually when jobs change.
-Explanation
-User-scoped skills are personal configuration, not the right place for shared repository workflows used by CI. Manual updates on the runner create drift and make behavior harder for developers to review or reproduce from version control.
-Consolidate every CI checklist into root CLAUDE.md so each automated review receives identical instructions for maximum consistency.
-Explanation
-This is an anti-pattern because it loads irrelevant task-specific guidance into every Claude Code session. The symptom already shows that overloading the main instructions increases noise and false positives for simple pull requests.
-Correct answer
-Keep universal review principles in project CLAUDE.md, and move specialized CI workflows into project skills invoked by relevant jobs.
-Explanation
-This separates always-applicable guidance from task-specific procedures, reducing irrelevant context during routine CI reviews. Skills are appropriate for repeatable workflows that should be invoked when needed, while CLAUDE.md is better for universal standards that should affect every session.
-Overall explanation
-Correct approach: Use CLAUDE.md for guidance that should apply to every Claude Code session, such as universal review standards, severity definitions, and repository-wide conventions. Use skills for repeatable, task-specific workflows that should run only when invoked, such as a security audit, migration review, or specialized test generation pass.
-
-The underlying tradeoff is context relevance versus consistency. Putting every workflow into always-loaded instructions may seem consistent, but it increases irrelevant context and can create false positives when a routine PR review receives guidance meant for a specialized job.
-
-User-scoped skills are inappropriate for shared CI behavior because they are personal configuration and can drift from the repository. Duplicating large prompts across CI jobs is also brittle, since every checklist change must be copied to multiple places and reviewed for consistency.
-
-For further learning, see Claude Code Overview and CLAUDE.md Configuration.
-
-Domain
-Claude Code Configuration & Workflows
-Question 26
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During load testing, reports on broad topics become inconsistent once the research phase produces more than 30 source analyses. The document analysis subagent completes successfully, but its outputs are long narrative memos with internal reasoning, copied verbatim into the synthesis prompt. The synthesis agent omits high value evidence from earlier analyses and sometimes cites sources that were discussed but not central. What redesign best addresses the reliability problem?
-Ask the synthesis agent to summarize each long subagent narrative first, then synthesize from its own summaries.
-Explanation
-This adds another summarization layer after the context has already become noisy and oversized. Progressive summarization can lose exact facts, citations, and relevance judgments, especially when the original handoff format is verbose and inconsistent.
-Correct answer
-Modify upstream subagents to return compact structured records: key facts, citations, relevance scores, and only synthesis-relevant details.
-Explanation
-This addresses the context budget problem at the source by reducing verbose handoff content before it reaches the synthesis agent. Structured records preserve the information the downstream agent needs for report generation while reducing attention dilution and lost-in-the-middle failures.
-Truncate each subagent response after a fixed character limit before sending it to the synthesis agent for review.
-Explanation
-Fixed truncation is an anti-pattern because it may remove the most important evidence, citations, or caveats without understanding content relevance. It reduces tokens, but it does not preserve the facts needed for reliable synthesis.
-Increase the synthesis agent's max_tokens and ask it to carefully read every upstream narrative before writing reports.
-Explanation
-Increasing max_tokens affects how much the model can generate, not whether it can reliably attend to large, noisy inputs. Asking the model to be careful does not remove irrelevant reasoning chains or improve the structure of handoff data.
-Overall explanation
-Correct approach: When downstream agents have limited context budgets, upstream agents should return structured, synthesis-ready data rather than verbose narratives and internal reasoning chains. Compact records containing key_facts, citations, relevance_scores, and necessary caveats preserve the information needed for downstream reasoning while reducing context pressure.
-
-Underlying principle: Context management is not just about making prompts shorter, it is about preserving the right information in the right shape. In multi-agent systems, the handoff contract between agents determines whether later agents can reliably aggregate findings, maintain attribution, and avoid lost-in-the-middle omissions.
-
-Why the alternatives fail: Increasing max_tokens does not solve noisy input context or attention dilution. Fixed truncation is unsafe because it can discard important evidence arbitrarily. Having the synthesis agent summarize verbose narratives adds another lossy compression step instead of fixing the upstream output format.
-
-For related guidance on agent workflows and context handoffs, see the Agent SDK documentation and the Prompt Engineering guide.
-
-Domain
-Context Management & Reliability
-Question 27
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. A long-running audit of your extraction pipeline delegates separate Claude Code subagents to inspect parser modules, schema definitions, validation failures, and downstream mapping logic. Twice this week, the process was interrupted after hours of exploration. When restarted, the coordinator repeated completed investigations, missed several previously discovered edge cases, and gave subagents incomplete background about which document formats had already been analyzed. What design change would most improve reliability after interruptions?
-Restart the audit from the beginning whenever an interruption occurs, discarding partial subagent findings to avoid inconsistency.
-Explanation
-Discarding partial findings avoids stale state, but it wastes hours of completed work and increases the chance of inconsistent coverage between runs. It also fails to preserve discovered edge cases that may be expensive or difficult to rediscover.
-Resume the prior named session and ask Claude to infer unfinished work from the accumulated conversation history.
-Explanation
-Resuming a prior session can help when the context remains valid, but it is not reliable crash recovery for long explorations. The accumulated history may contain stale tool results, verbose intermediate reasoning, and missing context about what changed after interruption.
-Correct answer
-Have each subagent export structured state to fixed paths, then load a resume manifest into restarted coordinator prompts.
-Explanation
-This approach preserves the key discoveries, completion status, and handoff context outside the volatile conversation. Loading a manifest on resume lets the coordinator reconstruct work state and inject relevant details into new subagent prompts without relying on stale or incomplete session memory.
-Keep a single freeform scratchpad summary updated manually, then tell new subagents to continue from that summary.
-Explanation
-A freeform scratchpad can help with context degradation, but it is weaker than structured state for crash recovery. Without explicit fields for completed work, unresolved questions, source paths, and ownership, the coordinator cannot reliably resume or delegate work.
-Overall explanation
-Structured state persistence is the most reliable pattern for recovering from interrupted long-running agent workflows. Each subagent should export machine-readable state, such as completed files, discovered edge cases, unresolved questions, relevant source paths, and partial results, to known locations. On restart, the coordinator loads a resume manifest and injects the relevant state into prompts for any restarted or newly spawned subagents.
-
-The underlying principle is that long conversation context is not a durable system of record. Named session resumption can be useful when prior context is mostly valid, but relying on accumulated history alone risks stale tool results, repeated exploration, and missing handoff details. Starting over wastes completed work, while a single freeform summary lacks the structure needed for reliable coordination and coverage tracking.
-
-For large codebase or pipeline exploration, durable structured state gives the coordinator an external source of truth that survives crashes and context compaction. This complements Claude Code workflows and subagent delegation patterns described in Claude Code Overview and Claude Code Sub-agents.
-
-Domain
-Context Management & Reliability
 Question 28
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A user asks for a report evaluating whether an organization should enter a new AI-assisted drug discovery market, covering scientific feasibility, regulatory exposure, partnership opportunities, and commercialization timing. In testing, the system often produces duplicated sections, misses relationships between findings, and takes longer than expected because each broad request is handled as a single chain of subagent calls. Which orchestration change would most effectively improve completeness and latency?
@@ -836,6 +152,9 @@ The reliable pattern is for the coordinator to define task boundaries, provide s
 
 Domain
 Agentic Architecture & Orchestration
+
+---
+
 Question 29
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. During a pilot, the coordinator verifies a customer, retrieves two recent orders, and then delegates separate billing-dispute and returns-policy checks. The delegated analyses frequently state that the customer ID or order status is unknown, even though those facts were available earlier in the coordinator's turn. The coordinator currently sends each delegated check only a brief task title such as "evaluate refund eligibility." What change would most reliably improve the delegated analyses?
@@ -863,6 +182,9 @@ Learn more about agent orchestration and tool-based workflows in the Agent SDK d
 
 Domain
 Agentic Architecture & Orchestration
+
+---
+
 Question 30
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. The coordinator has finished an initial literature map for a controversial research topic. Two stakeholders now want independently developed report outlines, one focused on regulatory risk and one focused on commercial opportunity. Both outlines should start from the same verified source set, but exploratory assumptions from either outline must not influence the other before final comparison. What should you do?
@@ -888,60 +210,9 @@ Keeping both approaches in one coordinator session and merely asking Claude to s
 
 Domain
 Agentic Architecture & Orchestration
-Question 31
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Production evaluation shows your extraction tool validates successfully, but downstream analytics are unreliable. New vendor industries and uncertain contract classifications are being squeezed into the closest allowed enum value, causing misleading dashboards even though no JSON schema errors occur. What schema change would best improve reliability while preserving machine-readable output?
-Keep the closed enum unchanged and retry extractions until the model selects one of the approved category values.
-Explanation
-Retries may produce schema-valid output, but they do not solve the semantic problem when the source category is genuinely unclear or outside the enum. This anti-pattern pressures the model to choose an incorrect approved value, making dashboards look cleaner while reducing truthfulness.
-Correct answer
-Add explicit fallback enum values with companion detail fields so uncertain or novel categories are captured without forced misclassification.
-Explanation
-This preserves schema validity while giving Claude a safe place to represent uncertainty and categories not anticipated by the original enum. It improves downstream reliability because analytics can separate known categories from uncertain or newly described values instead of treating guesses as facts.
-Expand the enum with every observed category and reject documents whose categories are not already listed.
-Explanation
-Expanding the enum can help for known categories, but it does not handle future unseen categories or genuinely uncertain source evidence. Rejecting otherwise processable documents reduces coverage and creates operational brittleness for evolving document sets.
-Replace the enum with a free-text string field and let downstream systems normalize categories after extraction.
-Explanation
-A free-text field avoids forced enum choices, but it sacrifices the machine-readable consistency that downstream systems need. It pushes classification ambiguity into later systems and can create spelling, synonym, and normalization drift across documents.
-Overall explanation
-Schema design should represent uncertainty explicitly. When source documents contain categories that are unclear or outside the current taxonomy, the extraction schema needs safe structured ways to capture that reality rather than forcing the closest valid enum value.
 
-The practical pattern is to keep useful enum constraints for known categories while adding fallback values such as unclear or other, paired with detail fields like category_detail or uncertainty_reason. This maintains machine-readable output while preventing semantic misclassification from being hidden behind schema-valid JSON.
+---
 
-Retrying until an approved enum appears is an anti-pattern because it optimizes for validation success instead of extraction truthfulness. Replacing enums with free text loses consistency, while endlessly expanding closed enums still fails on future or genuinely ambiguous cases.
-
-The underlying principle is that JSON schema enforcement guarantees structure, not meaning. Robust extraction systems design schemas that give the model valid ways to say what the evidence supports, including uncertainty and extensible categories. Learn more in Tool Use and Prompt Engineering.
-
-Domain
-Prompt Engineering & Structured Output
-Question 32
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your CI job asks Claude Code to review each pull request and then posts findings as inline comments. The posting step intermittently fails because some runs return markdown tables, others return bullet lists, and field names like file path, line number, severity, and remediation are phrased inconsistently. The team wants a low-maintenance fix that lets the pipeline reliably validate findings before posting them. What should you do?
-Keep markdown output, then strengthen the parser with regular expressions covering every observed table and bullet format.
-Explanation
-Parsing natural language or markdown variants is brittle because future outputs may use new phrasing or formatting. This anti-pattern pushes reliability into an expanding parser instead of making Claude Code produce a stable interface for automation.
-Correct answer
-Configure Claude Code to emit structured JSON matching a schema containing required fields for inline review comments.
-Explanation
-Machine-parseable output is the right fit when downstream CI automation must validate and post findings reliably. A JSON schema gives the pipeline a stable contract for fields such as file path, line number, severity, and remediation, reducing failures caused by formatting variation.
-Post Claude Code's raw review text as one general pull request comment instead of creating inline annotations.
-Explanation
-This avoids parser failures by removing inline posting, but it sacrifices the stated need for structured inline feedback. Developers would lose precise file and line annotations, and the pipeline would still lack reliable validation of individual findings.
-Ask Claude Code to begin every finding with identical labels, then reject runs containing unexpected label text.
-Explanation
-Prompt wording can reduce variation, but it does not create a strong validation contract for CI systems. Rejecting runs after prose drift still causes avoidable pipeline failures and does not solve structured field validation cleanly.
-Overall explanation
-Structured CI integration works best when Claude Code output is treated as an automation contract, not as prose to be scraped. Using --output-format json together with --json-schema lets the pipeline require stable fields such as file path, line number, severity, and suggested fix before posting inline comments.
-
-The underlying principle is that CI systems need machine-parseable, validated outputs. Markdown tables and bullet lists are useful for humans, but they are fragile integration formats because small wording or formatting changes can break parsers.
-
-Regular-expression parsing and label policing are anti-patterns here because they rely on natural language consistency rather than a defined schema. Posting a single raw review comment avoids parsing, but it gives up the inline, structured feedback the workflow requires.
-
-For further details, see the Claude Code CLI documentation in Claude Code CLI and broader Claude Code workflow guidance in Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
 Question 33
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A customer support agent has MCP tools `get_customer`, `lookup_order`, `process_refund`, and `escalate_to_human`. During a billing-dispute pilot, `get_customer` correctly verifies the caller, and `lookup_order` sometimes returns an order tied to a different customer ID because family members share names. The required workflow says refunds must only be issued when the verified customer ID matches the order owner, otherwise the case goes to a human. Logs show Claude usually follows this, but occasionally calls `process_refund` after a persuasive customer message. What change best improves reliability?
@@ -969,112 +240,9 @@ For more on tool use patterns and agent orchestration, see Tool Use and Agent SD
 
 Domain
 Agentic Architecture & Orchestration
-Question 34
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A custom CI skill first inspects the repository's dependency graph, flaky test history, and prior pull request comments before producing review guidance. In recent runs, the main review output increasingly repeats exploratory notes from that setup phase, reports issues unrelated to the changed files, and sometimes misses straightforward diff-specific problems. What change would best preserve review focus while keeping the setup workflow available?
-Correct answer
-Configure the skill with context: fork so verbose exploration runs separately and returns only a concise summary.
-Explanation
-The context: fork setting runs the skill in an isolated sub-agent context, which prevents exploratory details from filling or biasing the main conversation. This preserves the useful setup workflow while allowing the main CI review to operate on a concise, relevant summary.
-Increase the skill's argument-hint details so developers provide narrower module names and reduce exploratory output during invocation.
-Explanation
-Argument hints help users supply required parameters, but they do not isolate the skill's intermediate output from the main session. Narrower inputs may reduce volume somewhat, but they do not address the core issue of exploratory context affecting the review.
-Have the CI prompt ignore earlier verbose notes and report only high-confidence findings from the pull request.
-Explanation
-This relies on prompt instructions to counteract polluted context, which is unreliable when the session has already accumulated distracting material. High-confidence filtering is also a vague proxy that can suppress useful findings without solving the context management problem.
-Move the workflow into project-level CLAUDE.md so every review session consistently receives the same investigation instructions.
-Explanation
-CLAUDE.md is always-loaded context, so moving a verbose setup workflow there would make the context pollution problem worse. It is appropriate for universal standards, not for large exploratory procedures that should only run when needed.
-Overall explanation
-Isolating verbose skills is the right design when a workflow performs broad discovery but the main session needs to stay focused. In Claude Code skills, context: fork runs the skill in an isolated sub-agent context, allowing it to return a compact result without carrying all intermediate exploration into the main conversation.
 
-The underlying tradeoff is between useful exploration and main-session context quality. CI code review often needs targeted attention on changed files and actionable findings, so preserving a clean review context helps reduce irrelevant comments and missed diff-specific issues.
+---
 
-Putting verbose workflows into CLAUDE.md makes them always loaded, which increases irrelevant context rather than reducing it. Adding argument-hint can improve invocation usability, but it does not isolate intermediate output. Prompting Claude to ignore earlier notes or rely on vague high-confidence criteria is an anti-pattern because it tries to repair context pollution after it has already occurred.
-
-For more details on Claude Code customization and workflow configuration, see Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
-Question 35
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. A release candidate updates 18 extraction assets, including prompts, JSON schemas, validators, and few-shot examples across invoices, contracts, and intake forms. A single review request produces uneven results: detailed feedback on early files, superficial comments on later files, and missed mismatches between schema fields and validator assumptions. What review architecture should you use before approving the release?
-Ask contributors to limit extraction pull requests to five changed files, postponing larger schema updates until later releases.
-Explanation
-Reducing pull request size can be helpful as a team practice, but it does not solve the review architecture problem for legitimate multi-file releases. It also imposes an arbitrary cap that can fragment related schema, prompt, and validator changes across releases.
-Run three full-repository reviews and report only defects that at least two reviews identify independently.
-Explanation
-Repeating broad reviews can still suffer from the same attention dilution, and majority voting can suppress real defects that only one pass catches. This is an anti-pattern when the issue is insufficiently focused review scope.
-Correct answer
-Review each changed file separately for local prompt and schema defects, then run a final pass checking cross-file consistency.
-Explanation
-Focused per-file review reduces attention dilution by letting Claude evaluate each prompt, schema, validator, or example set in depth. A separate integration pass then examines relationships across files, such as schema fields matching validators and examples reflecting the expected extraction contract.
-Increase the context budget and review all changed prompts, schemas, validators, and examples together in one request.
-Explanation
-A larger context budget may allow more content to fit, but it does not guarantee even attention across every file. The observed failures are attention and review-focus problems, not simply input-size problems.
-Overall explanation
-Focused review passes work because they allocate Claude's attention to one artifact at a time, improving the depth and consistency of local findings for prompts, schemas, validators, and few-shot examples.
-
-The separate integration pass addresses a different class of risk: relationships across files, such as whether validators enforce the same constraints that schemas expose, whether examples match the intended output format, and whether prompt instructions conflict across document types.
-
-The underlying architectural principle is that large reviews should be decomposed by concern. More context is not the same as better attention, and repeated broad reviews can reproduce the same blind spots while adding cost and latency.
-
-Arbitrary file limits can fragment related changes, while majority voting across full reviews can hide subtle but valid findings. For further study, see Prompt Engineering and Claude Code Overview.
-
-Domain
-Prompt Engineering & Structured Output
-Question 36
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. While updating the agent’s refund-policy behavior, you need to inspect only the files related to policy configuration and tests. The repository is large, and relevant files are spread across several packages with naming patterns such as return-policy.yaml, refund-policy.test.ts, and policy-overrides.json. What should you do first to locate the relevant files efficiently?
-Use Grep for policy filename patterns across the repository, then Read every returned match before editing.
-Explanation
-Grep is designed for searching file contents, not for discovering files by path or extension pattern. It may miss files whose contents do not include the searched words, and it can return irrelevant files that merely mention the terms.
-Use Bash to recursively list the repository, then inspect unstructured terminal output for policy filenames.
-Explanation
-A shell listing can sometimes work, but it is less direct than using the built-in path matching tool designed for this purpose. It also encourages noisy, unstructured output that can consume context unnecessarily.
-Correct answer
-Use Glob with targeted filename patterns, then Read only matching policy and test files before editing.
-Explanation
-Glob is the appropriate built-in tool when the selection criterion is the file path or filename pattern. It narrows the search space before using Read, which avoids loading unrelated repository content into context.
-Use Read on each directory’s configuration files first, then manually decide which refund policy files matter.
-Explanation
-Reading broad sets of files upfront wastes context and increases the chance of attention dilution in a large repository. The better approach is to first narrow candidates by path pattern, then read only the relevant matches.
-Overall explanation
-Glob is the right first tool when the task is to find files by filename, extension, or path pattern. In this situation, the relevant evidence is encoded in names such as return-policy.yaml, refund-policy.test.ts, and policy-overrides.json, so the efficient workflow is to use Glob to identify candidate paths, then use Read on the small set of matches.
-
-The underlying tradeoff is context efficiency. Reading broad directory contents or dumping a recursive shell listing pushes irrelevant information into the conversation, which can degrade reasoning on the actual policy change. Grep is valuable when searching file contents for function names, error messages, imports, or policy text, but it is the wrong primary tool when the selection criterion is the path itself.
-
-Using Bash for simple file discovery is usually unnecessary when a more specific built-in tool exists. Effective Claude Code workflows use the most constrained tool that matches the job: Glob for path patterns, Grep for content search, and Read only after narrowing the target set. Learn more in the Claude Code Overview.
-
-Domain
-Tool Design & MCP Integration
-Question 37
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. Your report generator receives synthesis notes from a peer-reviewed meta-analysis, two industry surveys, and several vendor benchmarks. In the final report, a vendor benchmark's narrow claim is presented with the same authority as a repeated meta-analysis finding, and readers cannot judge how much weight to give each conclusion. What change would best improve the reliability of the report?
-Have the synthesis agent select the most authoritative-looking source for each topic and omit weaker conflicting evidence.
-Explanation
-This is an anti-pattern because it hides uncertainty and gives readers no visibility into contested areas. The agent may also misjudge authority based on superficial cues, especially across different source types such as surveys, benchmarks, and meta-analyses.
-Normalize all findings into one uniform summary style, then place complete citations in a bibliography at the end.
-Explanation
-A uniform style makes the report easier to read but worsens the core reliability issue by hiding differences in evidence strength. End citations alone do not preserve how each source characterized its own findings or what methodology supports each claim.
-Correct answer
-Organize conclusions by evidentiary status, retaining source characterization and methodological context for each major claim in the final report.
-Explanation
-This preserves uncertainty by making the strength and nature of evidence visible to readers. Separating stronger conclusions from disputed or tentative ones prevents the report from flattening source quality into a single authoritative narrative.
-Ask the report agent to add a general disclaimer that some sources may vary in quality and methodology.
-Explanation
-A general disclaimer acknowledges uncertainty but does not attach that uncertainty to specific claims. Readers still cannot distinguish which conclusions are well supported, narrow, preliminary, or contested.
-Overall explanation
-Preserving uncertainty in synthesis requires more than attaching citations. The final report should distinguish conclusions by evidentiary status, such as well-supported findings, emerging findings, and contested findings, while preserving each source's characterization and methodological context.
-
-This approach works because multi-source synthesis often combines evidence with different weights: peer-reviewed meta-analyses, industry surveys, vendor benchmarks, and expert commentary should not be presented with identical authority. Keeping source type, study scope, methodology, and limitations near the relevant claim helps readers understand how much confidence to place in each conclusion.
-
-Flattening all findings into a uniform style is a common anti-pattern because it improves polish while reducing epistemic transparency. Selecting only the most authoritative-looking source can suppress legitimate disagreement, while broad disclaimers are too generic to help readers evaluate individual claims.
-
-The underlying principle is provenance-aware synthesis: downstream agents must preserve not only citations, but also the context needed to interpret those citations. Learn more about agent orchestration and synthesis workflows in the Agent SDK documentation and prompt structuring techniques in Prompt Engineering.
-
-Domain
-Context Management & Reliability
 Question 38
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. Production review finds several billing dispute cases where the agent correctly verifies the customer and order, then attempts to call process_refund for amounts above your policy limit. Company policy allows autonomous refunds up to $500, but larger refunds require human approval before any financial action occurs. What change would most reliably prevent policy violations while preserving autonomous handling for allowed refunds?
@@ -1102,60 +270,9 @@ For more on tool use and agent tool control patterns, see Tool Use and Agent SDK
 
 Domain
 Agentic Architecture & Orchestration
-Question 39
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. During an automated pull request review, your team added a reusable repository impact analysis step before generating final findings. The step produces long dependency traces, rejected hypotheses, and intermediate notes. When the same Claude Code session continues into final review, the posted comments become noisy and sometimes cite exploratory dead ends instead of actionable issues. What configuration change best preserves final review quality while keeping the reusable analysis available?
-Move the repository analysis instructions into the root CLAUDE.md so every CI invocation shares the same discovery context.
-Explanation
-CLAUDE.md is always-loaded project context, so putting verbose exploratory instructions there increases context usage for every CI invocation. This worsens the noise problem because the main review session still receives broad analysis guidance even when it is not needed.
-Add a required manual /compact step after exploration, then continue the same session for final pull request feedback.
-Explanation
-Compaction can reduce context size during long sessions, but making it a required manual step is brittle for CI automation. It also keeps the workflow in the same session, so exploratory framing and summarized dead ends can still influence final findings.
-Split the exploration into a separate slash command that writes findings directly into the main conversation transcript.
-Explanation
-A slash command can package reusable instructions, but writing verbose findings into the main transcript does not isolate the exploratory context. This preserves the root cause of noisy final feedback because the review still reasons over intermediate notes and rejected paths.
-Correct answer
-Configure the review helper as a skill with context: fork, returning only a concise summary to the main CI review.
-Explanation
-Skills can run in an isolated sub-agent context when configured with context: fork, which prevents verbose exploratory work from polluting the main conversation. Returning only a concise summary keeps the final review focused on actionable findings while preserving the reusable workflow.
-Overall explanation
-Correct approach: A Claude Code skill configured with context: fork is appropriate when a reusable workflow produces verbose exploration, broad codebase analysis, or speculative reasoning that should not dominate the main session. The forked context lets the skill do the heavy discovery work separately, then return a compact result for final CI review.
 
-Architectural principle: CI review quality depends on keeping the final review context focused on decision-ready facts, criteria, and evidence. Isolating exploratory context reduces attention dilution and prevents rejected hypotheses from being treated as review findings.
+---
 
-Why the alternatives fail: Moving exploratory guidance into CLAUDE.md makes it always loaded, which increases noise for unrelated invocations. Relying on a manual /compact step is an automation anti-pattern and does not provide true context isolation. A separate slash command improves reuse, but if it writes all exploration into the same transcript, the final review remains polluted.
-
-Learn more about Claude Code workflows and configuration in the Claude Code Overview and related CLI usage in Claude Code CLI.
-
-Domain
-Claude Code Configuration & Workflows
-Question 40
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. In the research pipeline, the report generator subagent is wasting context while locating reusable markdown templates and citation-style files. The team already knows the naming conventions for these files, but the subagent currently inspects broad directory contents before deciding what to read. Which approach best reduces unnecessary context while preserving accuracy?
-Use Read on all files under the reports directory, then summarize away files that appear irrelevant.
-Explanation
-Reading all files upfront is a context management anti-pattern because it loads content before relevance is established. Summarizing irrelevant files after the fact does not recover the wasted context or reduce the chance of attention dilution.
-Correct answer
-Use Glob with the known path patterns to enumerate candidate template files, then Read only the selected matches.
-Explanation
-This approach uses the purpose-built file path matching tool before consuming file contents. It minimizes context usage by separating file discovery from content inspection, then reading only the files that are actually relevant.
-Use Bash to run recursive directory listings, then have the subagent infer relevant templates from raw output.
-Explanation
-A shell listing can produce large, noisy output and requires the model to parse unstructured results. When the task is simple path pattern discovery, using a purpose-built built-in tool is more reliable and keeps the context cleaner.
-Use Grep for template filenames across the repository, then Read every file returned by matching content lines.
-Explanation
-Grep is designed for searching file contents, not discovering files by path or extension pattern. It may miss files whose names match the convention but whose contents do not contain the searched terms, and it may return unrelated files that mention those terms.
-Overall explanation
-Glob is the right tool for path discovery. When the agent needs to find files by name, extension, or path pattern, it should first enumerate matching paths with Glob, then use Read only on the files selected for inspection.
-
-The key architectural principle is to separate file discovery from content analysis. This keeps the report generator's context focused on relevant templates and citation files instead of filling the conversation with directory listings or unrelated file contents.
-
-Grep is appropriate when searching inside file contents, not when matching filenames or extensions. Bash can list files, but it adds unnecessary command execution and often produces raw output the model must parse. Reading every file first is an explicit anti-pattern because it wastes tokens and increases attention dilution before relevance is known.
-
-Learn more about Claude Code's built-in development workflow and tools at Claude Code Overview.
-
-Domain
-Tool Design & MCP Integration
 Question 41
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A coordinator delegates complex billing disputes to a case-investigation subagent. Logs show that when order data contains unusual combinations, such as a partial return plus a delayed replacement, the subagent follows the coordinator's embedded seven-step checklist exactly and returns incomplete conclusions instead of adapting. What change would most improve the delegation design?
@@ -1183,6 +300,9 @@ Learn more about agent and subagent orchestration in the Agent SDK documentation
 
 Domain
 Agentic Architecture & Orchestration
+
+---
+
 Question 42
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During load testing, broad topics often produce reports missing either web evidence or document evidence. Logs show the coordinator requested both search and document analysis in the same model response, but the next model input contains only one returned result before synthesis begins. What change best fixes the orchestration bug?
@@ -1210,60 +330,9 @@ The underlying principle is to treat tool use as a structured protocol, not as c
 
 Domain
 Agentic Architecture & Orchestration
-Question 43
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your repository stores database migrations under services/*/db/migrations, packages/*/migrations, and legacy/*/schema. CI reviews often miss migration-specific rollback and locking requirements unless the changed files are in the one directory that already contains local guidance. You want review behavior to follow the relevant file patterns as packages move, without loading migration guidance for unrelated changes. What should you do?
-Correct answer
-Create a .claude/rules/migrations.md file with YAML paths matching all migration locations and keep the conventions there.
-Explanation
-This approach applies migration guidance based on file path patterns rather than physical directory hierarchy. It is maintainable when matching files are spread across multiple repository areas and avoids loading irrelevant guidance for unrelated CI reviews.
-Move all migration review guidance into the root CLAUDE.md so every CI run consistently sees the rules.
-Explanation
-Putting specialized migration guidance in the root CLAUDE.md loads it for every review, including changes unrelated to migrations. This increases irrelevant context and can contribute to noisier review feedback rather than targeted convention application.
-Copy identical CLAUDE.md files into every current migration directory and update them whenever packages are reorganized.
-Explanation
-Duplicating directory-level guidance creates drift and requires ongoing maintenance whenever packages move or new migration locations are added. It also ties conventions to current folder placement instead of the file patterns that actually define when the rules apply.
-Add a /review-migrations command and require the CI job to invoke it only when migration files change.
-Explanation
-A custom command can encode a workflow, but it does not solve automatic conditional convention loading within Claude Code’s rule system. This adds brittle external routing logic when the desired behavior is file-pattern-based guidance selection.
-Overall explanation
-Path-scoped rules are the right fit when a convention applies to files that share naming or location patterns but are spread across multiple directories. A rule file in .claude/rules/ with YAML paths glob patterns lets Claude Code load the migration conventions only when matching files are in scope.
 
-The underlying principle is to attach guidance to the condition that makes it relevant, not to one current folder location. This is especially useful in CI, where unrelated pull requests should not inherit migration-specific review rules that can create noise or false positives.
+---
 
-Duplicating CLAUDE.md files across directories is a maintenance anti-pattern because copies drift and new folders are easy to miss. Placing all specialized guidance in the root CLAUDE.md is also suboptimal because it loads irrelevant context globally. A custom slash command can help with explicit workflows, but it is not the best mechanism for automatic convention loading based on changed file paths.
-
-Learn more in CLAUDE.md Configuration and the Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
-Question 44
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A nightly CI review job for large pull requests first asks Claude Code to map ownership boundaries, trace affected call paths, and inspect related tests before producing review findings. On broad changes, the job often fills the conversation with verbose search results and file excerpts, then the final review misses earlier discoveries or gives shallow comments. What adjustment would best preserve review quality while still allowing necessary investigation?
-Limit CI review to changed diff hunks only, avoiding exploratory reads so Claude spends attention on final comments.
-Explanation
-This reduces context usage, but it removes important cross-file and dependency context that large pull requests often require. It can increase false negatives because the model may miss issues that only appear when tracing interactions beyond the diff.
-Keep all repository discovery in the main CI session, relying on /compact whenever verbose outputs crowd the conversation.
-Explanation
-Compaction can help during extended sessions, but it is a reactive cleanup step rather than a design for isolating verbose investigation. It also risks losing details that were never extracted into concise, structured findings before the final review.
-Correct answer
-Run verbose repository discovery in an Explore subagent, returning concise findings before the main CI review produces structured comments.
-Explanation
-This isolates the noisy discovery phase from the main review context while still preserving the important conclusions. The main review can then focus on applying judgment and producing actionable findings instead of carrying every intermediate search result and file excerpt.
-Paste complete grep outputs and dependency trees into the initial prompt so Claude has maximum codebase context.
-Explanation
-Maximizing raw context is an anti-pattern for large reviews because attention quality degrades when verbose, low-signal outputs dominate the conversation. More context is not automatically better; the useful facts should be extracted and summarized for the final review pass.
-Overall explanation
-Using an Explore subagent is the best fit when a workflow requires broad, verbose discovery before a focused final decision. The discovery subagent can inspect files, trace dependencies, and search broadly, then return a concise summary of relevant findings to the main Claude Code session.
-
-The underlying principle is context isolation: keep noisy intermediate investigation separate from the context used for final review judgment. This helps avoid context window pressure, attention dilution, and missed findings caused by accumulated raw tool output.
-
-Relying on /compact after the main session is already crowded is less reliable because it treats context overload after it happens. Reviewing only diff hunks avoids overload, but sacrifices architectural and cross-file understanding. Pasting complete raw outputs creates the same overload problem in a different form and is a common anti-pattern.
-
-Learn more about Claude Code workflows in Claude Code Overview and broader agent patterns in Agent SDK.
-
-Domain
-Claude Code Configuration & Workflows
 Question 45
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. In a multi-agent research pipeline with a coordinator and specialized search, analysis, synthesis, and report agents, a prototype allows subagents to call one another whenever they need clarification. After several runs, audit logs are incomplete, retries are handled differently by each agent, and report outputs sometimes include findings the coordinator never reviewed. What architectural change would best improve reliability and observability?
@@ -1289,33 +358,9 @@ The underlying principle is centralized coordination with specialized execution:
 
 Domain
 Agentic Architecture & Orchestration
-Question 46
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A newly connected returns-policy MCP server exposes a returns_helper tool. In production traces, the tool is discovered and works when manually forced, but the agent usually chains lookup_order, asks customers redundant policy questions, or escalates standard return cases. What is the best first change to improve adoption of this MCP capability?
-Correct answer
-Rewrite returns_helper MCP tool description to specify eligibility inputs, returned fields, examples, and boundaries with refund tools.
-Explanation
-Tool descriptions are the primary signal Claude uses to decide when and how to call MCP tools. Making the tool's purpose, inputs, outputs, examples, and boundaries explicit directly improves model-driven tool selection without adding brittle orchestration.
-Merge returns_helper into process_refund so every refund attempt automatically computes eligibility before performing backend actions.
-Explanation
-Combining policy evaluation with a backend action blurs tool boundaries and increases the risk of accidental side effects. The issue is that the agent is not selecting the available capability reliably, not that policy checks and refund processing must become one operation.
-Add a keyword router that invokes returns_helper whenever users mention return, exchange, refund, damaged, or late delivery.
-Explanation
-Keyword routing is brittle because similar words can imply different workflows, such as refund disputes, damage replacements, or shipping complaints. It bypasses Claude's natural language judgment and can create misrouting when customer language is ambiguous.
-Force returns_helper with tool_choice at the start of every return conversation, then let Claude continue after receiving results.
-Explanation
-Forced tool selection is useful when a specific tool must run at a specific step, but it is too blunt for general tool adoption. It can cause unnecessary calls, bypass better model-driven sequencing, and does not teach the agent when the tool is appropriate.
-Overall explanation
-Clear MCP tool descriptions are critical because Claude uses tool metadata to decide which capability fits the current task. When a tool is visible and technically works when forced, but is rarely chosen in normal operation, the most direct first fix is to improve the tool description so it explains its purpose, accepted inputs, returned fields, examples, and boundaries relative to similar tools.
 
-The underlying principle is to preserve model-driven tool selection while giving the model enough semantic information to choose correctly. Forcing the tool with tool_choice can be appropriate for deterministic first-step extraction or mandatory workflows, but using it at the start of every return conversation over-constrains the agent and may cause unnecessary or incorrectly ordered calls.
+---
 
-Keyword routers are an anti-pattern for ambiguous support language because terms like refund, return, damaged, and late delivery can map to different workflows depending on context. Merging a read-oriented policy helper into an action tool such as process_refund also weakens tool boundaries and can introduce side-effect risks.
-
-Learn more about tool design and MCP concepts in MCP Tools and Claude tool use patterns in Tool Use.
-
-Domain
-Tool Design & MCP Integration
 Question 47
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. During a staging test, backend logs show that get_customer returns a verified customer record and lookup_order returns two eligible orders. On the next model request, the agent again asks the customer for the same identifiers and sometimes repeats the same lookup instead of deciding whether to refund or escalate. The tool executor is successfully calling the MCP tools and recording their outputs in server-side logs. What change most directly fixes this loop behavior?
@@ -1343,87 +388,9 @@ Learn more in the Anthropic documentation on Tool Use and the Claude API & SDK.
 
 Domain
 Agentic Architecture & Orchestration
-Question 48
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A pilot of your pull request reviewer shows developers dismiss most performance findings. The current review prompt says: "Only report actionable issues you are highly confident about. Be conservative and avoid nitpicks." The dismissed findings are usually speculative comments like "this loop might be slow" without evidence about input size, hot paths, or repeated work. What prompt change would most effectively improve review precision?
-Repeat "be conservative" and "avoid speculation" in the system prompt header, review checklist, and final output instructions.
-Explanation
-Repeating general instructions increases prompt emphasis but does not clarify the decision boundary. The original prompt already contains similar wording, and the observed failures show that vague caution is not enough to reduce false positives.
-Correct answer
-Define reportable evidence thresholds for performance findings, including unbounded input growth, hot paths, or repeated database calls inside loops.
-Explanation
-This replaces vague cautionary wording with concrete conditions that determine whether a performance issue should be reported. It gives Claude observable evidence requirements, which improves precision by filtering out speculative findings before they reach developers.
-Require Claude to include longer reasoning for every performance concern, then post findings whose explanations sound specific and cautious.
-Explanation
-Longer explanations can make weak findings appear more persuasive without making them more valid. Judging whether reasoning sounds cautious is an unreliable natural language filter compared with explicit reportability criteria.
-Raise the required self-reported confidence score to 9/10 and automatically suppress any performance finding below that threshold.
-Explanation
-Self-reported confidence is not a reliable proxy for correctness or actionability. The model may still be confidently wrong, and numeric thresholds do not teach it which evidence makes a performance finding worth reporting.
-Overall explanation
-Explicit criteria improve precision because they tell Claude what observable evidence must exist before a finding should be reported. In this case, performance findings should be tied to concrete signals such as unbounded input growth, hot execution paths, repeated database calls, or other conditions the team agrees are actionable.
 
-General instructions like be conservative or only report high-confidence findings often fail because they do not define the boundary between a real issue and a speculative concern. Raising a self-reported confidence threshold has the same weakness: confidence is not reliably calibrated and does not replace task-specific evidence requirements.
+---
 
-Repeating vague instructions or selecting findings based on explanations that merely sound careful are anti-patterns for CI review workflows. These approaches can preserve or even amplify false positives because they reward style rather than correctness.
-
-The underlying principle is to encode review judgment as concrete, category-specific reporting rules that match what developers consider actionable. Learn more about prompt specificity and examples in Prompt Engineering and about Claude Code workflows in Claude Code Overview.
-
-Domain
-Prompt Engineering & Structured Output
-Question 49
-Skipped
-Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During evaluation, the document-analysis subagent repeatedly calls an MCP tool to fetch the same unavailable source URL. Logs show the tool marks every failed fetch the same way, so the subagent retries permanent failures such as deleted documents and unsupported file formats, adding minutes of latency before the coordinator receives partial findings. What change would best improve recovery behavior?
-Convert non-retryable failures into empty successful results so synthesis can continue without interruption or coordinator intervention.
-Explanation
-This silently suppresses failures and makes unavailable sources look like successful searches with no content. The coordinator and synthesis agent would lose visibility into coverage gaps, leading to incomplete reports without proper annotations.
-Correct answer
-Return errorCategory and isRetryable per failure, marking permanent source issues non-retryable and transient timeouts retryable with clear messages.
-Explanation
-This gives the subagent enough information to distinguish failures worth retrying from failures that require a different path. Marking permanent conditions as non-retryable prevents wasted attempts, while still allowing local recovery for transient failures such as timeouts.
-Ask the coordinator to classify retryability from the tool's natural-language error text before deciding whether to rerun.
-Explanation
-Parsing natural-language error text is brittle and shifts deterministic failure classification away from the tool that has the best knowledge of the backend response. The tool should return explicit machine-readable retryability metadata so agents can make reliable recovery decisions.
-Retry every failed fetch three times before reporting failure, since repeated attempts smooth over temporary provider instability.
-Explanation
-A fixed retry count treats all failures as if they might succeed later, which wastes time on permanent problems like deleted documents or unsupported formats. Arbitrary retry loops are especially harmful in multi-agent workflows because latency compounds across subagents.
-Overall explanation
-Structured retry metadata lets agents make practical recovery decisions without guessing. In this scenario, the MCP tool should distinguish permanent source problems from temporary access problems using fields such as errorCategory, isRetryable, and a clear human-readable description.
-
-The key principle is that not all failures should trigger the same behavior. A timeout or temporary service unavailability may justify a local retry, while a deleted document, unsupported file type, or stable permission denial should be treated as non-retryable and surfaced to the coordinator with partial findings and coverage implications.
-
-Fixed retry counts waste latency on failures that cannot succeed, while converting failures into empty success results hides coverage gaps from downstream synthesis. Asking the coordinator to infer retryability from prose is also brittle because it relies on natural-language parsing rather than explicit tool contracts.
-
-For further reading, see the MCP concepts for MCP Tools and Anthropic's guidance on Tool Use.
-
-Domain
-Tool Design & MCP Integration
-Question 50
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. In pilot runs, quantity fields from several vendors use shorthand like "approx. 12 kg", "12kg net", and "12 kilograms". The extractor often flags valid variants as defects while accepting truly ambiguous entries like "12 units" without unit context. The schema and validation logic are stable, and prose instructions listing allowed unit formats have not improved consistency. What change would most effectively improve judgment across new vendor layouts?
-Correct answer
-Add a small set of labeled examples showing acceptable unit variants and genuinely ambiguous entries, including expected fields and reasoning.
-Explanation
-Few-shot examples are effective when the model must distinguish acceptable patterns from true issues rather than merely follow a format. Showing both positive and negative cases helps Claude generalize judgment to new vendor layouts while reducing false positives on valid variants.
-Increase the minimum confidence threshold so borderline extractions are routed to human review before downstream validation occurs.
-Explanation
-Confidence thresholds can help route uncertain cases, but they do not teach the model the distinction it is currently missing. This would likely increase review volume without reducing the underlying misclassification of valid and ambiguous quantity formats.
-Instruct the model to return null for any measurement containing informal wording, unusual spacing, or missing punctuation.
-Explanation
-This is an overly broad anti-pattern that sacrifices recall by treating many valid source formats as missing data. It would reduce some ambiguous extractions but worsen false negatives for common real-world document variations such as informal abbreviations or compact spacing.
-Expand the prompt with a comprehensive list of every vendor-specific unit spelling and abbreviation observed so far.
-Explanation
-An exhaustive list is brittle because new vendors will continue to introduce unseen phrasing and spacing variations. It encourages memorization of known strings rather than teaching the model the underlying distinction between valid variants and ambiguous measurements.
-Overall explanation
-Few-shot prompting is the best fit when the failure is inconsistent judgment across ambiguous cases, not JSON syntax or schema enforcement. A compact set of labeled examples can show Claude that 12kg net and 12 kilograms should map to the same normalized quantity, while 12 units may require an ambiguity marker or null unit field depending on the schema.
-
-The underlying principle is that examples help define the decision boundary between acceptable source variation and genuine extraction uncertainty. This is more robust than listing every observed spelling because the model can generalize the pattern to new layouts and vendors.
-
-Raising confidence thresholds only changes downstream routing, not the extraction behavior itself. Returning null for broad categories of informal wording is an anti-pattern because real documents frequently contain shorthand, irregular spacing, and informal notation that still convey valid information.
-
-For more on using examples to improve consistency and handling ambiguous cases, see Prompt Engineering and Tool Use.
-
-Domain
-Prompt Engineering & Structured Output
 Question 51
 Skipped
 Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. Research runs are meeting quality expectations, but they take too long. Logs show the coordinator assigns three independent investigation branches (market adoption, regulatory responses, and technical limitations) one after another, waiting for each subagent to finish before starting the next. The branches do not depend on each other's intermediate findings, and the coordinator still needs to aggregate results before synthesis. What change best reduces elapsed time while preserving the intended orchestration pattern?
@@ -1451,114 +418,9 @@ For more on agent orchestration and tool-based delegation patterns, see the Agen
 
 Domain
 Agentic Architecture & Orchestration
-Question 52
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. The QA process reviews 2% of auto-resolved tickets chosen uniformly each week. The dashboard shows 96% overall correctness, but refunds later reversed by human supervisors are concentrated in rare marketplace-seller warranty claims and older billing disputes that barely appear in the sample. You need to redesign review without sending every automated resolution to humans. What should you do?
-Ask the agent to include a single global confidence score, then audit cases closest to the threshold.
-Explanation
-A single global confidence score can help prioritize review, but it does not reveal whether accuracy differs across case types, product channels, or resolution actions. Auditing only near-threshold cases also misses high-confidence failures in poorly calibrated segments.
-Increase the overall random sample from 2% to 5%, keeping selection uniform across all auto-resolved tickets.
-Explanation
-A larger uniform sample may improve statistical power overall, but it still can miss rare segments when their base rate is very low. The observed failures are concentrated in specific slices, so representation by segment matters more than simply sampling more cases uniformly.
-Stop sampling tickets above the confidence threshold, and review only low-confidence or customer-complaint cases going forward.
-Explanation
-This is an anti-pattern because it assumes high-confidence outputs are safe without ongoing measurement. Customer complaints are a lagging signal, and high-confidence failures are exactly what the QA process needs to detect before customers or supervisors find them.
-Correct answer
-Use stratified random sampling across issue type, order age, seller channel, and resolution action for high-confidence auto-closures.
-Explanation
-Stratified random sampling ensures that rare but important segments are represented in the review set, even when overall volume is low. This makes it possible to measure hidden error rates in high-confidence cases and detect new failure patterns before they grow.
-Overall explanation
-Stratified random sampling is the right design when aggregate accuracy looks strong but errors cluster in rare or operationally important segments. By sampling within slices such as issue type, order age, seller channel, and resolution action, the team can estimate error rates for high-confidence automated outcomes rather than relying on a single blended metric.
 
-The underlying reliability principle is that aggregate accuracy can hide segment-level failures. A support agent can appear safe overall while performing poorly on a small category such as marketplace warranty claims, older billing disputes, or high-value refund decisions.
+---
 
-Increasing a uniform sample helps only if the problematic segments appear often enough, which the scenario shows they do not. Stopping review of high-confidence cases is risky because confidence must be continuously validated, and complaint-driven review detects problems after customer harm has occurred. A single global confidence score is also insufficient because calibration can differ by segment.
-
-For related implementation patterns, see Agent SDK and Tool Use.
-
-Domain
-Context Management & Reliability
-Question 53
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. Production review finds the agent routes many frustrated but straightforward damage-replacement cases to escalate_to_human. The tickets usually include phrases like "this is ridiculous" and photos matching your standard replacement policy, but not an explicit request for a human. Which change best improves escalation calibration while preserving customer preference handling?
-Automatically escalate any message with angry language before investigating, because negative sentiment indicates the case is too complex.
-Explanation
-Sentiment-based escalation is an anti-pattern because frustration does not reliably correlate with case complexity. This would reduce first-contact resolution by escalating cases the agent can handle under the standard replacement policy.
-Require the agent to finish all available investigation steps before honoring any human escalation preference from the customer.
-Explanation
-This goes too far in the opposite direction by ignoring explicit customer preferences. If a customer clearly asks for a human, the agent should honor that request rather than forcing an autonomous investigation first.
-Correct answer
-Update guidance to acknowledge frustration, proceed with supported resolution steps, and escalate only if the customer again asks for a human.
-Explanation
-Frustration alone is not a reliable signal that a case requires human escalation. When the issue is within the agent's capability and the customer has not explicitly requested a human, the agent should attempt the supported resolution while remaining ready to escalate if the customer states that preference.
-Have the agent request a self-rated confidence score from itself, escalating when the score falls below a threshold.
-Explanation
-Self-reported confidence is poorly calibrated for escalation decisions and can be misleading in ambiguous support cases. Explicit criteria tied to customer preference, policy coverage, and meaningful progress are more reliable than a numeric self-rating.
-Overall explanation
-Correct escalation calibration separates emotional tone from actual escalation criteria. A frustrated customer with a straightforward, policy-covered issue should receive empathy and a resolution attempt, not an automatic handoff, unless they explicitly request or reiterate a preference for a human.
-
-The underlying tradeoff is between maximizing first-contact resolution and respecting customer agency. The agent should acknowledge the customer's frustration, continue with supported actions like a standard damage replacement, and promptly use escalate_to_human if the customer makes a clear human handoff request.
-
-Automatically escalating based on angry language is a sentiment-based anti-pattern because it treats emotional tone as a proxy for complexity. Forcing the agent to complete all investigation steps before honoring a human request is also incorrect because explicit customer preference is a valid escalation trigger. Self-rated confidence thresholds are unreliable unless calibrated and tied to concrete criteria.
-
-Learn more about building reliable tool-using support agents in Agent SDK and tool orchestration patterns in Tool Use.
-
-Domain
-Context Management & Reliability
-Question 54
-Skipped
-Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extractor captures <code>sample_size</code>, <code>study_design</code>, and <code>citation_source</code> from journal articles. It works on papers with explicit Methods and References sections, but misses the same fields when sample details appear in an abstract footnote, study design appears in an appendix table, or citations are inline only. Validation passes because those fields are nullable, but downstream analytics show systematic under-extraction. What change would most effectively improve extraction quality?
-Make sample_size, study_design, and citation_source required in the schema so validation failures force complete outputs.
-Explanation
-Making fields required creates pressure to fill values even when the source is ambiguous or truly missing. This may reduce nulls superficially, but it increases hallucinated or misplaced values and does not teach better extraction from varied layouts.
-Correct answer
-Add targeted examples showing correct extraction from multiple document layouts, including inline citations, appendix tables, and embedded methodology details.
-Explanation
-Targeted examples teach Claude how the same semantic fields can appear in different document structures. This directly addresses systematic under-extraction without pressuring the model to fabricate values when fields are genuinely absent.
-Preprocess documents with keyword rules that discard content outside Methods, Results, References, and Appendix headings before extraction.
-Explanation
-Keyword-based filtering is brittle because the problem involves relevant evidence appearing in unexpected locations. Discarding content before extraction can remove the exact footnotes, inline citations, or embedded details needed for accurate output.
-Expand the instructions with a longer list of possible section names and tell Claude to search them exhaustively.
-Explanation
-Longer prose instructions can help, but they are less effective than concrete examples for demonstrating how to handle structurally varied cases. Section-name lists also fail when relevant information appears outside predictable headings, such as footnotes or embedded tables.
-Overall explanation
-Few-shot prompting is most useful when the model needs to generalize judgment across varied document structures, not merely follow a format. Examples showing correct extraction from inline citations, appendix tables, abstract footnotes, and embedded methodology details demonstrate how to map differently placed evidence into the same schema fields.
-
-The underlying principle is that concrete input and output examples communicate the desired transformation more reliably than long prose lists of possible headings. They reduce false nulls while preserving the value of nullable schema fields for information that is genuinely absent.
-
-Making fields required is an anti-pattern for extraction systems because it can reward fabricated values. Keyword preprocessing is also risky because it discards evidence based on brittle assumptions about where information should appear. Longer instructions may help at the margins, but they do not demonstrate the ambiguous cases Claude needs to learn.
-
-For further guidance, see Prompt Engineering and Tool Use.
-
-Domain
-Prompt Engineering & Structured Output
-Question 55
-Skipped
-Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A long-running billing dispute workflow delegates separate investigations for account status, order history, and refund eligibility. The service sometimes restarts after deploying updates. After restart, the coordinator resumes but cannot determine which subagent findings are current, re-runs completed investigations, and occasionally omits evidence needed for escalation handoffs. What design change best improves reliability?
-Set a fixed limit of one retry per subagent after restarts, then continue with whichever findings return first.
-Explanation
-A fixed retry cap is an anti-pattern when used as the main reliability mechanism because it does not preserve completed work or explain missing evidence. Continuing with whichever findings return first risks incomplete resolutions and weak escalation handoffs.
-Store only the final customer response draft after each run, using it as the sole recovery checkpoint.
-Explanation
-A final response draft is not enough to recover investigation state because it usually lacks tool outputs, unresolved questions, source metadata, and subagent completion status. Recovery needs structured intermediate state, not only the last customer-facing message.
-Resume the prior coordinator session and ask Claude to reconstruct missing subagent progress from the conversation transcript.
-Explanation
-Session resumption can help when prior context is still valid, but it is not a reliable crash recovery strategy for isolated subagent work. The coordinator may not have complete subagent context, and reconstructed progress can omit details or treat stale tool results as current.
-Correct answer
-Have each subagent export structured state to a known location; the coordinator reloads and injects it when resuming.
-Explanation
-This creates an explicit recovery mechanism that does not depend on fragile conversational memory. Loading structured state on resume lets the coordinator determine what was completed, what remains, and what evidence must be passed into new or resumed subagent prompts.
-Overall explanation
-Structured state persistence is the right reliability pattern for crash recovery in multi-agent or delegated workflows. Each subagent should export its current findings, attempted actions, tool result references, unresolved questions, and completion status to a known location, then the coordinator should load that state on resume and inject the relevant parts into subsequent prompts.
-
-This works because subagents operate with isolated context and do not automatically share durable memory with the coordinator. Explicit state handoff prevents duplicated investigation, missing evidence, and stale assumptions after a restart.
-
-Relying on session resumption or asking Claude to reconstruct progress from a transcript is fragile, especially when tool results or subagent contexts are incomplete. Fixed retry caps and continuing with partial findings are anti-patterns because they manage control flow without preserving the information needed for correct recovery. Saving only the final customer response also loses provenance and intermediate decisions needed for escalation or refund safety.
-
-For further study, review the Agent SDK documentation and the Claude Code Sub-agents documentation for patterns around delegated work and explicit context passing.
-
-Domain
-Context Management & Reliability
 Question 56
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. Production logs show that vague requests such as "my replacement and refund are both wrong" often require different investigation paths after the first backend lookup. Some turn out to be return-status issues, some are duplicate authorization holds, some involve account verification problems, and some combine multiple causes. A fixed workflow is producing unnecessary tool calls on simple cases and missing important branches on unusual cases. Which decomposition strategy should you use?
@@ -1586,33 +448,9 @@ For more on building agentic workflows with tools and iterative control flow, se
 
 Domain
 Agentic Architecture & Orchestration
-Question 57
-Skipped
-Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A pull request review workflow launches `claude "Review the changed files for security regressions"` from a CI step. The process starts successfully, but the job sits idle until the CI timeout because the command is waiting for an interactive session instead of returning review text to stdout. What change should you make first?
-Move the review command into a background terminal session so CI logs continue while Claude Code remains active.
-Explanation
-Backgrounding the process hides the blocking behavior instead of producing a completed review result for the pipeline. CI needs a deterministic command that returns output and an exit status, not a long-lived interactive session.
-Wrap the existing command in a shell timeout and rerun the CI job whenever no output appears promptly.
-Explanation
-A timeout treats the symptom rather than changing Claude Code into the correct execution mode. It can create flaky pipelines because the command may still be waiting for interaction when the timeout kills it.
-Correct answer
-Run Claude Code with `claude -p "Review the changed files for security regressions"` so it prints output and exits.
-Explanation
-The `-p` or `--print` flag is the documented way to run Claude Code in non-interactive mode for automation. It causes Claude Code to process the prompt, write the response to standard output, and exit instead of opening an interactive session.
-Pipe the prompt into the existing `claude` command and rely on end-of-file to close the interactive session.
-Explanation
-Relying on standard input behavior is not the documented CI integration pattern for Claude Code. The pipeline needs an explicit non-interactive invocation, not an implicit assumption that end-of-file will produce the desired stdout behavior.
-Overall explanation
-Correct CI invocation: Claude Code should be run with -p or --print when used from automated pipelines. This mode is designed to accept a prompt, emit the result to stdout, and exit without waiting for interactive input.
 
-The underlying principle is that CI jobs require deterministic non-interactive execution. Commands should complete predictably, return output that the pipeline can capture, and avoid hidden prompts that wait for a human operator.
+---
 
-Shell timeouts, stdin tricks, and background terminal sessions are anti-patterns because they work around the hang rather than selecting the correct Claude Code mode. They can produce flaky jobs, missing review output, or orphaned processes that are hard to debug.
-
-For further details, see the Claude Code CLI documentation at Claude Code CLI and the broader Claude Code Overview.
-
-Domain
-Claude Code Configuration & Workflows
 Question 58
 Skipped
 Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A new refunds policy allows autonomous refunds up to $150. Anything above that amount requires human approval, regardless of customer history, sentiment, or how obvious the case appears. In staging, the agent usually follows the policy but occasionally calls <code>process_refund</code> for $175 after reasoning that the customer clearly qualifies. What change best meets the policy requirement before launch?
@@ -1640,6 +478,995 @@ Learn more about tool use patterns in Tool Use and agent orchestration concepts 
 
 Domain
 Agentic Architecture & Orchestration
+
+---
+
+## Tool Design & MCP Integration (11 questions)
+
+Question 5
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. While updating refund-policy handling, you ask Claude Code to change a guard clause in a large tool adapter file. The attempted edit fails because the selected text appears in several similar handlers for returns, billing credits, and refunds. You need only the refund handler changed without altering adjacent cases. What should you do next?
+Run Bash with a broad search-and-replace command targeting the repeated text throughout the support module.
+Explanation
+A broad search-and-replace is an anti-pattern for non-unique code snippets because it maximizes the chance of unintended edits. It bypasses the file-level context needed to preserve unrelated handlers that happen to share similar text.
+Use Grep to locate all duplicates, then ask Claude to modify every matching snippet for consistency.
+Explanation
+Grep is useful for finding content, but changing every duplicate is not justified when only the refund handler should change. This would spread a targeted policy update into unrelated return or billing logic and create avoidable regressions.
+Correct answer
+Load the full file with Read, identify the intended refund block, then Write the complete corrected file.
+Explanation
+When a targeted edit cannot uniquely identify the text to replace, inspecting the full file provides the surrounding context needed to make a safe change. Writing the complete corrected file avoids accidentally modifying the wrong duplicate snippet while preserving the rest of the file intentionally.
+Keep retrying Edit with the same replacement until Claude chooses the correct matching occurrence automatically.
+Explanation
+Retrying the same ambiguous edit does not add new information or resolve the non-unique anchor problem. It risks repeated failure or an accidental change to the wrong occurrence if the tool cannot distinguish the intended location.
+Overall explanation
+Correct approach: When a targeted Edit operation fails because the anchor text is not unique, the reliable fallback is to use Read to inspect the full file and then Write the corrected complete file. This gives Claude enough context to locate the intended block and avoids changing similar code in unrelated handlers.
+
+Underlying principle: Built-in tools should be selected based on the operation's precision needs. Edit is appropriate for targeted modifications when the matching text is unique, while Read plus Write is safer when ambiguity prevents a reliable targeted edit.
+
+Why the alternatives fail: Retrying the same ambiguous edit does not resolve the missing context. Using Grep to find duplicates can support investigation, but modifying every match violates the stated requirement to change only one handler. A broad Bash search-and-replace is especially risky because it performs mechanical changes without understanding which occurrence belongs to the refund path.
+
+Learn more about Claude Code workflows and tool-based code editing in the Claude Code Overview.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 11
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A researcher adds an internal corpus MCP server that exposes tools for searching licensed journals and exporting citation metadata. The coordinator uses it successfully on that researcher's laptop, but teammates running the same workflow see only the default tools and produce reports with weaker public web citations. The server needs to be part of the team's reproducible research setup without exposing credentials. What should you change?
+Describe the server in CLAUDE.md and instruct the coordinator to request those research tools by name.
+Explanation
+CLAUDE.md can provide instructions and project context, but it does not register MCP servers or make tools available. Naming unavailable tools in prompts is an anti-pattern because the agent cannot call tools that were not configured and discovered.
+Correct answer
+Define the shared server in the repository's .mcp.json, using environment variable placeholders for credentials rather than committed secrets.
+Explanation
+Project-scoped MCP configuration is the right fit for shared team tooling because it travels with the repository. Environment variable placeholders allow each environment to supply its own credentials without committing sensitive values.
+Add the server to each developer profile in ~/.claude.json, then document manual setup steps in the project README.
+Explanation
+User-level configuration is intended for personal or experimental MCP servers, not shared team tooling. This would preserve the current inconsistency because each developer must manually configure the server.
+Let each subagent call generic web search when MCP tools are unavailable, avoiding repository-level server configuration.
+Explanation
+Falling back to generic web search hides the configuration problem and degrades citation quality for licensed journal research. It also makes results depend on incidental tool availability rather than a reproducible team setup.
+Overall explanation
+Project-scoped MCP configuration is the appropriate choice when an MCP server is part of a shared repository workflow. A repository-level .mcp.json makes the server discoverable for everyone using the project, while environment variable placeholders let each developer or automation environment provide credentials safely.
+
+User-level configuration in ~/.claude.json is better suited to personal or experimental servers because it does not travel with the repository. Instructions in CLAUDE.md can guide behavior, but they cannot make unavailable MCP tools callable. Substituting generic web search is an anti-pattern because it masks misconfiguration and produces lower-quality, less reproducible research outputs.
+
+The underlying principle is scope configuration to the collaboration boundary: shared team integrations belong at project scope, while personal tools belong at user scope. Learn more in the Claude Code Overview and the MCP Overview.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 12
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A report-generation subagent must update a shared Markdown template used for final research reports. The template contains the same phrase, "TODO: add source summary," in several sections, and repeated attempts to make a targeted replacement keep failing because the match is not unique. What should you do next?
+Use Grep to locate every matching phrase, then replace all occurrences so the failed edit cannot recur.
+Explanation
+Grep is useful for finding content locations, but replacing every matching phrase ignores the requirement to update only the intended section. This would overcorrect the file and could damage other template sections that still need placeholders.
+Use Bash with a scripted search-and-replace command to bypass Edit and update the template automatically.
+Explanation
+A scripted replacement can be fast, but it does not solve the ambiguity unless the script is carefully constrained by inspected file context. Bypassing the safer file workflow risks making the same wrong replacement more quickly.
+Keep retrying Edit with broader surrounding text until one replacement succeeds without manually inspecting the full file.
+Explanation
+This is an anti-pattern because broader text does not guarantee the anchor is unique or that the correct section is changed. Repeated blind edits can accidentally modify the wrong occurrence and make the template less reliable.
+Correct answer
+Use Read to load the full template, modify the intended section, then Write the complete corrected file back.
+Explanation
+When a targeted edit cannot identify a unique match, loading the file and rewriting the complete corrected contents is the reliable fallback. This preserves control over exactly which repeated section changes, instead of depending on ambiguous text matching.
+Overall explanation
+Reliable file modification depends on choosing the right built-in tool pattern for the failure mode. When Edit cannot find a unique anchor because the same text appears multiple times, the safer fallback is to inspect the full file with Read, make the intended change in context, and replace the file using Write.
+
+The underlying tradeoff is precision versus convenience. Edit is efficient for targeted changes when the match text is unique, but repeated placeholders or boilerplate make targeted matching unreliable. In that case, full-file replacement gives the agent explicit control over which section changes.
+
+Blindly retrying broader edits, replacing every match, or using shell search-and-replace are anti-patterns when the problem is ambiguity. Those approaches may succeed mechanically while changing the wrong occurrence or damaging other parts of the report template.
+
+Learn more about Claude Code's development workflow and built-in tool usage in the Claude Code Overview.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 14
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During evaluation, the document analysis subagent sometimes initiates new web searches instead of analyzing the assigned PDFs, while the report generator occasionally rewrites evidence summaries before formatting them. Engineers added the extra tools to reduce coordinator round trips, but citation quality and role consistency have declined. What change best addresses the design issue?
+Keep the broad tool access, but add stronger prompts telling each subagent to avoid using tools outside its primary role.
+Explanation
+Prompt instructions can improve behavior, but they do not reduce the underlying tool selection burden or prevent role drift reliably. When tool availability itself is the problem, scoped tool access is more robust than asking agents not to use available tools.
+Correct answer
+Restrict each subagent to role-relevant tools, adding only narrow cross-role utilities for frequent simple checks like source metadata lookup.
+Explanation
+Scoped tool access keeps each subagent focused on its specialization and reduces tool selection confusion. Allowing only narrow cross-role utilities for common simple needs preserves efficiency without letting subagents take over responsibilities better handled by other agents or the coordinator.
+Move all tool access to the coordinator and require subagents to return plain text requests whenever they need information.
+Explanation
+Centralizing every tool call in the coordinator prevents misuse, but it creates unnecessary round trips for simple high-frequency checks. A better design keeps specialized tools with the appropriate subagents and allows narrow cross-role utilities where they provide clear value.
+Give all subagents the same complete tool list so each agent can independently choose the fastest path to completion.
+Explanation
+Providing every subagent with all tools is an anti-pattern because it increases decision complexity and encourages cross-specialization misuse. The observed web searching and evidence rewriting are exactly the kind of role drift caused by overly broad tool access.
+Overall explanation
+Scoped tool access improves reliability by matching each subagent's tools to its actual responsibility: document analysis tools for the document analyzer, synthesis tools for the synthesizer, and reporting tools for the report generator. When a subagent frequently needs a small adjacent capability, such as checking source metadata, a narrow cross-role utility can reduce latency without collapsing role boundaries.
+
+The underlying tradeoff is between autonomy and tool selection reliability. Giving every subagent every tool may seem flexible, but it increases decision complexity and causes agents to misuse tools outside their specialization. Moving every tool call to the coordinator overcorrects, increasing orchestration overhead even for simple repeated checks.
+
+Stronger prompts alone are also insufficient because they leave the confusing tool surface unchanged. The more reliable architecture constrains tool availability first, then uses descriptions and prompts to guide selection within the appropriate scope. Learn more about tool design and tool selection in Tool Use and about agent orchestration in the Agent SDK.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 16
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. During a production incident review, logs show the message "Refund approval token missing" appears only after escalation handoffs. You need Claude Code to inspect the repository and identify every code path that emits or handles this message before changing anything. Which approach should you take first?
+Correct answer
+Use Grep to search repository contents for the exact error string and refund handler names, then Read matching files.
+Explanation
+Grep is the appropriate built-in tool for searching file contents, including exact error messages, function names, and import statements. Starting with content search narrows the investigation to relevant files before using Read to understand the surrounding code paths.
+Use Glob to find refund-related filenames, then review only those files and skip content searches across unrelated paths.
+Explanation
+Glob is useful for matching file paths or filename patterns, not for finding text inside files. Restricting review to refund-named files can miss handlers, shared middleware, escalation adapters, or constants stored under unrelated filenames.
+Use Edit to open likely refund modules one by one, searching manually before making targeted code changes.
+Explanation
+Edit is intended for targeted modifications using unique text matches, not for repository-wide investigation. Manually opening likely modules is slower and less reliable than searching all file contents for the known error text.
+Read every support-agent source file into context, then ask Claude to identify where the error originates.
+Explanation
+Reading every source file upfront wastes context and increases the risk of attention dilution. A targeted content search is more reliable because it locates the exact references before loading surrounding files.
+Overall explanation
+Grep is the right starting point when the investigation depends on text inside files, such as an exact error message, function name, import statement, or constant. Searching repository contents first identifies the smallest relevant set of files, then Read can be used to inspect those files in context before any changes are made.
+
+Glob and Read serve different purposes. Glob is useful for finding files by path or extension pattern, but it does not answer where a string appears inside code. Reading every file upfront is a context-management anti-pattern because verbose, irrelevant content can dilute attention and make later reasoning less reliable.
+
+Edit is not an investigation tool. It is best used after you know the specific file and unique text to change. For debugging a production symptom, the sound workflow is targeted discovery first, contextual reading second, modification last.
+
+Learn more about Claude Code and its built-in development workflow at Claude Code Overview.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 20
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. A new MCP server exposes a working literature database tool that searches licensed journals and returns abstracts, DOI links, publication dates, and citation-ready source metadata. In test runs, the web-search subagent often uses general web search for peer-reviewed evidence, while the document-analysis subagent scans exported PDFs manually. The MCP tool appears in the available tool list, but its surfaced description is only "Search articles by query." What change should you make first?
+Add coordinator instructions requiring academic prompts to include the word literature so keyword matching routes agents correctly.
+Explanation
+Keyword routing is brittle and can fail when users phrase requests differently or when non-academic tasks mention similar terms. It bypasses the model's ability to choose tools based on semantic task fit and does not improve the tool's discoverability.
+Correct answer
+Rewrite the MCP tool description to specify coverage, accepted queries, returned citation metadata, and when agents should prefer it.
+Explanation
+Tool descriptions are the primary signal Claude uses when deciding whether a tool is relevant. Expanding the description with capabilities, inputs, outputs, and boundaries helps agents choose the literature database when its curated metadata is the best fit.
+Rename the tool to authoritative_research_supertool while leaving its inputs, outputs, and usage boundaries unchanged for stronger agent selection.
+Explanation
+A more dramatic name alone does not explain what the tool does, what it returns, or when to use it instead of alternatives. Ambiguous or promotional names can even increase misuse because the model still lacks operational boundaries.
+Remove web search and file-search tools from all research subagents so the literature database becomes the only retrieval path.
+Explanation
+Removing other tools may force usage, but it reduces agent flexibility and can break workflows that legitimately require web sources or local documents. The problem is unreliable selection of a useful MCP tool, not evidence that every other retrieval tool is inappropriate.
+Overall explanation
+Effective MCP adoption starts with clear tool descriptions. When an MCP tool is connected and works manually but agents prefer generic alternatives, the first fix is to make the tool's purpose, inputs, outputs, and selection boundaries explicit. In this case, describing licensed journal coverage, accepted query formats, DOI and citation metadata, and when to prefer the tool over web search gives Claude the information needed for reliable tool choice.
+
+The underlying principle is that MCP tools are still model-selected tools, so their descriptions function as the agent's interface contract. Restricting every other retrieval tool may create forced usage, but it harms legitimate workflows and masks the underlying selection problem. Keyword-based routing is an anti-pattern because it depends on phrasing rather than task semantics, and renaming without clarifying capabilities leaves the same ambiguity in place.
+
+For further reading, see MCP Tools and Anthropic's Tool Use documentation.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 23
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. Production logs show two failure patterns in refund handling: intermittent gateway timeouts that often succeed on the next attempt, and permanent failures such as refund window expired or missing permission. Today the MCP tool sets <code>isError</code> and returns the same short failure message for both, so the agent sometimes repeats impossible operations and sometimes gives up on recoverable ones. What change best improves recovery behavior?
+Configure the agent to retry every failed refund operation three times before showing the final error to the customer.
+Explanation
+A fixed retry count treats all failures as if they might recover, which wastes time on permanent business or permission failures. It also fails to encode why the failure happened, so the agent still cannot communicate or escalate intelligently.
+Disable automatic retries for process_refund and escalate all failed refund attempts to avoid duplicate backend operations.
+Explanation
+This avoids duplicate attempts but sacrifices recovery for intermittent backend problems that could succeed on retry. Escalating every failure lowers first-contact resolution and ignores the observed distinction between recoverable and permanent failures.
+Correct answer
+Add errorCategory and isRetryable fields to tool failures, retrying only failures marked retryable and preserving user-facing explanations.
+Explanation
+This gives the agent enough structured information to choose the correct recovery path. Transient failures can be retried, while permanent business or permission failures can be explained or escalated without wasting attempts.
+Have the agent inspect failure message wording for timeout or permission keywords before deciding whether another attempt is useful.
+Explanation
+Parsing natural language error text is brittle because wording can change and similar phrases may have different meanings. Recovery decisions should be driven by structured metadata, not keyword matching in human-readable messages.
+Overall explanation
+Structured error metadata lets the agent distinguish failures that should be retried from failures that require explanation, clarification, or escalation. In practice, the MCP tool should return an error result with machine-readable fields such as errorCategory and isRetryable, alongside a human-readable explanation the agent can use with the customer.
+
+The key reliability principle is that retry behavior should be based on explicit semantics, not a generic failed status. Intermittent gateway timeouts are often worth retrying, while refund-window expiration and missing permission are not resolved by repeating the same tool call.
+
+Fixed retry counts are an anti-pattern when used as the primary recovery strategy because they waste attempts on permanent failures and do not improve the agent's understanding. Parsing natural language error strings is also brittle, since wording changes can silently break recovery logic. Escalating all failures is overly conservative and undermines the first-contact resolution goal.
+
+Learn more about tool result handling in MCP Tools and Claude tool orchestration in Tool Use.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 36
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. While updating the agent’s refund-policy behavior, you need to inspect only the files related to policy configuration and tests. The repository is large, and relevant files are spread across several packages with naming patterns such as return-policy.yaml, refund-policy.test.ts, and policy-overrides.json. What should you do first to locate the relevant files efficiently?
+Use Grep for policy filename patterns across the repository, then Read every returned match before editing.
+Explanation
+Grep is designed for searching file contents, not for discovering files by path or extension pattern. It may miss files whose contents do not include the searched words, and it can return irrelevant files that merely mention the terms.
+Use Bash to recursively list the repository, then inspect unstructured terminal output for policy filenames.
+Explanation
+A shell listing can sometimes work, but it is less direct than using the built-in path matching tool designed for this purpose. It also encourages noisy, unstructured output that can consume context unnecessarily.
+Correct answer
+Use Glob with targeted filename patterns, then Read only matching policy and test files before editing.
+Explanation
+Glob is the appropriate built-in tool when the selection criterion is the file path or filename pattern. It narrows the search space before using Read, which avoids loading unrelated repository content into context.
+Use Read on each directory’s configuration files first, then manually decide which refund policy files matter.
+Explanation
+Reading broad sets of files upfront wastes context and increases the chance of attention dilution in a large repository. The better approach is to first narrow candidates by path pattern, then read only the relevant matches.
+Overall explanation
+Glob is the right first tool when the task is to find files by filename, extension, or path pattern. In this situation, the relevant evidence is encoded in names such as return-policy.yaml, refund-policy.test.ts, and policy-overrides.json, so the efficient workflow is to use Glob to identify candidate paths, then use Read on the small set of matches.
+
+The underlying tradeoff is context efficiency. Reading broad directory contents or dumping a recursive shell listing pushes irrelevant information into the conversation, which can degrade reasoning on the actual policy change. Grep is valuable when searching file contents for function names, error messages, imports, or policy text, but it is the wrong primary tool when the selection criterion is the path itself.
+
+Using Bash for simple file discovery is usually unnecessary when a more specific built-in tool exists. Effective Claude Code workflows use the most constrained tool that matches the job: Glob for path patterns, Grep for content search, and Read only after narrowing the target set. Learn more in the Claude Code Overview.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 40
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. In the research pipeline, the report generator subagent is wasting context while locating reusable markdown templates and citation-style files. The team already knows the naming conventions for these files, but the subagent currently inspects broad directory contents before deciding what to read. Which approach best reduces unnecessary context while preserving accuracy?
+Use Read on all files under the reports directory, then summarize away files that appear irrelevant.
+Explanation
+Reading all files upfront is a context management anti-pattern because it loads content before relevance is established. Summarizing irrelevant files after the fact does not recover the wasted context or reduce the chance of attention dilution.
+Correct answer
+Use Glob with the known path patterns to enumerate candidate template files, then Read only the selected matches.
+Explanation
+This approach uses the purpose-built file path matching tool before consuming file contents. It minimizes context usage by separating file discovery from content inspection, then reading only the files that are actually relevant.
+Use Bash to run recursive directory listings, then have the subagent infer relevant templates from raw output.
+Explanation
+A shell listing can produce large, noisy output and requires the model to parse unstructured results. When the task is simple path pattern discovery, using a purpose-built built-in tool is more reliable and keeps the context cleaner.
+Use Grep for template filenames across the repository, then Read every file returned by matching content lines.
+Explanation
+Grep is designed for searching file contents, not discovering files by path or extension pattern. It may miss files whose names match the convention but whose contents do not contain the searched terms, and it may return unrelated files that mention those terms.
+Overall explanation
+Glob is the right tool for path discovery. When the agent needs to find files by name, extension, or path pattern, it should first enumerate matching paths with Glob, then use Read only on the files selected for inspection.
+
+The key architectural principle is to separate file discovery from content analysis. This keeps the report generator's context focused on relevant templates and citation files instead of filling the conversation with directory listings or unrelated file contents.
+
+Grep is appropriate when searching inside file contents, not when matching filenames or extensions. Bash can list files, but it adds unnecessary command execution and often produces raw output the model must parse. Reading every file first is an explicit anti-pattern because it wastes tokens and increases attention dilution before relevance is known.
+
+Learn more about Claude Code's built-in development workflow and tools at Claude Code Overview.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 46
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A newly connected returns-policy MCP server exposes a returns_helper tool. In production traces, the tool is discovered and works when manually forced, but the agent usually chains lookup_order, asks customers redundant policy questions, or escalates standard return cases. What is the best first change to improve adoption of this MCP capability?
+Correct answer
+Rewrite returns_helper MCP tool description to specify eligibility inputs, returned fields, examples, and boundaries with refund tools.
+Explanation
+Tool descriptions are the primary signal Claude uses to decide when and how to call MCP tools. Making the tool's purpose, inputs, outputs, examples, and boundaries explicit directly improves model-driven tool selection without adding brittle orchestration.
+Merge returns_helper into process_refund so every refund attempt automatically computes eligibility before performing backend actions.
+Explanation
+Combining policy evaluation with a backend action blurs tool boundaries and increases the risk of accidental side effects. The issue is that the agent is not selecting the available capability reliably, not that policy checks and refund processing must become one operation.
+Add a keyword router that invokes returns_helper whenever users mention return, exchange, refund, damaged, or late delivery.
+Explanation
+Keyword routing is brittle because similar words can imply different workflows, such as refund disputes, damage replacements, or shipping complaints. It bypasses Claude's natural language judgment and can create misrouting when customer language is ambiguous.
+Force returns_helper with tool_choice at the start of every return conversation, then let Claude continue after receiving results.
+Explanation
+Forced tool selection is useful when a specific tool must run at a specific step, but it is too blunt for general tool adoption. It can cause unnecessary calls, bypass better model-driven sequencing, and does not teach the agent when the tool is appropriate.
+Overall explanation
+Clear MCP tool descriptions are critical because Claude uses tool metadata to decide which capability fits the current task. When a tool is visible and technically works when forced, but is rarely chosen in normal operation, the most direct first fix is to improve the tool description so it explains its purpose, accepted inputs, returned fields, examples, and boundaries relative to similar tools.
+
+The underlying principle is to preserve model-driven tool selection while giving the model enough semantic information to choose correctly. Forcing the tool with tool_choice can be appropriate for deterministic first-step extraction or mandatory workflows, but using it at the start of every return conversation over-constrains the agent and may cause unnecessary or incorrectly ordered calls.
+
+Keyword routers are an anti-pattern for ambiguous support language because terms like refund, return, damaged, and late delivery can map to different workflows depending on context. Merging a read-oriented policy helper into an action tool such as process_refund also weakens tool boundaries and can introduce side-effect risks.
+
+Learn more about tool design and MCP concepts in MCP Tools and Claude tool use patterns in Tool Use.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+Question 49
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During evaluation, the document-analysis subagent repeatedly calls an MCP tool to fetch the same unavailable source URL. Logs show the tool marks every failed fetch the same way, so the subagent retries permanent failures such as deleted documents and unsupported file formats, adding minutes of latency before the coordinator receives partial findings. What change would best improve recovery behavior?
+Convert non-retryable failures into empty successful results so synthesis can continue without interruption or coordinator intervention.
+Explanation
+This silently suppresses failures and makes unavailable sources look like successful searches with no content. The coordinator and synthesis agent would lose visibility into coverage gaps, leading to incomplete reports without proper annotations.
+Correct answer
+Return errorCategory and isRetryable per failure, marking permanent source issues non-retryable and transient timeouts retryable with clear messages.
+Explanation
+This gives the subagent enough information to distinguish failures worth retrying from failures that require a different path. Marking permanent conditions as non-retryable prevents wasted attempts, while still allowing local recovery for transient failures such as timeouts.
+Ask the coordinator to classify retryability from the tool's natural-language error text before deciding whether to rerun.
+Explanation
+Parsing natural-language error text is brittle and shifts deterministic failure classification away from the tool that has the best knowledge of the backend response. The tool should return explicit machine-readable retryability metadata so agents can make reliable recovery decisions.
+Retry every failed fetch three times before reporting failure, since repeated attempts smooth over temporary provider instability.
+Explanation
+A fixed retry count treats all failures as if they might succeed later, which wastes time on permanent problems like deleted documents or unsupported formats. Arbitrary retry loops are especially harmful in multi-agent workflows because latency compounds across subagents.
+Overall explanation
+Structured retry metadata lets agents make practical recovery decisions without guessing. In this scenario, the MCP tool should distinguish permanent source problems from temporary access problems using fields such as errorCategory, isRetryable, and a clear human-readable description.
+
+The key principle is that not all failures should trigger the same behavior. A timeout or temporary service unavailability may justify a local retry, while a deleted document, unsupported file type, or stable permission denial should be treated as non-retryable and surfaced to the coordinator with partial findings and coverage implications.
+
+Fixed retry counts waste latency on failures that cannot succeed, while converting failures into empty success results hides coverage gaps from downstream synthesis. Asking the coordinator to infer retryability from prose is also brittle because it relies on natural-language parsing rather than explicit tool contracts.
+
+For further reading, see the MCP concepts for MCP Tools and Anthropic's guidance on Tool Use.
+
+Domain
+Tool Design & MCP Integration
+
+---
+
+## Claude Code Configuration & Workflows (12 questions)
+
+Question 2
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your pilot review for database migration pull requests produces uneven feedback. Claude catches obvious syntax issues, but misses risks such as rollback safety, data retention, backward compatibility, and fixture setup because the team has not yet clarified what a good review should cover. You need to improve the workflow before enabling required CI checks. What should you do next?
+Correct answer
+Run an interview-style refinement pass where Claude asks maintainers targeted questions, then fold clarified criteria into the CI review prompt.
+Explanation
+This is the best next step because the problem is not just prompt wording, it is unclear requirements. Having Claude ask targeted questions helps surface assumptions and review criteria the team may not have considered before the CI workflow becomes mandatory.
+Proceed with required CI enforcement now, using developer complaints from failed builds to discover missing criteria.
+Explanation
+Turning on enforcement before clarifying criteria risks blocking valid pull requests and eroding trust in the CI review. Developer complaints are useful feedback, but relying on production friction as the primary discovery mechanism is a reactive anti-pattern.
+Create several examples from previous clean migrations, then require Claude to imitate those comments exactly during review.
+Explanation
+Examples can improve formatting and consistency, but clean migrations may not expose the edge cases the review must catch. Requiring exact imitation can also overfit the review behavior instead of helping the team discover missing decision criteria.
+Add a broad instruction to be extremely thorough, then suppress review comments unless Claude reports high confidence.
+Explanation
+Vague instructions such as being thorough do not define which migration risks matter or how to classify them. Self-reported confidence is not a reliable substitute for explicit criteria, and it can still miss important issues or suppress useful findings.
+Overall explanation
+Correct approach: When the team has not yet clarified the important criteria, an interview-style refinement pass is a strong fit. Claude can ask maintainers targeted questions about rollback behavior, compatibility guarantees, fixture expectations, data retention, and other domain-specific risks, then those answers can be converted into explicit CI review guidance.
+
+Underlying principle: Iterative refinement works best when the refinement method matches the failure mode. If Claude is missing issues because requirements are underspecified, the priority is to surface and structure the missing requirements before enforcing the workflow.
+
+Why the alternatives fail: Vague instructions such as be thorough and confidence-based filtering do not create concrete review criteria. Few-shot examples are useful for format and ambiguous-case handling, but imitating clean examples will not reliably uncover hidden edge cases. Enabling required checks before criteria are stable creates avoidable false positives and developer distrust.
+
+For more on Claude Code workflows and prompt iteration practices, see Claude Code Overview and Prompt Engineering.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 8
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A new CI review prompt loads the same repository guidance for every pull request. Review comments for generated API clients and database migrations now cite React accessibility rules and frontend naming standards, creating noisy false positives. The repository already keeps file-type conventions in separate markdown snippets, and you want Claude Code to consider each snippet only when the reviewed files are relevant. What should you configure?
+Add every convention to root CLAUDE.md and instruct Claude to ignore sections unrelated to each pull request.
+Explanation
+This is an anti-pattern because it loads all guidance for every review and relies on the model to filter irrelevant sections. The noisy false positives already show that broad, always-loaded instructions are contaminating reviews for unrelated file types.
+Place directory-level CLAUDE.md files near current source folders and duplicate rules for generated or relocated files.
+Explanation
+Directory-level CLAUDE.md files can scope instructions by folder, but they are weaker when conventions need to follow file patterns across locations. Duplicating guidance for generated or relocated files creates maintenance drift and can reintroduce inconsistent review behavior.
+Correct answer
+Create focused .claude/rules/ files with YAML frontmatter paths globs targeting generated clients, migrations, and frontend files.
+Explanation
+Path-specific rule files are designed for conditional convention loading based on file paths. YAML frontmatter paths fields with glob patterns let Claude Code load only the relevant guidance for matching files, reducing irrelevant context and false positive review comments.
+Create separate project slash commands for each file type and require CI to choose one command before review.
+Explanation
+Project slash commands are useful for reusable workflows, but they are not the native mechanism for conditionally loading conventions by file path. This also moves responsibility into CI command selection, increasing orchestration complexity and risking mismatches when a pull request touches mixed file types.
+Overall explanation
+Path-specific rules are the right fit when Claude Code should load guidance only for files matching particular path patterns. Files in .claude/rules/ can use YAML frontmatter with paths glob patterns, which lets conventions activate conditionally instead of being injected into every CI review.
+
+The underlying tradeoff is precision versus broad context. Keeping all guidance in a root CLAUDE.md increases token usage and asks the model to ignore irrelevant rules, which is exactly how unrelated React guidance can leak into migration or generated-client reviews.
+
+Slash commands are better for invokable workflows, not automatic convention scoping by changed file. Directory-level CLAUDE.md files can help with folder-local standards, but duplicated rules are brittle when generated files, tests, or conventions span multiple locations.
+
+For more details on Claude Code memory and configuration patterns, see CLAUDE.md Configuration and the Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 10
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A new GitHub Actions step invokes <code>claude "Review the changed files for regressions"</code> and then stalls until the CI timeout. The repository checkout is valid, and the same prompt works when a developer runs it manually in a terminal. What change should you make to the pipeline command?
+Redirect stdin from /dev/null so Claude Code cannot wait for additional input during the CI job.
+Explanation
+Redirecting stdin is a shell workaround, not the documented Claude Code interface for automated runs. It may change input behavior, but it does not put Claude Code into its intended non-interactive execution mode.
+Add --output-format json and --json-schema so the runner receives a parseable response without prompts.
+Explanation
+Structured output flags are useful when CI needs machine-parseable findings, such as inline pull request comments. They do not, by themselves, address the interactive execution behavior that causes the job to stall.
+Correct answer
+Run Claude Code with the -p or --print flag so it processes the prompt and exits after output.
+Explanation
+Claude Code is interactive by default, which is useful in a terminal but inappropriate for automated CI jobs. The -p or --print flag is the documented way to run Claude Code from scripts so it produces output and exits without waiting for further input.
+Append prompt instructions telling Claude to avoid follow-up questions and finish the review automatically.
+Explanation
+Prompt instructions are not a reliable way to control CLI process behavior in an automated pipeline. The hang is caused by how Claude Code is invoked, not by insufficient review instructions inside the prompt.
+Overall explanation
+Correct CI invocation: Claude Code is interactive by default, so automated runners should invoke it with -p or --print. This tells Claude Code to process the supplied prompt, write the result to standard output, and exit, which prevents CI jobs from waiting indefinitely for terminal interaction.
+
+Underlying principle: CI/CD pipelines require deterministic process behavior. Use documented command-line execution modes for automation rather than relying on shell workarounds or prompt wording to influence whether a process remains interactive.
+
+Why the other approaches fail: Redirecting stdin is an anti-pattern because it treats a CLI mode issue as a Unix stream issue. --output-format json and --json-schema are valuable for structured results, but they solve machine parsing, not interactive execution. Prompting Claude to avoid follow-up questions cannot reliably control whether the Claude Code CLI waits for input.
+
+Learn more in the Claude Code CLI documentation and the Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 17
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your repository's root CLAUDE.md has grown to 1,200 lines after adding review criteria, testing standards, API conventions, deployment notes, and migration guidance. CI-invoked Claude Code now produces noisy feedback that blends unrelated standards, and teams frequently create conflicting edits when updating guidance for their area. What restructuring approach best improves maintainability while preserving shared repository behavior?
+Keep all guidance in root CLAUDE.md, but add stronger headings telling Claude to ignore sections unrelated to each pull request.
+Explanation
+Stronger headings may help readability, but the entire file still remains loaded as a large mixed-context instruction source. This is an anti-pattern because it relies on Claude selectively ignoring irrelevant guidance rather than reducing irrelevant context structurally.
+Correct answer
+Move narrowly scoped guidance into topic-specific files under .claude/rules/, leaving root CLAUDE.md with only universal CI review principles.
+Explanation
+Splitting a large instruction file into focused rule files improves maintainability by separating unrelated guidance into clear modules. Keeping only universal guidance in the root CLAUDE.md preserves shared repository behavior while reducing the chance that unrelated standards influence CI review output.
+Move the CI review checklist into ~/.claude/CLAUDE.md on the build runner to reduce repository instruction size.
+Explanation
+User-level CLAUDE.md files are scoped to a specific user or environment and are not shared through the repository. Putting CI review guidance there would make behavior depend on runner configuration rather than version-controlled project configuration, reducing reproducibility for the team.
+Copy the relevant paragraphs into each package's CLAUDE.md so every directory contains a complete local instruction set.
+Explanation
+Duplicating guidance across many directory-level files creates maintenance drift and increases the chance that different areas receive inconsistent standards. Directory-level CLAUDE.md files can be useful for local conventions, but copying complete instruction sets everywhere worsens the conflict and update problem described.
+Overall explanation
+Topic-specific modularization is the best fit when a repository-level CLAUDE.md becomes large, noisy, and hard to maintain. Moving focused guidance into files under .claude/rules/ lets teams organize standards such as testing, API conventions, and deployment guidance without forcing every concern into one monolithic memory file.
+
+The architectural principle is reduce irrelevant context while preserving shared configuration. A concise root CLAUDE.md can hold universal CI review expectations, while focused rule files make ownership and updates clearer. This improves maintainability and reduces accidental cross-application of unrelated guidance.
+
+Keeping one giant file with stronger headings is an anti-pattern because it asks Claude to ignore irrelevant material instead of structurally limiting what it must consider. Duplicating complete guidance across directory-level files creates drift, and moving shared CI instructions into ~/.claude/CLAUDE.md removes them from version-controlled project configuration.
+
+Learn more in CLAUDE.md Configuration and the Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 19
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A new CI job asks Claude Code to improve coverage for a data normalization utility. The first generated tests pass, but they miss null inputs, timezone boundary cases, and duplicate IDs. Follow-up prompts like "be more thorough" produce inconsistent additions and occasional regressions. What workflow should you use to make improvement more reliable?
+Ask Claude to assign confidence scores to each proposed test, then merge only cases above a fixed threshold.
+Explanation
+Self-reported confidence is not a reliable substitute for executing tests against defined expected behavior. A fixed confidence threshold can filter out useful cases or admit flawed ones without measuring actual correctness.
+Correct answer
+Create a targeted test suite for expected behavior and edge cases, then iterate by feeding Claude the specific failing results.
+Explanation
+This creates an objective feedback loop rather than relying on vague prompt refinement. Specific failing test results give Claude concrete evidence about what behavior is still incorrect, making each iteration focused and measurable.
+Have CI randomly rerun Claude Code until generated tests cover the missed cases, stopping after three unsuccessful attempts.
+Explanation
+Random reruns and arbitrary attempt limits are anti-patterns because they do not communicate what failed or why. They may eventually produce different output, but they do not create a disciplined improvement process.
+Rewrite the prompt to say be exhaustive and conservative, then accept only tests whose descriptions sound sufficiently precise.
+Explanation
+Vague instructions like exhaustive and conservative do not provide objective success criteria. Judging tests by whether their descriptions sound precise is a weak proxy for behavioral coverage and can still miss important edge cases.
+Overall explanation
+Test-driven iteration works because it gives Claude concrete, executable feedback. Instead of asking for generally better output, you define expected behavior and edge cases, run the tests, then provide the exact failures so Claude can make targeted corrections.
+
+The underlying principle is to replace subjective review with an objective feedback loop. CI is especially well suited for this because test output, stack traces, assertion messages, and failing inputs can be fed back into the next Claude Code pass.
+
+Vague instructions such as "be exhaustive" or "be conservative" often fail because they do not specify which behaviors are missing. Self-reported confidence scores are also unreliable unless calibrated against real outcomes, and random reruns with arbitrary limits waste cycles without improving the information available to the model.
+
+For more background on iterative prompting and development workflows, see Claude Code Overview and Prompt Engineering.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 25
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your pull request review job has become noisy after teams added security audit steps, release-note checks, dependency migration guidance, and test generation procedures to the repository's main Claude instructions. Simple documentation-only PRs now receive irrelevant warnings, while specialized jobs still need the detailed procedures when explicitly run. What configuration approach best balances consistency with focused context?
+Duplicate the complete workflow prompt inside each CI command, avoiding shared Claude Code configuration files entirely.
+Explanation
+Duplicating prompts across CI commands makes updates error-prone and increases the chance that review jobs diverge over time. It also misses the maintainability benefit of project configuration and reusable skills for repeatable workflows.
+Store workflow instructions in user-scoped skills on the CI runner, updating them manually when jobs change.
+Explanation
+User-scoped skills are personal configuration, not the right place for shared repository workflows used by CI. Manual updates on the runner create drift and make behavior harder for developers to review or reproduce from version control.
+Consolidate every CI checklist into root CLAUDE.md so each automated review receives identical instructions for maximum consistency.
+Explanation
+This is an anti-pattern because it loads irrelevant task-specific guidance into every Claude Code session. The symptom already shows that overloading the main instructions increases noise and false positives for simple pull requests.
+Correct answer
+Keep universal review principles in project CLAUDE.md, and move specialized CI workflows into project skills invoked by relevant jobs.
+Explanation
+This separates always-applicable guidance from task-specific procedures, reducing irrelevant context during routine CI reviews. Skills are appropriate for repeatable workflows that should be invoked when needed, while CLAUDE.md is better for universal standards that should affect every session.
+Overall explanation
+Correct approach: Use CLAUDE.md for guidance that should apply to every Claude Code session, such as universal review standards, severity definitions, and repository-wide conventions. Use skills for repeatable, task-specific workflows that should run only when invoked, such as a security audit, migration review, or specialized test generation pass.
+
+The underlying tradeoff is context relevance versus consistency. Putting every workflow into always-loaded instructions may seem consistent, but it increases irrelevant context and can create false positives when a routine PR review receives guidance meant for a specialized job.
+
+User-scoped skills are inappropriate for shared CI behavior because they are personal configuration and can drift from the repository. Duplicating large prompts across CI jobs is also brittle, since every checklist change must be copied to multiple places and reviewed for consistency.
+
+For further learning, see Claude Code Overview and CLAUDE.md Configuration.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 32
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your CI job asks Claude Code to review each pull request and then posts findings as inline comments. The posting step intermittently fails because some runs return markdown tables, others return bullet lists, and field names like file path, line number, severity, and remediation are phrased inconsistently. The team wants a low-maintenance fix that lets the pipeline reliably validate findings before posting them. What should you do?
+Keep markdown output, then strengthen the parser with regular expressions covering every observed table and bullet format.
+Explanation
+Parsing natural language or markdown variants is brittle because future outputs may use new phrasing or formatting. This anti-pattern pushes reliability into an expanding parser instead of making Claude Code produce a stable interface for automation.
+Correct answer
+Configure Claude Code to emit structured JSON matching a schema containing required fields for inline review comments.
+Explanation
+Machine-parseable output is the right fit when downstream CI automation must validate and post findings reliably. A JSON schema gives the pipeline a stable contract for fields such as file path, line number, severity, and remediation, reducing failures caused by formatting variation.
+Post Claude Code's raw review text as one general pull request comment instead of creating inline annotations.
+Explanation
+This avoids parser failures by removing inline posting, but it sacrifices the stated need for structured inline feedback. Developers would lose precise file and line annotations, and the pipeline would still lack reliable validation of individual findings.
+Ask Claude Code to begin every finding with identical labels, then reject runs containing unexpected label text.
+Explanation
+Prompt wording can reduce variation, but it does not create a strong validation contract for CI systems. Rejecting runs after prose drift still causes avoidable pipeline failures and does not solve structured field validation cleanly.
+Overall explanation
+Structured CI integration works best when Claude Code output is treated as an automation contract, not as prose to be scraped. Using --output-format json together with --json-schema lets the pipeline require stable fields such as file path, line number, severity, and suggested fix before posting inline comments.
+
+The underlying principle is that CI systems need machine-parseable, validated outputs. Markdown tables and bullet lists are useful for humans, but they are fragile integration formats because small wording or formatting changes can break parsers.
+
+Regular-expression parsing and label policing are anti-patterns here because they rely on natural language consistency rather than a defined schema. Posting a single raw review comment avoids parsing, but it gives up the inline, structured feedback the workflow requires.
+
+For further details, see the Claude Code CLI documentation in Claude Code CLI and broader Claude Code workflow guidance in Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 34
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A custom CI skill first inspects the repository's dependency graph, flaky test history, and prior pull request comments before producing review guidance. In recent runs, the main review output increasingly repeats exploratory notes from that setup phase, reports issues unrelated to the changed files, and sometimes misses straightforward diff-specific problems. What change would best preserve review focus while keeping the setup workflow available?
+Correct answer
+Configure the skill with context: fork so verbose exploration runs separately and returns only a concise summary.
+Explanation
+The context: fork setting runs the skill in an isolated sub-agent context, which prevents exploratory details from filling or biasing the main conversation. This preserves the useful setup workflow while allowing the main CI review to operate on a concise, relevant summary.
+Increase the skill's argument-hint details so developers provide narrower module names and reduce exploratory output during invocation.
+Explanation
+Argument hints help users supply required parameters, but they do not isolate the skill's intermediate output from the main session. Narrower inputs may reduce volume somewhat, but they do not address the core issue of exploratory context affecting the review.
+Have the CI prompt ignore earlier verbose notes and report only high-confidence findings from the pull request.
+Explanation
+This relies on prompt instructions to counteract polluted context, which is unreliable when the session has already accumulated distracting material. High-confidence filtering is also a vague proxy that can suppress useful findings without solving the context management problem.
+Move the workflow into project-level CLAUDE.md so every review session consistently receives the same investigation instructions.
+Explanation
+CLAUDE.md is always-loaded context, so moving a verbose setup workflow there would make the context pollution problem worse. It is appropriate for universal standards, not for large exploratory procedures that should only run when needed.
+Overall explanation
+Isolating verbose skills is the right design when a workflow performs broad discovery but the main session needs to stay focused. In Claude Code skills, context: fork runs the skill in an isolated sub-agent context, allowing it to return a compact result without carrying all intermediate exploration into the main conversation.
+
+The underlying tradeoff is between useful exploration and main-session context quality. CI code review often needs targeted attention on changed files and actionable findings, so preserving a clean review context helps reduce irrelevant comments and missed diff-specific issues.
+
+Putting verbose workflows into CLAUDE.md makes them always loaded, which increases irrelevant context rather than reducing it. Adding argument-hint can improve invocation usability, but it does not isolate intermediate output. Prompting Claude to ignore earlier notes or rely on vague high-confidence criteria is an anti-pattern because it tries to repair context pollution after it has already occurred.
+
+For more details on Claude Code customization and workflow configuration, see Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 39
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. During an automated pull request review, your team added a reusable repository impact analysis step before generating final findings. The step produces long dependency traces, rejected hypotheses, and intermediate notes. When the same Claude Code session continues into final review, the posted comments become noisy and sometimes cite exploratory dead ends instead of actionable issues. What configuration change best preserves final review quality while keeping the reusable analysis available?
+Move the repository analysis instructions into the root CLAUDE.md so every CI invocation shares the same discovery context.
+Explanation
+CLAUDE.md is always-loaded project context, so putting verbose exploratory instructions there increases context usage for every CI invocation. This worsens the noise problem because the main review session still receives broad analysis guidance even when it is not needed.
+Add a required manual /compact step after exploration, then continue the same session for final pull request feedback.
+Explanation
+Compaction can reduce context size during long sessions, but making it a required manual step is brittle for CI automation. It also keeps the workflow in the same session, so exploratory framing and summarized dead ends can still influence final findings.
+Split the exploration into a separate slash command that writes findings directly into the main conversation transcript.
+Explanation
+A slash command can package reusable instructions, but writing verbose findings into the main transcript does not isolate the exploratory context. This preserves the root cause of noisy final feedback because the review still reasons over intermediate notes and rejected paths.
+Correct answer
+Configure the review helper as a skill with context: fork, returning only a concise summary to the main CI review.
+Explanation
+Skills can run in an isolated sub-agent context when configured with context: fork, which prevents verbose exploratory work from polluting the main conversation. Returning only a concise summary keeps the final review focused on actionable findings while preserving the reusable workflow.
+Overall explanation
+Correct approach: A Claude Code skill configured with context: fork is appropriate when a reusable workflow produces verbose exploration, broad codebase analysis, or speculative reasoning that should not dominate the main session. The forked context lets the skill do the heavy discovery work separately, then return a compact result for final CI review.
+
+Architectural principle: CI review quality depends on keeping the final review context focused on decision-ready facts, criteria, and evidence. Isolating exploratory context reduces attention dilution and prevents rejected hypotheses from being treated as review findings.
+
+Why the alternatives fail: Moving exploratory guidance into CLAUDE.md makes it always loaded, which increases noise for unrelated invocations. Relying on a manual /compact step is an automation anti-pattern and does not provide true context isolation. A separate slash command improves reuse, but if it writes all exploration into the same transcript, the final review remains polluted.
+
+Learn more about Claude Code workflows and configuration in the Claude Code Overview and related CLI usage in Claude Code CLI.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 43
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your repository stores database migrations under services/*/db/migrations, packages/*/migrations, and legacy/*/schema. CI reviews often miss migration-specific rollback and locking requirements unless the changed files are in the one directory that already contains local guidance. You want review behavior to follow the relevant file patterns as packages move, without loading migration guidance for unrelated changes. What should you do?
+Correct answer
+Create a .claude/rules/migrations.md file with YAML paths matching all migration locations and keep the conventions there.
+Explanation
+This approach applies migration guidance based on file path patterns rather than physical directory hierarchy. It is maintainable when matching files are spread across multiple repository areas and avoids loading irrelevant guidance for unrelated CI reviews.
+Move all migration review guidance into the root CLAUDE.md so every CI run consistently sees the rules.
+Explanation
+Putting specialized migration guidance in the root CLAUDE.md loads it for every review, including changes unrelated to migrations. This increases irrelevant context and can contribute to noisier review feedback rather than targeted convention application.
+Copy identical CLAUDE.md files into every current migration directory and update them whenever packages are reorganized.
+Explanation
+Duplicating directory-level guidance creates drift and requires ongoing maintenance whenever packages move or new migration locations are added. It also ties conventions to current folder placement instead of the file patterns that actually define when the rules apply.
+Add a /review-migrations command and require the CI job to invoke it only when migration files change.
+Explanation
+A custom command can encode a workflow, but it does not solve automatic conditional convention loading within Claude Code’s rule system. This adds brittle external routing logic when the desired behavior is file-pattern-based guidance selection.
+Overall explanation
+Path-scoped rules are the right fit when a convention applies to files that share naming or location patterns but are spread across multiple directories. A rule file in .claude/rules/ with YAML paths glob patterns lets Claude Code load the migration conventions only when matching files are in scope.
+
+The underlying principle is to attach guidance to the condition that makes it relevant, not to one current folder location. This is especially useful in CI, where unrelated pull requests should not inherit migration-specific review rules that can create noise or false positives.
+
+Duplicating CLAUDE.md files across directories is a maintenance anti-pattern because copies drift and new folders are easy to miss. Placing all specialized guidance in the root CLAUDE.md is also suboptimal because it loads irrelevant context globally. A custom slash command can help with explicit workflows, but it is not the best mechanism for automatic convention loading based on changed file paths.
+
+Learn more in CLAUDE.md Configuration and the Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 44
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A nightly CI review job for large pull requests first asks Claude Code to map ownership boundaries, trace affected call paths, and inspect related tests before producing review findings. On broad changes, the job often fills the conversation with verbose search results and file excerpts, then the final review misses earlier discoveries or gives shallow comments. What adjustment would best preserve review quality while still allowing necessary investigation?
+Limit CI review to changed diff hunks only, avoiding exploratory reads so Claude spends attention on final comments.
+Explanation
+This reduces context usage, but it removes important cross-file and dependency context that large pull requests often require. It can increase false negatives because the model may miss issues that only appear when tracing interactions beyond the diff.
+Keep all repository discovery in the main CI session, relying on /compact whenever verbose outputs crowd the conversation.
+Explanation
+Compaction can help during extended sessions, but it is a reactive cleanup step rather than a design for isolating verbose investigation. It also risks losing details that were never extracted into concise, structured findings before the final review.
+Correct answer
+Run verbose repository discovery in an Explore subagent, returning concise findings before the main CI review produces structured comments.
+Explanation
+This isolates the noisy discovery phase from the main review context while still preserving the important conclusions. The main review can then focus on applying judgment and producing actionable findings instead of carrying every intermediate search result and file excerpt.
+Paste complete grep outputs and dependency trees into the initial prompt so Claude has maximum codebase context.
+Explanation
+Maximizing raw context is an anti-pattern for large reviews because attention quality degrades when verbose, low-signal outputs dominate the conversation. More context is not automatically better; the useful facts should be extracted and summarized for the final review pass.
+Overall explanation
+Using an Explore subagent is the best fit when a workflow requires broad, verbose discovery before a focused final decision. The discovery subagent can inspect files, trace dependencies, and search broadly, then return a concise summary of relevant findings to the main Claude Code session.
+
+The underlying principle is context isolation: keep noisy intermediate investigation separate from the context used for final review judgment. This helps avoid context window pressure, attention dilution, and missed findings caused by accumulated raw tool output.
+
+Relying on /compact after the main session is already crowded is less reliable because it treats context overload after it happens. Reviewing only diff hunks avoids overload, but sacrifices architectural and cross-file understanding. Pasting complete raw outputs creates the same overload problem in a different form and is a common anti-pattern.
+
+Learn more about Claude Code workflows in Claude Code Overview and broader agent patterns in Agent SDK.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+Question 57
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A pull request review workflow launches `claude "Review the changed files for security regressions"` from a CI step. The process starts successfully, but the job sits idle until the CI timeout because the command is waiting for an interactive session instead of returning review text to stdout. What change should you make first?
+Move the review command into a background terminal session so CI logs continue while Claude Code remains active.
+Explanation
+Backgrounding the process hides the blocking behavior instead of producing a completed review result for the pipeline. CI needs a deterministic command that returns output and an exit status, not a long-lived interactive session.
+Wrap the existing command in a shell timeout and rerun the CI job whenever no output appears promptly.
+Explanation
+A timeout treats the symptom rather than changing Claude Code into the correct execution mode. It can create flaky pipelines because the command may still be waiting for interaction when the timeout kills it.
+Correct answer
+Run Claude Code with `claude -p "Review the changed files for security regressions"` so it prints output and exits.
+Explanation
+The `-p` or `--print` flag is the documented way to run Claude Code in non-interactive mode for automation. It causes Claude Code to process the prompt, write the response to standard output, and exit instead of opening an interactive session.
+Pipe the prompt into the existing `claude` command and rely on end-of-file to close the interactive session.
+Explanation
+Relying on standard input behavior is not the documented CI integration pattern for Claude Code. The pipeline needs an explicit non-interactive invocation, not an implicit assumption that end-of-file will produce the desired stdout behavior.
+Overall explanation
+Correct CI invocation: Claude Code should be run with -p or --print when used from automated pipelines. This mode is designed to accept a prompt, emit the result to stdout, and exit without waiting for interactive input.
+
+The underlying principle is that CI jobs require deterministic non-interactive execution. Commands should complete predictably, return output that the pipeline can capture, and avoid hidden prompts that wait for a human operator.
+
+Shell timeouts, stdin tricks, and background terminal sessions are anti-patterns because they work around the hang rather than selecting the correct Claude Code mode. They can produce flaky jobs, missing review output, or orphaned processes that are hard to debug.
+
+For further details, see the Claude Code CLI documentation at Claude Code CLI and the broader Claude Code Overview.
+
+Domain
+Claude Code Configuration & Workflows
+
+---
+
+## Prompt Engineering & Structured Output (12 questions)
+
+Question 6
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your CI review uses tool_use to produce a JSON finding object with required fields file_path, start_line, severity, owner_team, linked_ticket, and suggested_fix. In PRs that lack ownership or ticket metadata, reviews contain plausible but nonexistent owner teams and tickets, which downstream automation routes incorrectly. What schema change best addresses this while preserving useful findings?
+Keep all fields required and add stronger prompt wording telling Claude never to invent values from context.
+Explanation
+Stronger wording does not remove the schema pressure to populate fields that may be absent from the source. When a field is required, the model may still produce plausible values to satisfy the schema, especially when downstream parsing expects every field.
+Infer absent metadata from repository naming conventions so every finding contains complete routing information for automation.
+Explanation
+Inferring missing metadata from naming conventions is an anti-pattern because it converts weak assumptions into structured facts. This can route comments or tickets incorrectly and makes the output appear more certain than the evidence supports.
+Correct answer
+Redesign the schema so unavailable source-dependent fields are nullable or optional, with instructions to return null unless directly evidenced.
+Explanation
+This addresses the root cause by allowing the structured output to represent absence of evidence without forcing fabricated values. The model can still return valid findings while leaving fields like owner_team or linked_ticket empty when the PR does not provide that information.
+Reject any finding missing routing metadata before posting comments, ensuring only fully populated findings reach developers.
+Explanation
+Rejecting otherwise valid findings loses useful review signal simply because unrelated routing metadata is unavailable. The better design is to preserve the finding while explicitly representing missing source-dependent fields rather than discarding the entire result.
+Overall explanation
+Nullable or optional fields are the right schema design when source documents, diffs, or CI context may not contain every desired value. Tool use with JSON schemas can enforce syntactically valid structured output, but the schema should not force Claude to invent values for fields like owner_team or linked_ticket when the PR does not provide them.
+
+The underlying principle is to distinguish required facts needed for a valid finding from source-dependent metadata that may be absent. Required fields are appropriate for core review data such as file_path, severity, and suggested_fix when those are necessary to act on the finding. Optional or nullable fields let downstream automation handle missing information explicitly.
+
+Keeping all fields required and relying on stronger prompt wording creates pressure to fabricate. Inferring metadata from repository naming conventions is also unsafe because it turns heuristics into apparently authoritative structured data. Rejecting findings that lack routing metadata reduces false routes, but it also suppresses valid code review issues that developers still need to see.
+
+Learn more about structured output with tool use in Tool Use and broader prompting patterns in Prompt Engineering.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 9
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. After changing the pull request review prompt from "find all potential reliability issues" to "be conservative and include only actionable comments," the bot still flags defensive null checks as bugs and ordinary retry loops as performance defects. Developers dismiss more than half of its comments and say they cannot predict what the bot considers worth reporting. What change should you make next?
+Post all findings as non-blocking informational comments so developers can ignore false positives without changing review criteria.
+Explanation
+Making comments non-blocking reduces immediate workflow friction but does not improve precision. Developers still receive noisy feedback, which can erode trust in accurate findings over time.
+Require every finding to include a self-reported confidence score, then suppress comments below a configured confidence threshold.
+Explanation
+Self-reported confidence is not a reliable proxy for correctness or developer value. The bot may remain confidently wrong on ambiguous code patterns if the prompt still lacks clear reporting criteria.
+Add stronger wording that Claude must be extremely conservative and should only comment when it feels completely certain.
+Explanation
+This repeats the same weak pattern that already failed: relying on vague caution language. Terms like extremely conservative and completely certain do not tell the model which code patterns are reportable versus acceptable.
+Correct answer
+Replace broad caution language with concrete report and skip criteria for each review category, including representative true-positive and non-issue examples.
+Explanation
+General caution language does not define the actual decision boundary for what should be reported. Concrete category-specific criteria and examples make the review behavior more predictable and reduce false positives in the areas developers are dismissing.
+Overall explanation
+Broad caution instructions are not enough. Phrases like be conservative or only include actionable comments sound useful, but they do not define the boundary between a valid finding and an acceptable pattern. A stronger prompt should specify what to report and what to skip for each review category, with examples showing true positives and common non-issues.
+
+The underlying principle is that review prompts need operational criteria, not subjective intensity words. If defensive null checks are being flagged as bugs and ordinary retry loops as performance defects, the prompt should define when those patterns are actually problematic, such as unreachable logic, swallowed errors, unbounded retries, or incorrect fallback behavior.
+
+Increasing vague wording, filtering by self-reported confidence, or making all findings informational are anti-patterns because they do not fix the model's decision boundary. They may reduce perceived urgency, but they leave developers with noisy comments and inconsistent judgments. For more guidance on prompt specificity and examples, see Prompt Engineering.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 15
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extraction tool captures payment_method using a JSON Schema enum of credit_card, ach, wire, and check. In validation logs, documents with wording like "paid through marketplace balance" or no stated payment method either fail enum validation or get coerced into one of the existing categories, which misleads downstream reporting. What schema change best handles these edge cases while preserving structured categories?
+Correct answer
+Extend the enum with unclear and other, plus a required detail field when other is selected.
+Explanation
+This preserves structured categories while giving the model valid outputs for ambiguous or novel cases. The unclear value handles missing or ambiguous source evidence, while other plus a detail field captures new categories without forcing an inaccurate existing label.
+Replace the enum with an unrestricted string so novel payment descriptions pass validation without schema changes.
+Explanation
+An unrestricted string reduces validation failures but removes the normalization benefits that downstream systems expect from structured categories. It also makes aggregation and quality checks harder because equivalent values can be expressed many different ways.
+Reject any document containing unfamiliar payment wording and route it directly to human review before extraction.
+Explanation
+Human review is appropriate for some high-risk ambiguous cases, but rejecting every unfamiliar wording is unnecessarily broad. The schema can represent uncertainty and extensible categories directly, allowing downstream workflows to decide which records need review.
+Force Claude to choose the closest existing enum value and add a confidence score for downstream filtering.
+Explanation
+Forcing the closest category creates misleading structured data when the source does not support any existing enum value. A confidence score may help review routing, but it does not fix the schema design problem or prevent inaccurate categorization.
+Overall explanation
+Schema design should represent real source uncertainty. When a field has known categories but source documents may contain missing, ambiguous, or novel values, the schema should not force the model into inaccurate labels. Adding unclear supports cases where the document does not provide enough evidence, while other plus a detail field preserves the original meaning for categories not yet modeled.
+
+The tradeoff is structure versus flexibility. A closed enum gives downstream systems consistent categories, but it needs safe escape hatches for production data variety. A fully unrestricted string is flexible but weakens validation, aggregation, and quality monitoring.
+
+Anti-patterns fail in different ways. Forcing the nearest enum value creates false precision and can corrupt analytics. Sending all unfamiliar wording to human review wastes reviewer capacity when the extraction can preserve uncertainty structurally. Confidence scores can complement review routing, but they are not a substitute for a schema that admits ambiguous and extensible cases.
+
+For further learning, see Anthropic's guidance on structured tool outputs in Tool Use and broader prompt and schema practices in Prompt Engineering.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 22
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extractor processes vendor contracts and outputs schema-valid records, but downstream reviewers report that obligation summaries vary from terse fragments to long paraphrases, evidence snippets sometimes include irrelevant surrounding text, and action_owner wording is inconsistent. The prompt already contains detailed field definitions and length guidance, but changes have not stabilized outputs. What should you do next?
+Set temperature to zero and rely on deterministic decoding to standardize all reviewer-facing extraction wording across documents.
+Explanation
+Lower temperature can reduce randomness, but it does not define what the correct output style should be. Deterministic decoding may consistently reproduce an undesirable pattern when the model has not been shown the expected format for varied source language.
+Expand the field descriptions with stricter prose rules for every obligation type, then ask Claude to be more consistent.
+Explanation
+The prompt already contains detailed field definitions and length guidance, so adding more prose is unlikely to solve the formatting drift. Vague consistency instructions are weaker than concrete demonstrations of the desired transformation and can add token overhead without clarifying edge cases.
+Reject any record whose summaries exceed a fixed word limit, then rerun the full document automatically.
+Explanation
+A fixed word limit catches only one surface symptom and does not teach the model how to choose evidence boundaries or owner wording. Automatically rerunning the full document without targeted guidance can repeat the same errors and may discard valid obligations that require slightly longer summaries.
+Correct answer
+Add 2 to 4 representative input and ideal output examples showing concise obligations, evidence boundaries, and owner wording.
+Explanation
+Few-shot examples are the strongest next step when detailed instructions alone produce inconsistent formatting and actionability. Representative input and ideal output pairs demonstrate exactly how ambiguous source text should be transformed, helping Claude generalize the desired pattern across new contracts.
+Overall explanation
+Few-shot prompting is most effective when the issue is inconsistent formatting, actionability, or judgment despite detailed written instructions. Concrete input and ideal output examples show the model how to transform messy contract language into concise obligations, bounded evidence snippets, and consistent owner labels.
+
+The key principle is that examples communicate behavioral patterns better than additional prose when outputs depend on judgment. In extraction workflows, schemas can enforce field presence and types, but examples help stabilize the content placed inside those fields.
+
+Adding stricter prose repeats an approach that has already failed, fixed word limits treat symptoms without teaching the extraction behavior, and temperature changes cannot substitute for clear demonstrations. The best practice is to include a small set of targeted examples covering common ambiguity patterns rather than a large generic example bank.
+
+Learn more about using examples to improve reliability in Prompt Engineering and about structured extraction patterns in Tool Use.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 24
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your automated PR review has started posting comments that claim error-path tests are missing. Manual spot checks show many flagged cases are already covered through table-driven tests, shared fixtures, or helper-generated cases, but some genuinely uncovered branches still need comments. What change would most effectively improve the review prompt?
+Tell Claude to report only high-confidence missing-test findings and suppress anything that might already be covered indirectly.
+Explanation
+Vague confidence instructions do not teach Claude how to recognize coverage in table-driven tests, fixtures, or helper-generated cases. This may reduce some comments, but it also risks suppressing genuine gaps without addressing the underlying ambiguity.
+Require CI to flag gaps only when changed files lack a same-directory test file with matching filename patterns.
+Explanation
+Filename heuristics are brittle because many legitimate test suites use centralized fixtures, integration tests, or generated test cases in different locations. This approach replaces semantic review with pattern matching and can both miss real gaps and create false positives.
+Add a fixed minimum test-count rule per changed file and comment whenever the threshold is not met.
+Explanation
+A fixed test-count threshold is an anti-pattern because test adequacy depends on behavior, branches, and risk, not raw test counts. It would encourage noisy comments on well-tested small changes and overlook poorly tested complex changes that happen to meet the count.
+Correct answer
+Add targeted examples showing varied existing test structures and genuine gaps, including why each should be reported or skipped.
+Explanation
+Targeted examples teach Claude how to interpret ambiguous coverage evidence across different test organization patterns. Showing both acceptable existing coverage and real gaps helps the model generalize judgment instead of assuming unfamiliar test structures are missing tests.
+Overall explanation
+Few-shot prompting is especially useful when Claude must apply judgment to ambiguous review situations, such as determining whether a branch is already covered by table-driven tests, shared fixtures, or helper-generated cases. Concrete examples can show what evidence counts as existing coverage, what evidence is insufficient, and how to explain a finding when a real gap exists.
+
+The key principle is that examples help Claude generalize judgment to novel patterns, rather than relying only on literal instructions or brittle keyword matches. Including both positive and negative cases is important because the review must avoid false positives while still catching genuine missing tests.
+
+Confidence-only wording is too vague to resolve the ambiguity, and filename or count-based rules are heuristic anti-patterns that ignore how real test suites are organized. For CI review prompts, the better tradeoff is to encode nuanced examples that demonstrate the desired review behavior without hard-coding simplistic rules.
+
+Learn more about examples and prompt design in Prompt Engineering and about Claude Code workflows in Claude Code Overview.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 31
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Production evaluation shows your extraction tool validates successfully, but downstream analytics are unreliable. New vendor industries and uncertain contract classifications are being squeezed into the closest allowed enum value, causing misleading dashboards even though no JSON schema errors occur. What schema change would best improve reliability while preserving machine-readable output?
+Keep the closed enum unchanged and retry extractions until the model selects one of the approved category values.
+Explanation
+Retries may produce schema-valid output, but they do not solve the semantic problem when the source category is genuinely unclear or outside the enum. This anti-pattern pressures the model to choose an incorrect approved value, making dashboards look cleaner while reducing truthfulness.
+Correct answer
+Add explicit fallback enum values with companion detail fields so uncertain or novel categories are captured without forced misclassification.
+Explanation
+This preserves schema validity while giving Claude a safe place to represent uncertainty and categories not anticipated by the original enum. It improves downstream reliability because analytics can separate known categories from uncertain or newly described values instead of treating guesses as facts.
+Expand the enum with every observed category and reject documents whose categories are not already listed.
+Explanation
+Expanding the enum can help for known categories, but it does not handle future unseen categories or genuinely uncertain source evidence. Rejecting otherwise processable documents reduces coverage and creates operational brittleness for evolving document sets.
+Replace the enum with a free-text string field and let downstream systems normalize categories after extraction.
+Explanation
+A free-text field avoids forced enum choices, but it sacrifices the machine-readable consistency that downstream systems need. It pushes classification ambiguity into later systems and can create spelling, synonym, and normalization drift across documents.
+Overall explanation
+Schema design should represent uncertainty explicitly. When source documents contain categories that are unclear or outside the current taxonomy, the extraction schema needs safe structured ways to capture that reality rather than forcing the closest valid enum value.
+
+The practical pattern is to keep useful enum constraints for known categories while adding fallback values such as unclear or other, paired with detail fields like category_detail or uncertainty_reason. This maintains machine-readable output while preventing semantic misclassification from being hidden behind schema-valid JSON.
+
+Retrying until an approved enum appears is an anti-pattern because it optimizes for validation success instead of extraction truthfulness. Replacing enums with free text loses consistency, while endlessly expanding closed enums still fails on future or genuinely ambiguous cases.
+
+The underlying principle is that JSON schema enforcement guarantees structure, not meaning. Robust extraction systems design schemas that give the model valid ways to say what the evidence supports, including uncertainty and extensible categories. Learn more in Tool Use and Prompt Engineering.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 35
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. A release candidate updates 18 extraction assets, including prompts, JSON schemas, validators, and few-shot examples across invoices, contracts, and intake forms. A single review request produces uneven results: detailed feedback on early files, superficial comments on later files, and missed mismatches between schema fields and validator assumptions. What review architecture should you use before approving the release?
+Ask contributors to limit extraction pull requests to five changed files, postponing larger schema updates until later releases.
+Explanation
+Reducing pull request size can be helpful as a team practice, but it does not solve the review architecture problem for legitimate multi-file releases. It also imposes an arbitrary cap that can fragment related schema, prompt, and validator changes across releases.
+Run three full-repository reviews and report only defects that at least two reviews identify independently.
+Explanation
+Repeating broad reviews can still suffer from the same attention dilution, and majority voting can suppress real defects that only one pass catches. This is an anti-pattern when the issue is insufficiently focused review scope.
+Correct answer
+Review each changed file separately for local prompt and schema defects, then run a final pass checking cross-file consistency.
+Explanation
+Focused per-file review reduces attention dilution by letting Claude evaluate each prompt, schema, validator, or example set in depth. A separate integration pass then examines relationships across files, such as schema fields matching validators and examples reflecting the expected extraction contract.
+Increase the context budget and review all changed prompts, schemas, validators, and examples together in one request.
+Explanation
+A larger context budget may allow more content to fit, but it does not guarantee even attention across every file. The observed failures are attention and review-focus problems, not simply input-size problems.
+Overall explanation
+Focused review passes work because they allocate Claude's attention to one artifact at a time, improving the depth and consistency of local findings for prompts, schemas, validators, and few-shot examples.
+
+The separate integration pass addresses a different class of risk: relationships across files, such as whether validators enforce the same constraints that schemas expose, whether examples match the intended output format, and whether prompt instructions conflict across document types.
+
+The underlying architectural principle is that large reviews should be decomposed by concern. More context is not the same as better attention, and repeated broad reviews can reproduce the same blind spots while adding cost and latency.
+
+Arbitrary file limits can fragment related changes, while majority voting across full reviews can hide subtle but valid findings. For further study, see Prompt Engineering and Claude Code Overview.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 48
+Skipped
+Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A pilot of your pull request reviewer shows developers dismiss most performance findings. The current review prompt says: "Only report actionable issues you are highly confident about. Be conservative and avoid nitpicks." The dismissed findings are usually speculative comments like "this loop might be slow" without evidence about input size, hot paths, or repeated work. What prompt change would most effectively improve review precision?
+Repeat "be conservative" and "avoid speculation" in the system prompt header, review checklist, and final output instructions.
+Explanation
+Repeating general instructions increases prompt emphasis but does not clarify the decision boundary. The original prompt already contains similar wording, and the observed failures show that vague caution is not enough to reduce false positives.
+Correct answer
+Define reportable evidence thresholds for performance findings, including unbounded input growth, hot paths, or repeated database calls inside loops.
+Explanation
+This replaces vague cautionary wording with concrete conditions that determine whether a performance issue should be reported. It gives Claude observable evidence requirements, which improves precision by filtering out speculative findings before they reach developers.
+Require Claude to include longer reasoning for every performance concern, then post findings whose explanations sound specific and cautious.
+Explanation
+Longer explanations can make weak findings appear more persuasive without making them more valid. Judging whether reasoning sounds cautious is an unreliable natural language filter compared with explicit reportability criteria.
+Raise the required self-reported confidence score to 9/10 and automatically suppress any performance finding below that threshold.
+Explanation
+Self-reported confidence is not a reliable proxy for correctness or actionability. The model may still be confidently wrong, and numeric thresholds do not teach it which evidence makes a performance finding worth reporting.
+Overall explanation
+Explicit criteria improve precision because they tell Claude what observable evidence must exist before a finding should be reported. In this case, performance findings should be tied to concrete signals such as unbounded input growth, hot execution paths, repeated database calls, or other conditions the team agrees are actionable.
+
+General instructions like be conservative or only report high-confidence findings often fail because they do not define the boundary between a real issue and a speculative concern. Raising a self-reported confidence threshold has the same weakness: confidence is not reliably calibrated and does not replace task-specific evidence requirements.
+
+Repeating vague instructions or selecting findings based on explanations that merely sound careful are anti-patterns for CI review workflows. These approaches can preserve or even amplify false positives because they reward style rather than correctness.
+
+The underlying principle is to encode review judgment as concrete, category-specific reporting rules that match what developers consider actionable. Learn more about prompt specificity and examples in Prompt Engineering and about Claude Code workflows in Claude Code Overview.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 50
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. In pilot runs, quantity fields from several vendors use shorthand like "approx. 12 kg", "12kg net", and "12 kilograms". The extractor often flags valid variants as defects while accepting truly ambiguous entries like "12 units" without unit context. The schema and validation logic are stable, and prose instructions listing allowed unit formats have not improved consistency. What change would most effectively improve judgment across new vendor layouts?
+Correct answer
+Add a small set of labeled examples showing acceptable unit variants and genuinely ambiguous entries, including expected fields and reasoning.
+Explanation
+Few-shot examples are effective when the model must distinguish acceptable patterns from true issues rather than merely follow a format. Showing both positive and negative cases helps Claude generalize judgment to new vendor layouts while reducing false positives on valid variants.
+Increase the minimum confidence threshold so borderline extractions are routed to human review before downstream validation occurs.
+Explanation
+Confidence thresholds can help route uncertain cases, but they do not teach the model the distinction it is currently missing. This would likely increase review volume without reducing the underlying misclassification of valid and ambiguous quantity formats.
+Instruct the model to return null for any measurement containing informal wording, unusual spacing, or missing punctuation.
+Explanation
+This is an overly broad anti-pattern that sacrifices recall by treating many valid source formats as missing data. It would reduce some ambiguous extractions but worsen false negatives for common real-world document variations such as informal abbreviations or compact spacing.
+Expand the prompt with a comprehensive list of every vendor-specific unit spelling and abbreviation observed so far.
+Explanation
+An exhaustive list is brittle because new vendors will continue to introduce unseen phrasing and spacing variations. It encourages memorization of known strings rather than teaching the model the underlying distinction between valid variants and ambiguous measurements.
+Overall explanation
+Few-shot prompting is the best fit when the failure is inconsistent judgment across ambiguous cases, not JSON syntax or schema enforcement. A compact set of labeled examples can show Claude that 12kg net and 12 kilograms should map to the same normalized quantity, while 12 units may require an ambiguity marker or null unit field depending on the schema.
+
+The underlying principle is that examples help define the decision boundary between acceptable source variation and genuine extraction uncertainty. This is more robust than listing every observed spelling because the model can generalize the pattern to new layouts and vendors.
+
+Raising confidence thresholds only changes downstream routing, not the extraction behavior itself. Returning null for broad categories of informal wording is an anti-pattern because real documents frequently contain shorthand, irregular spacing, and informal notation that still convey valid information.
+
+For more on using examples to improve consistency and handling ambiguous cases, see Prompt Engineering and Tool Use.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
+Question 54
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your extractor captures <code>sample_size</code>, <code>study_design</code>, and <code>citation_source</code> from journal articles. It works on papers with explicit Methods and References sections, but misses the same fields when sample details appear in an abstract footnote, study design appears in an appendix table, or citations are inline only. Validation passes because those fields are nullable, but downstream analytics show systematic under-extraction. What change would most effectively improve extraction quality?
+Make sample_size, study_design, and citation_source required in the schema so validation failures force complete outputs.
+Explanation
+Making fields required creates pressure to fill values even when the source is ambiguous or truly missing. This may reduce nulls superficially, but it increases hallucinated or misplaced values and does not teach better extraction from varied layouts.
+Correct answer
+Add targeted examples showing correct extraction from multiple document layouts, including inline citations, appendix tables, and embedded methodology details.
+Explanation
+Targeted examples teach Claude how the same semantic fields can appear in different document structures. This directly addresses systematic under-extraction without pressuring the model to fabricate values when fields are genuinely absent.
+Preprocess documents with keyword rules that discard content outside Methods, Results, References, and Appendix headings before extraction.
+Explanation
+Keyword-based filtering is brittle because the problem involves relevant evidence appearing in unexpected locations. Discarding content before extraction can remove the exact footnotes, inline citations, or embedded details needed for accurate output.
+Expand the instructions with a longer list of possible section names and tell Claude to search them exhaustively.
+Explanation
+Longer prose instructions can help, but they are less effective than concrete examples for demonstrating how to handle structurally varied cases. Section-name lists also fail when relevant information appears outside predictable headings, such as footnotes or embedded tables.
+Overall explanation
+Few-shot prompting is most useful when the model needs to generalize judgment across varied document structures, not merely follow a format. Examples showing correct extraction from inline citations, appendix tables, abstract footnotes, and embedded methodology details demonstrate how to map differently placed evidence into the same schema fields.
+
+The underlying principle is that concrete input and output examples communicate the desired transformation more reliably than long prose lists of possible headings. They reduce false nulls while preserving the value of nullable schema fields for information that is genuinely absent.
+
+Making fields required is an anti-pattern for extraction systems because it can reward fabricated values. Keyword preprocessing is also risky because it discards evidence based on brittle assumptions about where information should appear. Longer instructions may help at the margins, but they do not demonstrate the ambiguous cases Claude needs to learn.
+
+For further guidance, see Prompt Engineering and Tool Use.
+
+Domain
+Prompt Engineering & Structured Output
+
+---
+
 Question 59
 Skipped
 Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. Your automated PR reviewer emits structured findings with fields for file, line, severity, category, and suggested fix. Developers dismiss 38% of comments, but the dashboard only shows broad categories like "bug" and "maintainability," making prompt iteration unfocused. What schema and workflow change would best support systematic improvement?
@@ -1667,6 +1494,9 @@ For more on structured outputs and prompt iteration, see Tool Use and Prompt Eng
 
 Domain
 Prompt Engineering & Structured Output
+
+---
+
 Question 60
 Skipped
 Scenario: Claude Code for Continuous Integration You are integrating Claude Code into your CI/CD pipeline. The system runs automated code reviews, generates test cases, and provides feedback on pull requests. You need to design prompts that provide actionable feedback and minimize false positives. A structured CI review step extracts findings from pull request diffs into fields including <code>changed_file</code>, <code>changed_line</code>, <code>breaking_change_evidence</code>, and <code>suggested_fix</code>. Validation rejects several potential API-breaking findings because <code>breaking_change_evidence</code> is null. The rejected cases only include generated client changes in the CI context, while the previous API contract and baseline generated files are unavailable. What change best improves extraction quality without increasing unsupported findings?
@@ -1694,3 +1524,275 @@ The underlying principle is to distinguish semantic validation failures that can
 
 Domain
 Prompt Engineering & Structured Output
+
+---
+
+## Context Management & Reliability (9 questions)
+
+Question 3
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. Your team uses the system to investigate an unfamiliar legacy repository that powers citation extraction. After several hours, the coordinator starts answering follow-up questions with generic claims about "typical pipeline patterns" and contradicts earlier discoveries about specific classes and data flows. The earlier discoveries were recorded only in long conversation turns mixed with verbose Read, Grep, and test outputs. What change would most effectively preserve accurate findings for later questions?
+Add a final synthesis subagent that summarizes the entire conversation only after answers begin becoming inconsistent.
+Explanation
+Waiting until inconsistency appears is reactive and risks losing important details before they are captured. A one-time summary of the entire conversation can also compress away exact class names, file paths, and data-flow facts.
+Correct answer
+Have each exploration subagent write key findings to scratchpad files at known paths, and require later prompts to reference them.
+Explanation
+Scratchpad files create durable state outside the shrinking or noisy conversation context. Requiring later prompts to reference those files helps the coordinator reuse exact prior findings instead of relying on degraded conversational memory.
+Increase the coordinator's context budget and retain every verbose tool output in conversation history for later retrieval.
+Explanation
+A larger context budget delays the problem but does not solve context degradation or attention dilution. Keeping every verbose tool output increases noise and makes important findings harder to retrieve reliably.
+Ask the coordinator to answer from memory unless uncertain, then rerun broad repository searches for missing details.
+Explanation
+Self-assessed uncertainty is not a reliable trigger for recovering missing context. Broad searches also waste time and may produce inconsistent rediscoveries instead of preserving the exact findings already established.
+Overall explanation
+Durable exploration state is essential during long codebase investigations because conversational context accumulates noisy tool results and eventually degrades. Having agents maintain scratchpad files with specific findings, file paths, class names, dependency relationships, and open questions gives later prompts a stable reference point outside the volatile conversation history.
+
+The underlying principle is to separate working memory from persistent state. Conversation history is useful for immediate coherence, but scratchpad files preserve exact discoveries across long sessions, context compaction, and subagent handoffs.
+
+Simply increasing context or retaining all tool output is an anti-pattern because it increases attention burden and can worsen lost-in-the-middle behavior. Relying on the coordinator's memory or uncertainty estimates is also fragile, while late conversation-wide summarization can omit the exact repository facts needed for accurate follow-up answers.
+
+For related practices, review Claude Code Overview and Agent SDK.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 7
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. A pipeline extracts insurance policy exclusions from packets containing the policy, riders, emails, and broker notes. The first pass captures detailed snippets, but a middle step condenses each packet into a short narrative before final JSON extraction. Audit reviewers find accurate-looking exclusions in final records, but they cannot determine which document or passage supports each exclusion, especially when riders override earlier policy language. What change best addresses this failure mode?
+Ask Claude to include citations only for exclusions it considers uncertain, keeping straightforward final records easier to read.
+Explanation
+Selective citation based on perceived uncertainty is an anti-pattern for audit workflows because confident-looking claims can still be wrong or unsupported. Provenance should be required for all extracted facts that downstream systems may rely on, not only for fields the model flags as uncertain.
+Increase the final synthesis context budget so Claude can reread all original packet documents before producing each JSON record.
+Explanation
+Providing more context at the final step does not guarantee that each extracted fact remains tied to its supporting passage. It also increases cost and attention burden, and it does not fix the provenance loss caused by the intermediate compression step.
+Append a packet-level bibliography to every final JSON record so reviewers can manually search likely source documents.
+Explanation
+A bibliography shows which documents were processed, but it does not connect individual exclusions to specific passages. Reviewers would still need to manually infer support, and conflicting or overriding language could remain ambiguous.
+Correct answer
+Change intermediate handoffs so each extracted fact carries its source document, location, and supporting excerpt into final synthesis.
+Explanation
+This preserves provenance at the same granularity as the extracted information, so downstream systems can trace each final field back to supporting evidence. It directly addresses the failure introduced by compression, where a summary keeps the conclusion but drops the source relationship needed for auditability.
+Overall explanation
+Correct approach: The pipeline should preserve provenance through every transformation by keeping each extracted fact paired with its source document, location, and supporting excerpt. This prevents the middle summarization step from flattening evidence into unsupported narrative conclusions.
+
+Underlying principle: Source attribution is commonly lost when findings are compressed without preserving claim-source relationships. In structured extraction systems, provenance should be part of the data contract, not a later presentation detail added after synthesis.
+
+A packet-level bibliography is insufficient because it lists possible sources without connecting specific JSON fields to evidence. Simply increasing the final context budget can worsen cost and attention issues while still failing to preserve field-level traceability. Selective citation based on model uncertainty is also unreliable, since confidence is not a substitute for evidence.
+
+For reliable downstream integration, design schemas and handoff formats that carry evidence metadata alongside extracted values, using nullable fields when information is absent rather than fabricating support. Learn more about structured tool outputs in Tool Use and prompt design patterns in Prompt Engineering.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 13
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. Your pipeline extracts obligations from vendor contracts, policy memos, and meeting notes into a consolidated compliance matrix. Reviewers find that when two sources support the same obligation with slightly different wording, final rows contain a polished obligation statement and a bibliography list, but no row-level evidence trail. Auditors reject several rows because they cannot verify which excerpts were merged into each statement. What should you change?
+Store the full input documents alongside the final matrix and instruct auditors to search them when evidence is needed.
+Explanation
+Keeping source documents is useful for audit storage, but it does not solve row-level traceability. Auditors still need to know which passages support each synthesized statement without redoing the extraction work manually.
+Choose the highest-confidence source for each obligation during deduplication and discard lower-confidence supporting excerpts before synthesis.
+Explanation
+Discarding supporting excerpts is an anti-pattern because it removes corroborating evidence and hides source diversity. Confidence scoring cannot replace provenance, especially when multiple sources jointly support a synthesized claim.
+Correct answer
+Require each extracted obligation to carry source excerpts and locations, then preserve and merge that evidence into each synthesized matrix row.
+Explanation
+This preserves provenance at the level where reviewers need it: each synthesized obligation row. When multiple sources support the same obligation, the system can merge the supporting evidence rather than reducing it to an unactionable bibliography.
+Add a final verification prompt asking Claude to reconstruct citations for each matrix row after synthesis is complete.
+Explanation
+Reconstructing citations after synthesis is unreliable because attribution may already have been lost in earlier steps. The model may infer plausible sources rather than preserve the actual evidence used to create each row.
+Overall explanation
+Correct approach: Multi-source synthesis needs provenance that survives every handoff. Each extracted obligation should include its supporting excerpt, document identifier, and location metadata, and the synthesis step should preserve and merge those evidence records into the final matrix row.
+
+Underlying principle: A final bibliography proves only that documents were consulted, not which passages support each synthesized claim. For downstream validation and audit workflows, attribution must be maintained as structured data rather than recreated from memory after the fact.
+
+Why the alternatives fail: Asking Claude to reconstruct citations after synthesis risks plausible but incorrect attribution. Storing full documents without row-level links pushes verification work onto auditors. Selecting only one high-confidence source discards useful corroboration and can hide uncertainty or source diversity.
+
+For related patterns, review Prompt Engineering and the broader Claude documentation at Claude API & SDK.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 26
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. During load testing, reports on broad topics become inconsistent once the research phase produces more than 30 source analyses. The document analysis subagent completes successfully, but its outputs are long narrative memos with internal reasoning, copied verbatim into the synthesis prompt. The synthesis agent omits high value evidence from earlier analyses and sometimes cites sources that were discussed but not central. What redesign best addresses the reliability problem?
+Ask the synthesis agent to summarize each long subagent narrative first, then synthesize from its own summaries.
+Explanation
+This adds another summarization layer after the context has already become noisy and oversized. Progressive summarization can lose exact facts, citations, and relevance judgments, especially when the original handoff format is verbose and inconsistent.
+Correct answer
+Modify upstream subagents to return compact structured records: key facts, citations, relevance scores, and only synthesis-relevant details.
+Explanation
+This addresses the context budget problem at the source by reducing verbose handoff content before it reaches the synthesis agent. Structured records preserve the information the downstream agent needs for report generation while reducing attention dilution and lost-in-the-middle failures.
+Truncate each subagent response after a fixed character limit before sending it to the synthesis agent for review.
+Explanation
+Fixed truncation is an anti-pattern because it may remove the most important evidence, citations, or caveats without understanding content relevance. It reduces tokens, but it does not preserve the facts needed for reliable synthesis.
+Increase the synthesis agent's max_tokens and ask it to carefully read every upstream narrative before writing reports.
+Explanation
+Increasing max_tokens affects how much the model can generate, not whether it can reliably attend to large, noisy inputs. Asking the model to be careful does not remove irrelevant reasoning chains or improve the structure of handoff data.
+Overall explanation
+Correct approach: When downstream agents have limited context budgets, upstream agents should return structured, synthesis-ready data rather than verbose narratives and internal reasoning chains. Compact records containing key_facts, citations, relevance_scores, and necessary caveats preserve the information needed for downstream reasoning while reducing context pressure.
+
+Underlying principle: Context management is not just about making prompts shorter, it is about preserving the right information in the right shape. In multi-agent systems, the handoff contract between agents determines whether later agents can reliably aggregate findings, maintain attribution, and avoid lost-in-the-middle omissions.
+
+Why the alternatives fail: Increasing max_tokens does not solve noisy input context or attention dilution. Fixed truncation is unsafe because it can discard important evidence arbitrarily. Having the synthesis agent summarize verbose narratives adds another lossy compression step instead of fixing the upstream output format.
+
+For related guidance on agent workflows and context handoffs, see the Agent SDK documentation and the Prompt Engineering guide.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 27
+Skipped
+Scenario: Structured Data Extraction You are building a structured data extraction system using Claude. The system extracts information from unstructured documents, validates output using JSON schemas, and maintains high accuracy. It must handle edge cases gracefully and integrate with downstream systems. A long-running audit of your extraction pipeline delegates separate Claude Code subagents to inspect parser modules, schema definitions, validation failures, and downstream mapping logic. Twice this week, the process was interrupted after hours of exploration. When restarted, the coordinator repeated completed investigations, missed several previously discovered edge cases, and gave subagents incomplete background about which document formats had already been analyzed. What design change would most improve reliability after interruptions?
+Restart the audit from the beginning whenever an interruption occurs, discarding partial subagent findings to avoid inconsistency.
+Explanation
+Discarding partial findings avoids stale state, but it wastes hours of completed work and increases the chance of inconsistent coverage between runs. It also fails to preserve discovered edge cases that may be expensive or difficult to rediscover.
+Resume the prior named session and ask Claude to infer unfinished work from the accumulated conversation history.
+Explanation
+Resuming a prior session can help when the context remains valid, but it is not reliable crash recovery for long explorations. The accumulated history may contain stale tool results, verbose intermediate reasoning, and missing context about what changed after interruption.
+Correct answer
+Have each subagent export structured state to fixed paths, then load a resume manifest into restarted coordinator prompts.
+Explanation
+This approach preserves the key discoveries, completion status, and handoff context outside the volatile conversation. Loading a manifest on resume lets the coordinator reconstruct work state and inject relevant details into new subagent prompts without relying on stale or incomplete session memory.
+Keep a single freeform scratchpad summary updated manually, then tell new subagents to continue from that summary.
+Explanation
+A freeform scratchpad can help with context degradation, but it is weaker than structured state for crash recovery. Without explicit fields for completed work, unresolved questions, source paths, and ownership, the coordinator cannot reliably resume or delegate work.
+Overall explanation
+Structured state persistence is the most reliable pattern for recovering from interrupted long-running agent workflows. Each subagent should export machine-readable state, such as completed files, discovered edge cases, unresolved questions, relevant source paths, and partial results, to known locations. On restart, the coordinator loads a resume manifest and injects the relevant state into prompts for any restarted or newly spawned subagents.
+
+The underlying principle is that long conversation context is not a durable system of record. Named session resumption can be useful when prior context is mostly valid, but relying on accumulated history alone risks stale tool results, repeated exploration, and missing handoff details. Starting over wastes completed work, while a single freeform summary lacks the structure needed for reliable coordination and coverage tracking.
+
+For large codebase or pipeline exploration, durable structured state gives the coordinator an external source of truth that survives crashes and context compaction. This complements Claude Code workflows and subagent delegation patterns described in Claude Code Overview and Claude Code Sub-agents.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 37
+Skipped
+Scenario: Multi-Agent Research System You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports. Your report generator receives synthesis notes from a peer-reviewed meta-analysis, two industry surveys, and several vendor benchmarks. In the final report, a vendor benchmark's narrow claim is presented with the same authority as a repeated meta-analysis finding, and readers cannot judge how much weight to give each conclusion. What change would best improve the reliability of the report?
+Have the synthesis agent select the most authoritative-looking source for each topic and omit weaker conflicting evidence.
+Explanation
+This is an anti-pattern because it hides uncertainty and gives readers no visibility into contested areas. The agent may also misjudge authority based on superficial cues, especially across different source types such as surveys, benchmarks, and meta-analyses.
+Normalize all findings into one uniform summary style, then place complete citations in a bibliography at the end.
+Explanation
+A uniform style makes the report easier to read but worsens the core reliability issue by hiding differences in evidence strength. End citations alone do not preserve how each source characterized its own findings or what methodology supports each claim.
+Correct answer
+Organize conclusions by evidentiary status, retaining source characterization and methodological context for each major claim in the final report.
+Explanation
+This preserves uncertainty by making the strength and nature of evidence visible to readers. Separating stronger conclusions from disputed or tentative ones prevents the report from flattening source quality into a single authoritative narrative.
+Ask the report agent to add a general disclaimer that some sources may vary in quality and methodology.
+Explanation
+A general disclaimer acknowledges uncertainty but does not attach that uncertainty to specific claims. Readers still cannot distinguish which conclusions are well supported, narrow, preliminary, or contested.
+Overall explanation
+Preserving uncertainty in synthesis requires more than attaching citations. The final report should distinguish conclusions by evidentiary status, such as well-supported findings, emerging findings, and contested findings, while preserving each source's characterization and methodological context.
+
+This approach works because multi-source synthesis often combines evidence with different weights: peer-reviewed meta-analyses, industry surveys, vendor benchmarks, and expert commentary should not be presented with identical authority. Keeping source type, study scope, methodology, and limitations near the relevant claim helps readers understand how much confidence to place in each conclusion.
+
+Flattening all findings into a uniform style is a common anti-pattern because it improves polish while reducing epistemic transparency. Selecting only the most authoritative-looking source can suppress legitimate disagreement, while broad disclaimers are too generic to help readers evaluate individual claims.
+
+The underlying principle is provenance-aware synthesis: downstream agents must preserve not only citations, but also the context needed to interpret those citations. Learn more about agent orchestration and synthesis workflows in the Agent SDK documentation and prompt structuring techniques in Prompt Engineering.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 52
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. The QA process reviews 2% of auto-resolved tickets chosen uniformly each week. The dashboard shows 96% overall correctness, but refunds later reversed by human supervisors are concentrated in rare marketplace-seller warranty claims and older billing disputes that barely appear in the sample. You need to redesign review without sending every automated resolution to humans. What should you do?
+Ask the agent to include a single global confidence score, then audit cases closest to the threshold.
+Explanation
+A single global confidence score can help prioritize review, but it does not reveal whether accuracy differs across case types, product channels, or resolution actions. Auditing only near-threshold cases also misses high-confidence failures in poorly calibrated segments.
+Increase the overall random sample from 2% to 5%, keeping selection uniform across all auto-resolved tickets.
+Explanation
+A larger uniform sample may improve statistical power overall, but it still can miss rare segments when their base rate is very low. The observed failures are concentrated in specific slices, so representation by segment matters more than simply sampling more cases uniformly.
+Stop sampling tickets above the confidence threshold, and review only low-confidence or customer-complaint cases going forward.
+Explanation
+This is an anti-pattern because it assumes high-confidence outputs are safe without ongoing measurement. Customer complaints are a lagging signal, and high-confidence failures are exactly what the QA process needs to detect before customers or supervisors find them.
+Correct answer
+Use stratified random sampling across issue type, order age, seller channel, and resolution action for high-confidence auto-closures.
+Explanation
+Stratified random sampling ensures that rare but important segments are represented in the review set, even when overall volume is low. This makes it possible to measure hidden error rates in high-confidence cases and detect new failure patterns before they grow.
+Overall explanation
+Stratified random sampling is the right design when aggregate accuracy looks strong but errors cluster in rare or operationally important segments. By sampling within slices such as issue type, order age, seller channel, and resolution action, the team can estimate error rates for high-confidence automated outcomes rather than relying on a single blended metric.
+
+The underlying reliability principle is that aggregate accuracy can hide segment-level failures. A support agent can appear safe overall while performing poorly on a small category such as marketplace warranty claims, older billing disputes, or high-value refund decisions.
+
+Increasing a uniform sample helps only if the problematic segments appear often enough, which the scenario shows they do not. Stopping review of high-confidence cases is risky because confidence must be continuously validated, and complaint-driven review detects problems after customer harm has occurred. A single global confidence score is also insufficient because calibration can differ by segment.
+
+For related implementation patterns, see Agent SDK and Tool Use.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 53
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. Production review finds the agent routes many frustrated but straightforward damage-replacement cases to escalate_to_human. The tickets usually include phrases like "this is ridiculous" and photos matching your standard replacement policy, but not an explicit request for a human. Which change best improves escalation calibration while preserving customer preference handling?
+Automatically escalate any message with angry language before investigating, because negative sentiment indicates the case is too complex.
+Explanation
+Sentiment-based escalation is an anti-pattern because frustration does not reliably correlate with case complexity. This would reduce first-contact resolution by escalating cases the agent can handle under the standard replacement policy.
+Require the agent to finish all available investigation steps before honoring any human escalation preference from the customer.
+Explanation
+This goes too far in the opposite direction by ignoring explicit customer preferences. If a customer clearly asks for a human, the agent should honor that request rather than forcing an autonomous investigation first.
+Correct answer
+Update guidance to acknowledge frustration, proceed with supported resolution steps, and escalate only if the customer again asks for a human.
+Explanation
+Frustration alone is not a reliable signal that a case requires human escalation. When the issue is within the agent's capability and the customer has not explicitly requested a human, the agent should attempt the supported resolution while remaining ready to escalate if the customer states that preference.
+Have the agent request a self-rated confidence score from itself, escalating when the score falls below a threshold.
+Explanation
+Self-reported confidence is poorly calibrated for escalation decisions and can be misleading in ambiguous support cases. Explicit criteria tied to customer preference, policy coverage, and meaningful progress are more reliable than a numeric self-rating.
+Overall explanation
+Correct escalation calibration separates emotional tone from actual escalation criteria. A frustrated customer with a straightforward, policy-covered issue should receive empathy and a resolution attempt, not an automatic handoff, unless they explicitly request or reiterate a preference for a human.
+
+The underlying tradeoff is between maximizing first-contact resolution and respecting customer agency. The agent should acknowledge the customer's frustration, continue with supported actions like a standard damage replacement, and promptly use escalate_to_human if the customer makes a clear human handoff request.
+
+Automatically escalating based on angry language is a sentiment-based anti-pattern because it treats emotional tone as a proxy for complexity. Forcing the agent to complete all investigation steps before honoring a human request is also incorrect because explicit customer preference is a valid escalation trigger. Self-rated confidence thresholds are unreliable unless calibrated and tied to concrete criteria.
+
+Learn more about building reliable tool-using support agents in Agent SDK and tool orchestration patterns in Tool Use.
+
+Domain
+Context Management & Reliability
+
+---
+
+Question 55
+Skipped
+Scenario: Customer Support Resolution Agent You are building a customer support resolution agent using the Claude Agent SDK. The agent handles high-ambiguity requests like returns, billing disputes, and account issues. It has access to backend systems through MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Your target is 80%+ first-contact resolution while knowing when to escalate. A long-running billing dispute workflow delegates separate investigations for account status, order history, and refund eligibility. The service sometimes restarts after deploying updates. After restart, the coordinator resumes but cannot determine which subagent findings are current, re-runs completed investigations, and occasionally omits evidence needed for escalation handoffs. What design change best improves reliability?
+Set a fixed limit of one retry per subagent after restarts, then continue with whichever findings return first.
+Explanation
+A fixed retry cap is an anti-pattern when used as the main reliability mechanism because it does not preserve completed work or explain missing evidence. Continuing with whichever findings return first risks incomplete resolutions and weak escalation handoffs.
+Store only the final customer response draft after each run, using it as the sole recovery checkpoint.
+Explanation
+A final response draft is not enough to recover investigation state because it usually lacks tool outputs, unresolved questions, source metadata, and subagent completion status. Recovery needs structured intermediate state, not only the last customer-facing message.
+Resume the prior coordinator session and ask Claude to reconstruct missing subagent progress from the conversation transcript.
+Explanation
+Session resumption can help when prior context is still valid, but it is not a reliable crash recovery strategy for isolated subagent work. The coordinator may not have complete subagent context, and reconstructed progress can omit details or treat stale tool results as current.
+Correct answer
+Have each subagent export structured state to a known location; the coordinator reloads and injects it when resuming.
+Explanation
+This creates an explicit recovery mechanism that does not depend on fragile conversational memory. Loading structured state on resume lets the coordinator determine what was completed, what remains, and what evidence must be passed into new or resumed subagent prompts.
+Overall explanation
+Structured state persistence is the right reliability pattern for crash recovery in multi-agent or delegated workflows. Each subagent should export its current findings, attempted actions, tool result references, unresolved questions, and completion status to a known location, then the coordinator should load that state on resume and inject the relevant parts into subsequent prompts.
+
+This works because subagents operate with isolated context and do not automatically share durable memory with the coordinator. Explicit state handoff prevents duplicated investigation, missing evidence, and stale assumptions after a restart.
+
+Relying on session resumption or asking Claude to reconstruct progress from a transcript is fragile, especially when tool results or subagent contexts are incomplete. Fixed retry caps and continuing with partial findings are anti-patterns because they manage control flow without preserving the information needed for correct recovery. Saving only the final customer response also loses provenance and intermediate decisions needed for escalation or refund safety.
+
+For further study, review the Agent SDK documentation and the Claude Code Sub-agents documentation for patterns around delegated work and explicit context passing.
+
+Domain
+Context Management & Reliability
+
+---

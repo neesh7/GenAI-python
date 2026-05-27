@@ -1,6 +1,10 @@
 # Scenario: Multi-Agent Research System
 
 > You are building a multi-agent research system using the Claude Agent SDK. A coordinator agent delegates to specialized subagents: one searches the web, one analyzes documents, one synthesizes findings, and one generates reports. The system researches topics and produces comprehensive, cited reports.
+> - web search
+> - analyzes documents
+> - sythesizes finding
+> - generate final reports
 
 Questions for this scenario, collected from Practice Tests 1-3 (Claude Certified Architect - Foundations, v2.0).
 
