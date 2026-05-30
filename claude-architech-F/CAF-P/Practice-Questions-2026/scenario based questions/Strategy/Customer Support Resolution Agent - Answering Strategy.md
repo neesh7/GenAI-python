@@ -12,16 +12,16 @@ Every question is set in the **same system**, so hold this architecture and its 
 ```
 Coordinator (hub) — verifies identity, decomposes the case, delegates, aggregates,
                      enforces rules, decides refund vs escalate
-   ├── Intake / identity subagent
-   ├── Billing / order-investigation subagent
-   ├── Returns / refund-policy subagent
-   └── Account / risk subagent
+   ├── Intake / identity subagent      → figures out WHO the customer is, confirms it's really them
+   ├── Billing / order-investigation   → digs into the order: what was bought, charged, shipped, status
+   ├── Returns / refund-policy         → checks the rules: is it within the return window? eligible for a refund?
+   └── Account / risk                  → looks at the account history: fraud signals, repeat refunds, red flags
 
 Backend via MCP tools:
-   get_customer        → read-only  (identity)
-   lookup_order        → read-only  (order state, return window)
-   process_refund      → MUTATING, irreversible (financial action)
-   escalate_to_human   → handoff (creates a human ticket)
+   get_customer        → read-only  (identity)            — fetch the customer's record (who they are)
+   lookup_order        → read-only  (order state, window) — fetch one order's status & return-window info
+   process_refund      → MUTATING, irreversible (money)   — actually sends the customer their money back
+   escalate_to_human   → handoff (creates a human ticket) — hands the case to a real person to take over
 
 TARGET: 80%+ first-contact resolution, while knowing when to escalate.
 ```
@@ -145,6 +145,26 @@ These distractors appear in nearly every question. **Cross them out on sight** �
 3. **Does it preserve information and operational meaning?** → Reject empty-success, generic errors, truncation, lost provenance. (Q16, Q20, Q10, Q38)
 4. **Does it protect the 80% target?** → Reject blanket escalation and sentiment triggers; prefer clarify/scope over hand off. (Q1, Q6, Q55)
 5. **Is the symptom "wrong/ignored tool"?** → Fix the **description** (or use a resource / `tool_choice`), not a keyword router or a merged tool. (Q5, Q12, Q23, Q24, Q27)
+
+---
+
+## `allowedTools` — Overlap Is Normal (Least-Privilege ≠ Exclusive Ownership)
+
+`allowedTools` is just a **per-agent list**. There's no exclusive ownership, so the same tool can appear in several lists:
+
+| Subagent | `allowedTools` | Shared reads |
+|---|---|---|
+| intake / identity | `[ get_customer ]` | — |
+| billing-investigator | `[ get_customer, lookup_order ]` | `get_customer` & `lookup_order` |
+| returns / refund-policy | `[ lookup_order ]` | `lookup_order` again |
+| account / risk | `[ get_customer, lookup_order ]` | both again |
+
+`get_customer` and `lookup_order` are deliberately shared across roles because **identity and order state are needed everywhere**. This is normal least-privilege design — grant each role the reads it needs, even if that means the same read appears in three lists.
+
+**The rule of thumb by risk tier:**
+
+- **Read-only tools** (`get_customer`, `lookup_order`) → **overlap freely.**
+- **Mutating / handoff tools** (`process_refund`, `escalate_to_human`) → **don't overlap**; keep them with a single actor (the coordinator) so there's one auditable origin and one place to enforce gates (Q15, Q40).
 
 ---
 
