@@ -5,6 +5,22 @@
 
 ---
 
+## Architecture & Scope Note (read this first)
+
+**Don't reflexively apply the Customer Support hub-and-spoke model here.** This scenario's backbone is a **linear pipeline**, not a coordinator hub:
+
+```
+Documents → Extraction (Claude + tool_use/schema) → Validation (schema + semantic) → QA review → Downstream
+```
+
+- **Hub-and-spoke is a guest pattern, not the host.** A coordinator + subagents appears in only a few questions (Q3 splits a document into per-section extraction subagents; Q29 delegates subagents to inspect parsers/schemas/validators). If a question doesn't mention a coordinator, **don't invent one** — most questions are about a single extraction/QA step.
+- **No fixed subagent roster and no named MCP tool catalog.** Unlike Customer Support (intake/billing/returns/risk + `get_customer`/`process_refund`…), the only "tools" revealed are generic: the **extraction tool-use call + JSON schema** (Q8), backend **OCR / table-parsing / validation** tools whose raw output floods context (Q17), a **separate QA/review instance** (Q11, Q12), and the **Message Batches API + `custom_id`** for bulk runs (Q14, Q21).
+- **What it actually tests:** the two domain tags are **Prompt Engineering & Structured Output** (majority) and **Context Management & Reliability** — i.e. schema design, few-shot judgment, semantic validation, anti-fabrication, provenance, calibration, and batch processing. It is **not** an orchestration/governance scenario (no gates, no escalation, no least-privilege tool ownership).
+
+> **Rule of thumb:** Customer Support → *agent orchestration & governance*. Structured Data Extraction → *prompt engineering & extraction reliability*. Carry over only the genuinely shared mechanisms (isolated reviewer, structured failure reports, segment-level confidence, durable state).
+
+---
+
 ## Step 1: Build the Mental Model Before Reading Any Question
 
 Every question is set in the **same system**, so hold this pipeline and its goal in your head:
@@ -27,12 +43,15 @@ Downstream systems (ticketing, procurement, analytics, dashboards)
 TARGET: high accuracy at scale, graceful edge-case handling, machine-actionable output.
 ```
 
-Two facts drive most answers:
+Two simple ideas explain most answers:
 
-1. **Schema-valid ≠ correct.** A strict schema proves the *shape* (types, required fields) but never the *meaning* — it happily passes a line-item total that doesn't sum, a due date in the `invoice_date` field, or a fabricated value. Whenever the symptom is "validates successfully but is wrong/inconsistent/misleading," the fix is **few-shot examples** (for judgment/format) or **semantic validation + targeted retry** (for relational errors), never stronger prose.
-2. **Never convert a failure or a gap into a confident value.** Empty-as-success hides outages, forced enum values create false precision, and "infer the missing date" / "make the field required" pressures **fabrication**. Preserve genuine nulls; report real failures; request missing sources.
+1. **Passing the schema doesn't mean the answer is right.** A schema only checks the *shape* — are the field types correct, are required fields present. It can't check *meaning*. So it will happily accept line-item totals that don't add up, a due date dropped into the `invoice_date` field, or a value the model just made up. When the question says something like "it validates fine but the output is wrong, inconsistent, or misleading," the fix is almost always **show examples** (when the issue is judgment or formatting) or **add a meaning-check and re-ask with the error** (when numbers or dates are wrong) — *not* a sternly-worded instruction.
+2. **Don't turn a missing thing into a confident answer.** Treating a failed lookup as "found nothing" hides real outages. Forcing a value into the nearest enum looks precise but is wrong. Telling the model to "guess the missing date" or making a field required just pushes it to **make data up**. Instead: leave real blanks as null, report real failures honestly, and ask for the missing source.
 
-The recurring exam tension is **"examples vs schema constraints vs prose."** Examples teach where evidence lives and what a good output looks like; schema escape-hatches (fallback enums, nullable fields) let the model represent uncertainty truthfully; prose ("be conservative," "be exhaustive," "never invent") is almost always the trap.
+The classic exam trade-off is **examples vs schema escape-hatches vs prose**:
+- **Examples** show the model where the evidence usually hides and what a good answer looks like.
+- **Schema escape-hatches** (a fallback `other` category, nullable fields) let the model say "I'm not sure" or "it's not here" truthfully.
+- **Prose instructions** like "be conservative," "be exhaustive," or "never make things up" sound right but rarely work — they're usually the trap answer.
 
 ---
 
